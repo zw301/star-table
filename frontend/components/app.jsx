@@ -12,7 +12,8 @@ import {
 import Home from './home/home';
 // import WelcomeBar from './nav_bar/welcome_bar_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
-import SessionFormContainer from './session_form/session_form_container';
+import SignupContainer from './session_form/signup_container';
+import SigninContainer from './session_form/signin_container';
 // import SearchContainer from './search/search_container';
 // import BenchShowContainer from './bench_show/bench_show_container';
 // import BenchFormContainer from './bench_form/bench_form_container';
@@ -28,8 +29,8 @@ const App = () => (
     </header>
     <Route exact path="/" component={Home} />
     <Switch>
-      <AuthRoute exact path="/login" component={SessionFormContainer} />
-      <AuthRoute exact path="/signup" component={SessionFormContainer} />
+      <AuthRoute exact path="/login" component={SigninContainer} />
+      <AuthRoute exact path="/signup" component={SignupContainer} />
       <ProtectedRoute exact path="/protected" component={Protected} />
       <Route exact path="/public" component={Public} />
     </Switch>

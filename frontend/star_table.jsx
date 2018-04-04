@@ -14,6 +14,7 @@ import configureStore from './store/store';
 // window.signup = signup;
 // window.logout = logout;
 
+
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   let preloadedState = undefined;
@@ -27,5 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // let store = configureStore();
   const store = configureStore(preloadedState);
+
+  window.getState = store.getState;
+  
   ReactDOM.render(<Root store={store} />, root);
 });

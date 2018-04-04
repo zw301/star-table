@@ -8,10 +8,12 @@
 
 User.destroy_all
 
+User.create(email: "guest@mail.com", password: "password", first_name: "Guest", last_name: "Guest", phone_number: "561-501-1688")
+
 10.times do
   User.create(
     email: Faker::Internet.unique.email,
-    password: "123456",
+    password: "password",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     phone_number: Faker::PhoneNumber.phone_number,
