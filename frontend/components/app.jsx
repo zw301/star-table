@@ -20,8 +20,6 @@ import SigninContainer from './session_form/signin_container';
 // import BenchFormContainer from './bench_form/bench_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-const Protected = () => (<h3>Protected Page</h3>);
-const Public = () => (<h3>Public Page</h3>);
 
 const App = () => (
   <div>
@@ -32,8 +30,6 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/login" component={SigninContainer} />
       <AuthRoute exact path="/signup" component={SignupContainer} />
-      <ProtectedRoute exact path="/protected" component={Protected} />
-      <Route exact path="/public" component={Public} />
     </Switch>
   </div>
 );
