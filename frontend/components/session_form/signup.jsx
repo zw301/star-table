@@ -37,7 +37,7 @@ class Signup extends React.Component {
     } else {
       this.props.signup(this.state).then(
         () => {
-          // this.props.closeModal();
+          this.props.closeModal();
           this.props.clearErrors();
         }
       );
@@ -69,6 +69,8 @@ class Signup extends React.Component {
       <div>
         <h4>Sign Up</h4>
         <form onSubmit={this.handleSubmit}>
+          Welcome
+          <div onClick={this.props.closeModal} className="close-x">X</div>
           {this.renderErrors()}
           <label>
             <input

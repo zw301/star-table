@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { signup, receiveErrors} from '../../actions/session_actions';
 import Signup from './signup';
 
+import { openModal, closeModal } from '../../actions/modal_actions';
+
 const mapStateToProps = ({ errors }) => {
   return {
     errors: errors.session,
@@ -17,6 +19,7 @@ const mapDispatchToProps = dispatch => ({
   signup: formUser => dispatch(signup(formUser)),
   receiveErrors: (errors) => dispatch(receiveErrors(errors)),
   clearErrors: () => dispatch(receiveErrors([])),
+  closeModal: () => dispatch(closeModal())
 });
 
 export default connect(

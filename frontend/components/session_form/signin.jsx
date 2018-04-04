@@ -20,7 +20,7 @@ class Login extends React.Component {
   componentWillUnmount() {
     this.props.clearErrors();
   }
-  
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
       this.props.history.push(`/`);
@@ -31,6 +31,7 @@ class Login extends React.Component {
     e.preventDefault();
     this.props.login(this.state).then(
       () => {
+        this.props.closeModal();
         this.props.clearErrors();
       }
     );
@@ -53,6 +54,8 @@ class Login extends React.Component {
       <div>
         <h4>Log In</h4>
         <form onSubmit={this.handleSubmit}>
+        Welcome
+          <div onClick={this.props.closeModal} className="close-x">X</div>
           {this.renderErrors()}
           <label>
             <input

@@ -1,25 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default ({ currentUser, logout }) => {
-  const display = currentUser ? (
-    <div>
-      <p>Hello, {currentUser.firstName}</p>
-      <button onClick={logout}>Log Out</button>
-    </div>
-  ) : (
-    <div>
-      <Link className="btn" to="/signup">Sign Up</Link><br />
-      <Link className="btn" to="/login">Log In</Link>
-    </div>
+const NavBar = ({ currentUser, logout, openModal }) => {
+
+  const sessionLinks = () => (
+    <nav className="login-signup">
+     <button onClick={() => openModal('login')}>Login</button>
+     &nbsp;&nbsp;
+     <button onClick={() => openModal('signup')}>Signup</button>
+   </nav>
+  );
+
+  const personalGreeting = () => (
+    <hgroup className="header-group">
+      <h2 className="header-name">Hi, {currentUser.firstName}!</h2>
+      <button className="header-button" onClick={logout}>Log Out</button>
+    </hgroup>
   );
 
   return (
-    <header className="nav-bar">
-      <h1 className="logo">Star Table</h1>
-      <div>
-        {display}
-      </div>
-    </header>
+    currentUser ?
+    personalGreeting(currentUser, logout) :
+    sessionLinks()
   );
 };
+
+
+export default NavBar;

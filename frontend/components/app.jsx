@@ -7,6 +7,7 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
+import Modal from './modal/modal';
 
 
 
@@ -23,14 +24,12 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
+    <Modal />
     <header>
       <Route path="/" component={NavBarContainer} />
     </header>
     <Route exact path="/" component={Home} />
-    <Switch>
-      <AuthRoute exact path="/login" component={SigninContainer} />
-      <AuthRoute exact path="/signup" component={SignupContainer} />
-    </Switch>
+
   </div>
 );
 
