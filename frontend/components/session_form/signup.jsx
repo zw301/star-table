@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-class SessionForm extends React.Component {
+class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
       password: '',
       first_name: '',
       last_name: '',
+      confirm_password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -25,17 +26,18 @@ class SessionForm extends React.Component {
     }
   }
 
-
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   const user = this.state;
-  //   this.props.processForm({user});
-  // }
-
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup(this.state)
-      .then(() => this.props.history.push('/'));
+    if (this.state.password !== this.state.confirm_password) {
+      this.props.receiveErrors(["Passwords do not match."]);
+    } else {
+      this.props.signup(this.state).then(
+        () => {
+          // this.props.closeModal();
+          this.props.clearErrors();
+        }
+      );
+    }
   }
 //
 //   navLink() {
@@ -46,99 +48,79 @@ class SessionForm extends React.Component {
 //     }
 //   }
 //
-//   renderErrors() {
-//     return(
-//       <ul>
-//         {this.props.errors.map((error, i) => (
-//           <li key={`error-${i}`}>
-//             {error}
-//           </li>
-//         ))}
-//       </ul>
-//     );
-//   }
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, idx) => (
+          <li key={`error-${idx}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
     return (
       <div>
         <h4>Sign Up</h4>
         <form onSubmit={this.handleSubmit}>
-
-          <label>First Name
+          {this.renderErrors()}
+          <label>
             <input
               type="text"
               value={this.state.first_name}
+              placeholder="First Name *"
               onChange={this.update('first_name')}
             />
           </label>
           <br />
 
-          <label>Last Name
+          <label>
             <input
               type="text"
               value={this.state.last_name}
+              placeholder="Last Name *"
               onChange={this.update('last_name')}
             />
           </label>
           <br />
 
-          <label>Email
+          <label>
             <input
               type="text"
               value={this.state.email}
+              placeholder="Enter email *"
               onChange={this.update('email')}
             />
           </label>
           <br />
 
-          <label>Password
+          <label>
             <input
               type="password"
               value={this.state.password}
+              placeholder="Enter password *"
               onChange={this.update('password')}
             />
           </label>
           <br />
 
-          <button type="submit">Sign Up</button>
+          <label>
+            <input
+              type="password"
+              value={this.state.confirm_password}
+              placeholder="Re-Enter password *"
+              onChange={this.update('confirm_password')}
+            />
+          </label>
+          <br />
+
+          <button type="submit">Create Account</button>
         </form>
       </div>
     );
   }
-//
-//   render() {
-//     return (
-//       <div className="login-form-container">
-//         <form onSubmit={this.handleSubmit} className="login-form-box">
-//           Welcome to Star Table!
-//           <br/>
-//           Please {this.props.formType} or {this.navLink()}
-//           {this.renderErrors()}
-//           <div className="login-form">
-//             <br/>
-//             <label>Username:
-//               <input type="text"
-//                 value={this.state.username}
-//                 onChange={this.update('username')}
-//                 className="login-input"
-//               />
-//             </label>
-//             <br/>
-//             <label>Password:
-//               <input type="password"
-//                 value={this.state.password}
-//                 onChange={this.update('password')}
-//                 className="login-input"
-//               />
-//             </label>
-//             <br/>
-//             <input type="submit" value="Submit" />
-//           </div>
-//         </form>
-//       </div>
-//     );
-//   }
 
 }
-export default SessionForm;
-// export default withRouter(SessionForm);
+export default withRouter(Signup);

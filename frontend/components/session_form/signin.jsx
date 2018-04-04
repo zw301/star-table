@@ -23,33 +23,48 @@ class Login extends React.Component {
     }
   }
 
-
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state)
-      .then(() => this.props.history.push('/'));
+    this.props.login(this.state).then(
+      () => {
+        this.props.clearErrors();
+      }
+    );
   }
 
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
     return (
       <div>
         <h4>Log In</h4>
         <form onSubmit={this.handleSubmit}>
-
-          <label>Email
+          {this.renderErrors()}
+          <label>
             <input
               type="text"
               value={this.state.email}
+              placeholder="Enter email *"
               onChange={this.update('email')}
             />
           </label>
           <br />
 
-          <label>Password
+          <label>
             <input
               type="password"
               value={this.state.password}
+              placeholder="Enter password *"
               onChange={this.update('password')}
             />
           </label>
@@ -63,4 +78,4 @@ class Login extends React.Component {
 
 
 }
-export default Login;
+export default withRouter(Login);
