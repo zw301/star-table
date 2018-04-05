@@ -1,7 +1,20 @@
-# README
+# StarTable
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+StarTable Live
+
+StarTable is a full-stack web application inspired by OpenTable. The backend is built on Ruby on Rails with a PostgreSQL database and the frontend consists of a React/Redux architecture.
+
+
+## Features
+
+# Search
+
+# Reservations
+
+# Reviews
+
+# Furture additions
+
 
 Things you may want to cover:
 
