@@ -12,10 +12,10 @@ class Api::RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.rating = 0
+    @restaurant.owner_id = current_user.id
 
     if @restaurant.save
-      render '/api/restaurants/show'
+      render :show
     else
       render json: @restaurant.errors.full_messages, status: 422
     end

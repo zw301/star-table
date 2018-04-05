@@ -7,6 +7,22 @@
   "phone_number": "561-501-1688"
 }
 
+{
+  owner_id: 1,
+  name: "Testing",
+  address: "Testingr",
+  star: "3",
+  city: "New York",
+  state: "NY",
+  zipcode: "10019",
+  phone_number: "111-823-9800",
+  open_time: "10:00:00",
+  close_time: "22:00:00",
+  cuisine: "Chinese",
+  description: "Takayama's appreciation for food started at a young age, growing up working for his family’s fish market in a town of Tochigi Prefecture, Japan. From his early years of delivering fresh sashimi to neighbors on his bicycle, to prepping and grilling hundreds of fish courses to cater weddings in high school, his relationship with food has always been a way of life."
+}
+
+<ProtectedRoute path={`/users/${currentUser.id}/restaurants/new`} component={AddRestaurant} />
 
 root.html.erb
 <script id="bootstrap-current-user" type="text/javascript">

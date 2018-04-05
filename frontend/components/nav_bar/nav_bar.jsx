@@ -2,11 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const NavBar = ({ currentUser, login, logout, openModal }) => {
-
+const NavBar = ({ currentUser, login, logout, openModal, history }) => {
+  const handleLogout = () => (
+    logout().then(() => (
+      history.push("/")
+    ))
+  );
   const sessionLinks = () => (
     <nav className="login-signup">
-      <Link to="/" class="top-bar-logo-link">
+      <Link to="/" className="top-bar-logo-link">
         <h1 className="top-bar-logo-name">StarTable</h1>
       </Link>
       <div className="nav-session">
@@ -23,13 +27,13 @@ const NavBar = ({ currentUser, login, logout, openModal }) => {
   const personalGreeting = () => (
     <div className="login-signup">
       <div className="logo">
-        <Link to="/" class="top-bar-logo-link">
+        <Link to="/" className="top-bar-logo-link">
           <h1 className="top-bar-logo-name">StarTable</h1>
         </Link>
       </div>
       <div className="nav-greeting">
         <h2 className="header-name">Hi, {currentUser.firstName}</h2>
-        <button className="btn btn-blue log-out" onClick={logout}>Log Out</button>
+        <button className="btn btn-blue log-out" onClick={handleLogout}>Log Out</button>
       </div>
     </div>
   );
