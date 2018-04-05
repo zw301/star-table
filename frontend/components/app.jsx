@@ -17,8 +17,7 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import SignupContainer from './session_form/signup_container';
 import SigninContainer from './session_form/signin_container';
 // import SearchContainer from './search/search_container';
-// import BenchShowContainer from './bench_show/bench_show_container';
-// import BenchFormContainer from './bench_form/bench_form_container';
+
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 

@@ -54,7 +54,7 @@ class Signup extends React.Component {
 //
   renderErrors() {
     return(
-      <ul>
+      <ul className="error-ul">
         {this.props.errors.map((error, idx) => (
           <li key={`error-${idx}`}>
             {error}
@@ -67,17 +67,17 @@ class Signup extends React.Component {
   render() {
     return (
       <div className="login-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div onClick={this.props.closeModal} className="close-x">X</div>
-          {this.renderErrors()}
-          <div className="login-form">
+        <form onSubmit={this.handleSubmit} className="login-form-box">
+          <div className="login-form login-form-signup">
             <h4>Welcome to StarTable!</h4>
+            {this.renderErrors()}
             <label>
               <input
                 type="text"
                 value={this.state.first_name}
                 placeholder="First Name *"
                 onChange={this.update('first_name')}
+                className="login-input"
               />
             </label>
             <br />
@@ -88,6 +88,7 @@ class Signup extends React.Component {
                 value={this.state.last_name}
                 placeholder="Last Name *"
                 onChange={this.update('last_name')}
+                className="login-input"
               />
             </label>
             <br />
@@ -98,6 +99,7 @@ class Signup extends React.Component {
                 value={this.state.email}
                 placeholder="Enter email *"
                 onChange={this.update('email')}
+                className="login-input"
               />
             </label>
             <br />
@@ -108,6 +110,7 @@ class Signup extends React.Component {
                 value={this.state.password}
                 placeholder="Enter password *"
                 onChange={this.update('password')}
+                className="login-input"
               />
             </label>
             <br />
@@ -118,13 +121,16 @@ class Signup extends React.Component {
                 value={this.state.confirm_password}
                 placeholder="Re-Enter password *"
                 onChange={this.update('confirm_password')}
+                className="login-input"
               />
             </label>
             <br />
 
-            <button type="submit">Create Account</button>
+            <button type="submit" className="session-submit">Create Account</button>
           </div>
         </form>
+        <div onClick={this.props.closeModal} className="close-x">&times;</div>
+
       </div>
     );
   }
