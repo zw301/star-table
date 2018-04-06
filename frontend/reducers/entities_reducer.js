@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-// import benches from './benches_reducer';
+import restaurantReducer from './restaurant_reducer';
 
-// export default combineReducers({
-//   benches,
-// });
+export default combineReducers({
+  restaurants: restaurantReducer,
+});

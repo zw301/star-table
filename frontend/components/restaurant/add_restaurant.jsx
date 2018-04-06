@@ -13,8 +13,6 @@ class AddRestaurant extends React.Component {
       state: "",
       zipcode: "",
       phone_number: "",
-      open_time: "",
-      close_time: "",
       cuisine: "",
       description: ""
     };

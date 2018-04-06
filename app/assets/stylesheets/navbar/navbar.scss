@@ -25,8 +25,8 @@
   justify-content: center;
   flex-direction: column;
   background-color: #fff;
-  width: 280px;
-  padding: 10px 0 20px 20px;
+  width: 420px;
+  padding: 20px 0 30px 30px;
 }
 .login-form-signup {
   position: absolute;
@@ -44,13 +44,13 @@
 
 .login-input {
   width: 90%;
-  height: 32px;
-  line-height: 32px;
+  height: 46px;
+  line-height: 46px;
   border: 1px solid #eee;
-  border-radius: 2px;
+  border-radius: 3px;
 
-  font-size: 8px;
-  padding-left: 10px;
+  font-size: 12px;
+  padding-left: 14px;
 
 
 }
@@ -61,10 +61,11 @@
 }
 
 .login-form h4 {
-  padding: 10px 12px 10px 0;
+  font-size: 24px;
+  padding: 10px 12px 10px 2px;
   width: 90%;
   border-bottom: 1px solid #eee;
-  margin-bottom: 4px;
+  margin-bottom: 12px;
 }
 
 .login-form-box {
@@ -76,7 +77,7 @@
 
 .session-submit {
   width: 94%;
-  padding: 10px 20px;
+  padding: 16px 20px;
   color: #fff;
   background: #da3743;
   border: #b8222d;
@@ -100,20 +101,21 @@
  .login-signup {
    display: flex;
    justify-content: space-between;
-   height: 36px;
+   height: 56px;
    align-items: center;
    border-bottom: 1px solid #eee;
-   border-top: 1px solid #eee;
+
    margin-bottom: 20px;
-   margin-top: 20px;
+   margin-top: 10px;
  }
 
  .btn {
    border-style:none;
-   font-size: 10px;
-   width: 50px;
-   height: 20px;
+   font-size: 14px;
+   width: 60px;
+   height: 34px;
    border-radius: 3px;
+   // border: 1px solid red;
  }
 .btn:focus{
   outline:none;
@@ -127,6 +129,8 @@
    background: #237b98;
    border-color: #1c627a;
    color: #fff;
+   width: 78px;
+   margin-right: 8px;
  }
 
  .btn-blue:hover{
@@ -141,7 +145,7 @@
 
 .btn-demo {
   // border: 1px solid red;
-  width: 24px;
+  // width: 24px;
   margin-right: 20px;
 }
 .nav-greeting {
@@ -150,9 +154,8 @@
   align-items: center;
 }
 .header-name {
-  font-size: 10px;
+  font-size: 16px;
   margin-right: 6px;
-  padding-top: 2px;
 }
 
 .error-ul {
@@ -171,11 +174,11 @@
   // background: url(/assets/images/startable.png);
   background-image: image-url("startable.png") ;
   background-repeat: no-repeat;
-  background-position: 0 2px;
-  width: 110px;
-  height: 36px;
+  background-position: 0 16px;
+  width: 160px;
+  height: 80px;
   display:block;
   background-size: 100%;
-  margin-left: 22px;
+  margin-left: 24px;
 
 }

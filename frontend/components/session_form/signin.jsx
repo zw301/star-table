@@ -54,7 +54,7 @@ class Login extends React.Component {
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit}>
           <div className="login-form login-form-signin">
-            <h4>Welcome to StarTable!</h4>
+            <h4>Please Sign in</h4>
             {this.renderErrors()}
             <label>
               <input

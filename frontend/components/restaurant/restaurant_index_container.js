@@ -6,7 +6,7 @@ import { selectAllRestaurants } from '../../reducers/selectors.js';
 
 
 const mapStateToProps = state => ({
-  restaurants: selectAllRestaurants(state),
+  restaurants: selectAllRestaurants(state.entities),
 });
 
 const mapDispatchToProps = dispatch => ({
