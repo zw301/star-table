@@ -6,10 +6,10 @@ export const RECEIVE_SINGLE_RESTAURANT = 'RECEIVE_SINGLE_RESTAURANT';
 export const RECEIVE_RESTAURANT_ERRORS = 'RECEIVE_RESTAURANT_ERRORS';
 
 
-const receiveAllRestaurants = (data) => {
+const receiveAllRestaurants = (restaurants) => {
   return {
     type: RECEIVE_ALL_RESTAURANTS,
-    data
+    restaurants
   };
 };
 
@@ -28,8 +28,8 @@ export const receiveRestaurantErrors = (errors) => {
 };
 
 
-export const requestAllRestaurants = (data) => (dispatch) => {
-  return APIUtil.fetchAllRestaurants(data)
+export const requestAllRestaurants = () => (dispatch) => {
+  return APIUtil.fetchAllRestaurants()
     .then(restaurants => dispatch(receiveAllRestaurants(restaurants)));
 };
 
