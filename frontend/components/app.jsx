@@ -19,6 +19,8 @@ import SigninContainer from './session_form/signin_container';
 import RestaurantIndexContainer from './restaurant/restaurant_index_container';
 import AddRestaurant from './restaurant/add_restaurant_container';
 
+import RestaurantDetailContainer from './restaurant/restaurant_detail_container';
+
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
@@ -29,10 +31,11 @@ const App = () => (
       <Route path="/" component={NavBarContainer} />
     </header>
     <main>
-      <Route exact path="/" component={RestaurantIndexContainer} />
+      <Route exact path="/restaurants" component={RestaurantIndexContainer} />
     </main>
-    <Link to="/restaurants/new" >For Restaurants</Link>
     <ProtectedRoute path="/restaurants/new" component={AddRestaurant} />
+    <Route exact path="/restaurants/:restaurantId" component={RestaurantDetailContainer} />
+    <Link to="/restaurants/new" >For Restaurants</Link>
   </div>
 );
 

@@ -11,3 +11,14 @@ html {
 .hero-img {
   width: 100%;
 }
+body {
+  background-color: #f7f7f7;
+}
+
+header, main {
+  background: #fff;
+}
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+}

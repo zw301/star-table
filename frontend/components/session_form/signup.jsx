@@ -63,7 +63,6 @@ class Signup extends React.Component {
           <div className="login-form login-form-signup">
             <h4>Welcome to StarTable!</h4>
             {this.renderErrors()}
-            <label>
               <input
                 type="text"
                 value={this.state.first_name}
@@ -71,10 +70,7 @@ class Signup extends React.Component {
                 onChange={this.update('first_name')}
                 className="login-input"
               />
-            </label>
-            <br />
 
-            <label>
               <input
                 type="text"
                 value={this.state.last_name}
@@ -82,10 +78,7 @@ class Signup extends React.Component {
                 onChange={this.update('last_name')}
                 className="login-input"
               />
-            </label>
-            <br />
 
-            <label>
               <input
                 type="text"
                 value={this.state.email}
@@ -93,10 +86,7 @@ class Signup extends React.Component {
                 onChange={this.update('email')}
                 className="login-input"
               />
-            </label>
-            <br />
 
-            <label>
               <input
                 type="password"
                 value={this.state.password}
@@ -104,10 +94,7 @@ class Signup extends React.Component {
                 onChange={this.update('password')}
                 className="login-input"
               />
-            </label>
-            <br />
 
-            <label>
               <input
                 type="password"
                 value={this.state.confirm_password}
@@ -115,8 +102,6 @@ class Signup extends React.Component {
                 onChange={this.update('confirm_password')}
                 className="login-input"
               />
-            </label>
-            <br />
 
             <button type="submit" className="session-submit">Create Account</button>
           </div>

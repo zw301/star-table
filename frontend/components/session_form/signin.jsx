@@ -56,7 +56,7 @@ class Login extends React.Component {
           <div className="login-form login-form-signin">
             <h4>Please Sign in</h4>
             {this.renderErrors()}
-            <label>
+
               <input
                 type="text"
                 value={this.state.email}
@@ -64,10 +64,7 @@ class Login extends React.Component {
                 onChange={this.update('email')}
                 className="login-input"
               />
-            </label>
-            <br />
 
-            <label>
               <input
                 type="password"
                 value={this.state.password}
@@ -75,8 +72,6 @@ class Login extends React.Component {
                 onChange={this.update('password')}
                 className="login-input"
               />
-            </label>
-            <br />
 
             <button type="submit" className="session-submit">Log In</button>
           </div>
