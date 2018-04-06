@@ -31,10 +31,12 @@ const App = () => (
       <Route path="/" component={NavBarContainer} />
     </header>
     <main>
-      <Route exact path="/restaurants" component={RestaurantIndexContainer} />
+      <Switch>
+        <Route exact path="/restaurants/:restaurantId" component={RestaurantDetailContainer} />
+        <Route path="/" component={RestaurantIndexContainer } />
+      </Switch>
     </main>
     <ProtectedRoute path="/restaurants/new" component={AddRestaurant} />
-    <Route exact path="/restaurants/:restaurantId" component={RestaurantDetailContainer} />
     <Link to="/restaurants/new" >For Restaurants</Link>
   </div>
 );
