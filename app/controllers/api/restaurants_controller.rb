@@ -2,6 +2,11 @@ class Api::RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    # if( params[:data] )
+    #   @restaurants = Restaurant.where(id: 1)
+    # else
+    #   @restaurants = Restaurant.all
+    # end
     render :index
   end
 

@@ -1,13 +1,7 @@
-header{
-  height: 400px;
-}
 
 .navbar-container {
-  height: 56px;
-  border-bottom: 1px solid #eee;
-
-  margin-bottom: 20px;
-  margin-top: 10px;
+  height: 94%;
+  // border-bottom: 1px solid #eee;
   padding-top: 6px;
 }
 
@@ -48,11 +42,11 @@ header{
 }
 
 #navbar-hero {
-  height: 300px;
+  max-height: 300px;
   overflow: hidden;
 }
 
-#navbar-hero img {
-  position: relative;
-  top: -60px;
+.hero-img {
+  width: 100%;
+  min-height: 200px;
 }

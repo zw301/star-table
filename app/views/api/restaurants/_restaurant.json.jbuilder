@@ -13,3 +13,5 @@ json.extract! restaurant,
 :cuisine,
 :description,
 :logo
+
+# json.logo asset_path(restaurant.logo)

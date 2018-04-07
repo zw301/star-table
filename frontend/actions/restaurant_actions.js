@@ -28,6 +28,7 @@ export const receiveRestaurantErrors = (errors) => {
 };
 
 
+
 export const requestAllRestaurants = () => (dispatch) => {
   return APIUtil.fetchAllRestaurants()
     .then(restaurants => dispatch(receiveAllRestaurants(restaurants)));

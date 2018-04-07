@@ -19,7 +19,13 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = dispatch => ({
   login: formUser => dispatch(login(formUser)),
   clearErrors: () => dispatch(receiveErrors([])),
-  closeModal: () => dispatch(closeModal())
+  closeModal: () => dispatch(closeModal()),
+  changeForm: (
+     <a className="changeForm-link"
+       onClick={() => dispatch(openModal('signup'))}>
+       Create an account
+     </a>
+  ),
 });
 
 export default connect(

@@ -36,9 +36,10 @@ class Signup extends React.Component {
       this.props.receiveErrors(["Passwords do not match."]);
     } else {
       this.props.signup(this.state).then(
-        () => {
+        (payload) => {
           this.props.closeModal();
           this.props.clearErrors();
+          this.props.history.push(`/users/${payload.currentUser.id}`);
         }
       );
     }
@@ -104,6 +105,7 @@ class Signup extends React.Component {
               />
 
             <button type="submit" className="session-submit">Create Account</button>
+            <p className="changeForm">Already have a count? {this.props.changeForm}</p>
           </div>
         </form>
         <div onClick={this.props.closeModal} className="close-x">&times;</div>

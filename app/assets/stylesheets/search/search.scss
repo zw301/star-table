@@ -1,0 +1,18 @@
+.search-form-container {
+    border: 1px solid black;
+    height: 60px;
+    display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.refine-search-form {
+  display: flex;
+  justify-content: space-evenly;
+}

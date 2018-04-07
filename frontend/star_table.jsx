@@ -10,31 +10,38 @@ import configureStore from './store/store';
 // import { signup, login, logout } from './util/session_api_util';
 import {
   fetchAllRestaurants,
-  searchRestaurants,
   fetchSingleRestaurant,
-  createRestaurant
+  createRestaurant,
+  filteredRestaurants
 } from './util/restaurant_api_util';
 
 
 window.fetchAllRestaurants = fetchAllRestaurants;
-window.searchRestaurants = searchRestaurants;
 window.fetchSingleRestaurant = fetchSingleRestaurant;
 window.createRestaurant = createRestaurant;
+window.filteredRestaurants = filteredRestaurants;
 
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  let preloadedState = undefined;
-  if (window.currentUser) {
-    preloadedState = {
-      session: {
-        currentUser: window.currentUser
-      }
-    };
-  }
+  // let preloadedState = undefined;
+  // if (window.currentUser) {
+  //   preloadedState = {
+  //     session: {
+  //       currentUser: window.currentUser
+  //     }
+  //   };
+  // }
 
-  // let store = configureStore();
-  const store = configureStore(preloadedState);
+  // const store = configureStore(preloadedState);
+ let store;
+  if (window.currentUser) {
+    const preloadedState = { currentUser: window.currentUser };
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
 
   window.getState = store.getState;
 

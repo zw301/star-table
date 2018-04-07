@@ -35,8 +35,9 @@ class AddRestaurant extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createRestaurant(this.state).then(
-      () => {
+      (payload) => {
         this.props.clearErrors();
+        this.props.history.push(`/restaurants/${payload.restaurant.id}`);
       }
     );
 
@@ -59,8 +60,7 @@ class AddRestaurant extends React.Component {
       <div className="add-restaurant-container">
         <h4>Grow Your Business with StarTable</h4>
         <form onSubmit={this.handleSubmit} className="add-restaurant-form">
-          <div className="">
-
+          <div>
             {this.renderErrors()}
               <input
                 type="text"
@@ -85,7 +85,7 @@ class AddRestaurant extends React.Component {
                 onChange={this.update('description')}
                 className="add-input  add-input-1"
               />
-              
+
               <input
                 type="text"
                 value={this.state.phone_number}
@@ -127,10 +127,7 @@ class AddRestaurant extends React.Component {
               />
 
 
-            <button
-              type="submit"
-              className="add-submit"
-            >
+            <button type="submit" className="add-submit">
               SUBMIT
             </button>
           </div>

@@ -21,6 +21,8 @@ User.create(email: "guest@mail.com", password: "password", first_name: "Guest", 
 end
 
 
+Restaurant.destroy_all
+
 Restaurant.create(
   owner_id: 1,
   name: "Masa",

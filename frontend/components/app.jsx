@@ -15,7 +15,8 @@ import Home from './home/home';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import SignupContainer from './session_form/signup_container';
 import SigninContainer from './session_form/signin_container';
-// import SearchContainer from './search/search_container';
+
+
 import RestaurantIndexContainer from './restaurant/restaurant_index_container';
 import AddRestaurant from './restaurant/add_restaurant_container';
 
@@ -28,6 +29,7 @@ const App = () => (
   <div>
     <Modal />
     <header>
+      <Link to="/restaurants/new" >For Restaurants</Link>
       <Route path="/" component={NavBarContainer} />
     </header>
     <main>
@@ -35,9 +37,8 @@ const App = () => (
         <Route exact path="/restaurants/:restaurantId" component={RestaurantDetailContainer} />
         <Route path="/" component={RestaurantIndexContainer } />
       </Switch>
+      <ProtectedRoute path="/restaurants/new" component={AddRestaurant} />
     </main>
-    <ProtectedRoute path="/restaurants/new" component={AddRestaurant} />
-    <Link to="/restaurants/new" >For Restaurants</Link>
   </div>
 );
 

@@ -55,7 +55,6 @@
 
 .login-form-box {
   outline: 1px solid black;
-  // padding: 20px;
   background: white;
   position: relative;
 }
@@ -91,16 +90,7 @@
    height: 34px;
    border-radius: 3px;
    // border: 1px solid red;
- }
-.btn:focus{
-  outline:none;
-}
 
-.btn:hover{
-  color: #237b98;
-}
-
-.btn-blue {
    background: #237b98;
    border-color: #1c627a;
    color: #fff;
@@ -108,18 +98,25 @@
    margin: 0 8px 0 6px;
  }
 
- .btn-blue:hover{
+.btn:focus{
+  outline:none;
+}
+
+
+ .btn:hover{
    color: #fff;
    background: #1c627a;
    transition: background-color 300ms ease-out;
  }
 
-.log-out {
- margin-right: 10px;
-}
-
 .btn-demo {
   margin-right: 20px;
+  background: #E5656E;
+  color: #fff;
+}
+
+.btn-demo:hover{
+  background: #DA3743;
 }
 
 .error-ul {
@@ -127,4 +124,22 @@
   line-height: 18px;
   color: #d30303;
   margin-bottom: 4px;
+}
+
+.changeForm-link {
+  color: red;
+  padding-left: 4px;
+}
+.changeForm {
+  width: 80%;
+  padding: 10px 0 10px 4px;
+}
+
+#btn-profile {
+  line-height: 36px;
+  display: inline-block;
+  text-align: center;
+  font-size: 15px;
+  width: 80px;
+  height: 35px;
 }

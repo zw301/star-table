@@ -18,12 +18,7 @@ class RestaurantIndex extends React.Component {
             <h3>{restaurant.name}</h3>
           </Link>
           <ul>
-            <li>{restaurant.cuisine}</li>
-            <li>{restaurant.address}</li>
-            <li>{restaurant.city}</li>
-            <li>{restaurant.state}</li>
-            <li>{restaurant.zipcode}</li>
-            <li>{restaurant.phoneNumber}</li>
+            <li>Cuisine: {restaurant.cuisine}</li>
             <li><img src="https://image.freepik.com/free-vector/restaurant-logo-template_1236-155.jpg" height='150px' width='150px'/></li>
           </ul>
         </li>

@@ -22,6 +22,37 @@
   description: "Takayama's appreciation for food started at a young age, growing up working for his family’s fish market in a town of Tochigi Prefecture, Japan. From his early years of delivering fresh sashimi to neighbors on his bicycle, to prepping and grilling hundreds of fish courses to cater weddings in high school, his relationship with food has always been a way of life."
 }
 
+//////////////search
+const data = { location: 'SF'， cuision: "chinese";}
+
+api util
+export const searchRestaurants = (data) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/restaurants`,
+    data: { data }
+  });
+};
+
+this.state = {
+  location: '',
+  cuisine: ''
+}
+
+onSubmit() {
+  this.searchRestaurants(this.state);
+}
+
+
+if params[:data]
+  @restaurants = Restaurant.where...
+else
+  @restaurants = Restaurant.all
+
+Restaurant.where(location: params[:location], cui)
+
+
+//////////////
 <ProtectedRoute path={`/users/${currentUser.id}/restaurants/new`} component={AddRestaurant} />
 
 root.html.erb

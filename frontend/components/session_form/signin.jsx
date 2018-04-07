@@ -30,9 +30,10 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state).then(
-      () => {
+      (payload) => {
         this.props.closeModal();
         this.props.clearErrors();
+        this.props.history.push(`/users/${payload.currentUser.id}`);
       }
     );
   }
@@ -74,6 +75,7 @@ class Login extends React.Component {
               />
 
             <button type="submit" className="session-submit">Log In</button>
+            <p className="changeForm">New to OpenTable?  {this.props.changeForm}</p>
           </div>
         </form>
         <div onClick={this.props.closeModal} className="close-x">&times;</div>

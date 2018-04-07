@@ -1,8 +1,14 @@
 import { connect } from 'react-redux';
 
 import RestaurantIndex from './restaurant_index';
-import { requestAllRestaurants } from '../../actions/restaurant_actions';
-import { selectAllRestaurants } from '../../reducers/selectors.js';
+import {
+  requestAllRestaurants,
+  filteredRestaurants
+} from '../../actions/restaurant_actions';
+
+import {
+  selectAllRestaurants
+} from '../../reducers/selectors.js';
 
 
 const mapStateToProps = state => ({
