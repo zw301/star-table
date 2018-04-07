@@ -17,7 +17,7 @@ class Restaurant < ApplicationRecord
   end
 
   def ensure_star
-    self.star = 0
+    self.star ||= 0
   end
 
 end
