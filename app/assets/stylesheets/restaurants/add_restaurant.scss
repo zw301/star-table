@@ -1,19 +1,27 @@
 .add-restaurant-container {
   position: relative;
   width: 100%;
-  margin-top: -300px;
+  background: rgba(0,0,0,0.9);
+  margin-top: -40px;
 }
 
 .add-restaurant-container h4 {
+  padding-top: 30px;
+  padding-bottom: 10px;
   text-align: center;
   font-size: 40px;
   margin: 40px 0;
   font-weight: bold;
   color: #fff;
+
   text-shadow: 2px 2px 8px rgba(75, 75, 75, 1);
+  position: relative;
+  bottom: -40px;
 }
 
 .add-restaurant-form {
+  position: relative;
+  bottom: -40px;
   width: 60%;
   // min-width: 400px;
   max-width: 800px;

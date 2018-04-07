@@ -1,10 +1,15 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import {browserHistory} from 'react-router';
 
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerms: ""
+      partySize: '',
+      date: '',
+      time: '',
+      searchTerms: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -15,9 +20,24 @@ class SearchForm extends React.Component {
     });
   }
 
+
   handleSubmit(e){
     e.preventDefault();
     this.props.searchRestaurants(this.state.searchTerms);
+      // .then(() => this.history.push("/restaurants"));
+      // debugger
+    this.props.history.push("/restaurants");
+    // this.context.router.push("/restaurants");
+  }
+
+  generatePartySizes() {
+    const partySizes = [];
+    partySizes.push(<option key="1" value="1">1 person</option>);
+    for (let i = 2; i < 11; i++) {
+      partySizes.push(<option key={i} value={i}>{i} people</option>);
+    }
+    partySizes.push(<option key="11" value={undefined}>Larger party</option>);
+    return partySizes;
   }
 
   render() {
@@ -25,10 +45,13 @@ class SearchForm extends React.Component {
       <form className="search-form-container">
         <h3>Make restaurant reservations the easy way</h3>
         <div className="search-form">
-          <input type="text"
-            className="search-input search-select"
-            value=""
-            placeholder="2 People"/>
+          
+          <select
+            className="search-form searchbar-partysize"
+            value={this.state.partySize}
+            onChange={this.update('partySize')}>
+            {this.generatePartySizes()}
+          </select>
 
           <input type="text"
             className="search-input search-select"
@@ -57,4 +80,4 @@ class SearchForm extends React.Component {
   }
 }
 
-export default SearchForm;
+export default withRouter(SearchForm);

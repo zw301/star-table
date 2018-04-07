@@ -4,7 +4,7 @@ import SearchForm from './search_form';
 import { searchRestaurants } from '../../actions/restaurant_actions';
 
 const mapDispatchToProps = dispatch => ({
-  searchRestaurants: searchTerms =>
+  searchRestaurants: (searchTerms) =>
     dispatch(searchRestaurants(searchTerms)),
 });
 

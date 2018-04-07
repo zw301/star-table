@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Link, withRouter } from 'react-router-dom';
+import SearchFormContainer from '../search/search_form_container';
 
 
 class RestaurantIndex extends React.Component {
@@ -19,6 +20,8 @@ class RestaurantIndex extends React.Component {
           </Link>
           <ul>
             <li>Cuisine: {restaurant.cuisine}</li>
+            <li>Address: {restaurant.address}, {restaurant.city}, {restaurant.state}, {restaurant.zipcode}</li>
+            <li>Contact: {restaurant.phoneNumber}</li>
             <li><img src="https://image.freepik.com/free-vector/restaurant-logo-template_1236-155.jpg" height='150px' width='150px'/></li>
           </ul>
         </li>
@@ -26,6 +29,10 @@ class RestaurantIndex extends React.Component {
     });
     return (
       <div>
+        <div id="navbar-hero">
+          <img className="hero-img" src="http://www.edgehillcommunity.com/filephotos/182/header/inner-header-left-fine-dining.jpg" />
+          <SearchFormContainer />
+        </div>
         <ul className='restaurant-list'>
           {restaurants}
         </ul>

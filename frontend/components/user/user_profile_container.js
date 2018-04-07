@@ -2,6 +2,8 @@
 import { connect } from 'react-redux';
 import UserProfile from './user_profile';
 
+import { requestAllRestaurant } from '../../actions/restaurant_actions';
+
 const mapStateToProps = (state) => ({
   user: state.session.currentUser,
   // restaurants: state.restaurants,
