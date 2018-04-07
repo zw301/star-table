@@ -45,6 +45,22 @@ Restaurant.create(
   logo: "masa_logo.png"
 )
 
+Restaurant.create(
+  owner_id: 2,
+  name: "IzzI",
+  address: "20 Brooklyn",
+  star: "3",
+  city: "New York",
+  state: "NY",
+  zipcode: "11024",
+  phone_number: "212-823-9800",
+  open_time: "18:00:00",
+  close_time: "22:00:00",
+  cuisine: "Chinese",
+  description: "Hot pot lalala",
+  logo: "izzi_logo.png"
+)
+
 
 10.times do
   Restaurant.create(

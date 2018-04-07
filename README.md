@@ -7,13 +7,13 @@ StarTable is a full-stack web application inspired by OpenTable. The backend is 
 
 ## Features
 
-# Search
+## Search
 
-# Reservations
+## Reservations
 
-# Reviews
+## Reviews
 
-# Furture additions
+## Furture additions
 
 
 Things you may want to cover:

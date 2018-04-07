@@ -22,9 +22,25 @@ class SearchForm extends React.Component {
 
   render() {
     return (
-      <form>
-        <h1>Make restaurant reservations the easy way</h1>
-        <div className="search-bar">
+      <form className="search-form-container">
+        <h3>Make restaurant reservations the easy way</h3>
+        <div className="search-form">
+          <input type="text"
+            className="search-input search-select"
+            value=""
+            placeholder="2 People"/>
+
+          <input type="text"
+            className="search-input search-select"
+            value=""
+            placeholder="Apr 7, 2018"/>
+
+          <input type="text"
+            className="search-input search-select"
+            value=""
+
+            placeholder="7:00 PM"/>
+
           <input type="text"
             className="search-input"
             value={this.state.searchTerms}
