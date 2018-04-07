@@ -8,7 +8,13 @@
 
 User.destroy_all
 
-User.create(email: "guest@mail.com", password: "password", first_name: "Guest", last_name: "Guest", phone_number: "347-464-1688")
+User.create(
+  email: "guest@mail.com",
+  password: "password",
+  first_name: "Guest",
+  last_name: "Guest",
+  phone_number: "347-464-1688"
+)
 
 10.times do
   User.create(

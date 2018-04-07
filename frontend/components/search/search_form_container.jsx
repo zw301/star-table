@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SearchForm from './search_form';
-import { requestSearchRestaurants } from '../../actions/search_actions';
+import { searchRestaurants } from '../../actions/restaurant_actions';
 
 const mapDispatchToProps = dispatch => ({
-  requestSearchRestaurants: searchTerms =>
-    dispatch(requestSearchRestaurants(searchTerms)),
+  searchRestaurants: searchTerms =>
+    dispatch(searchRestaurants(searchTerms)),
 });
 
 export default connect (

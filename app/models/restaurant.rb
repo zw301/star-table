@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-  validates :owner_id, :name, :address, :star, :zipcode, :phone_number,
+  validates :owner_id, :name, :address, :city, :state, :star, :zipcode, :phone_number,
     :open_time, :close_time, :cuisine, :logo, presence: true
 
   after_initialize :ensure_logo, :ensure_open_time, :ensure_close_time, :ensure_star
@@ -18,6 +18,14 @@ class Restaurant < ApplicationRecord
 
   def ensure_star
     self.star ||= 0
+  end
+
+  def self.find_by_keyword(keyword)
+    Restaurant.where("lower(city) like ?", "%#{keyword.downcase}%")
+              .or(Restaurant.where("lower(name) like ?", "%#{keyword.downcase}%"))
+              .or(Restaurant.where("lower(cuisine) like ?", "%#{keyword.downcase}%"))
+              .or(Restaurant.where("lower(address) like ?", "%#{keyword.downcase}%"))
+              .or(Restaurant.where("lower(state) like ?", "%#{keyword.downcase}%"))
   end
 
 end

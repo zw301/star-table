@@ -33,9 +33,16 @@ class Login extends React.Component {
       (payload) => {
         this.props.closeModal();
         this.props.clearErrors();
-        this.props.history.push(`/users/${payload.currentUser.id}`);
       }
     );
+  }
+
+  demoLogin(e) {
+    const user = {
+      email: "guest@mail.com",
+      password: "password"
+    };
+    this.props.demoLogin(user).then(() => this.props.closeModal());
   }
 
   renderErrors() {
@@ -64,6 +71,7 @@ class Login extends React.Component {
                 placeholder="Enter email *"
                 onChange={this.update('email')}
                 className="login-input"
+                id="email"
               />
 
               <input
@@ -72,6 +80,7 @@ class Login extends React.Component {
                 placeholder="Enter password *"
                 onChange={this.update('password')}
                 className="login-input"
+                id="password"
               />
 
             <button type="submit" className="session-submit">Log In</button>

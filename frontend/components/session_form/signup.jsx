@@ -39,7 +39,6 @@ class Signup extends React.Component {
         (payload) => {
           this.props.closeModal();
           this.props.clearErrors();
-          this.props.history.push(`/users/${payload.currentUser.id}`);
         }
       );
     }

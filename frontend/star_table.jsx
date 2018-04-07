@@ -24,24 +24,24 @@ window.filteredRestaurants = filteredRestaurants;
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  // let preloadedState = undefined;
-  // if (window.currentUser) {
-  //   preloadedState = {
-  //     session: {
-  //       currentUser: window.currentUser
-  //     }
-  //   };
-  // }
-
-  // const store = configureStore(preloadedState);
- let store;
+  let preloadedState = undefined;
   if (window.currentUser) {
-    const preloadedState = { currentUser: window.currentUser };
-    store = configureStore(preloadedState);
-    delete window.currentUser;
-  } else {
-    store = configureStore();
+    preloadedState = {
+      session: {
+        currentUser: window.currentUser
+      }
+    };
   }
+
+  const store = configureStore(preloadedState);
+ // let store;
+ //  if (window.currentUser) {
+ //    const preloadedState = { currentUser: window.currentUser };
+ //    store = configureStore(preloadedState);
+ //    delete window.currentUser;
+ //  } else {
+ //    store = configureStore();
+ //  }
 
   window.getState = store.getState;
 

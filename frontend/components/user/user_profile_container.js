@@ -1,21 +1,27 @@
-import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
 
-class UserProfile extends Component {
+import { connect } from 'react-redux';
+import UserProfile from './user_profile';
 
-  constructor(props) {
-    super(props);
+const mapStateToProps = (state) => ({
+  user: state.session.currentUser,
+  // restaurants: state.restaurants,
+  // reservations: state.reservations,
+  // reviews: state.reviews,
+  // favorite: state.favorite
+});
 
-    this.scrollTo = this.scrollTo.bind(this);
-    this.upcomingReservations = this.upcomingReservations.bind(this);
-    this.pastReservations = this.pastReservations.bind(this);
-    this.favoriteRestaurants = this.favoriteRestaurants.bind(this);
-  }
+const mapDispatchToProps = (dispatch) => ({
+  // requestAllReservation: () => dispatch(requestAllReservation()),
+  requestAllRestaurant: () => dispatch(requestAllRestaurant()),
+  // createReview: (review) => dispatch(createReview()),
+  // requestAllFavorite: () => dispatch(requestAllFavorite())
+  // addFavorite: (favorite) => dispatch(addFavorite()),
+  // removeFavorite: (favorite) => dispatch(removeFavorite(favorite))
 
-  // componentDidMount() {
-  //   this.props.requestAllRestaurant();
-  //   this.props.requestAllReservation();
-  // }
+  // requestSingleRestaurant: (id) => dispatch(requestSingleRestaurant(id))
+});
 
-
-}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserProfile);

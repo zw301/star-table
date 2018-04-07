@@ -25,10 +25,6 @@ const NavBar = ({ currentUser, login, logout, openModal, history }) => {
           </button>
         </div>
       </div>
-      <div id="navbar-hero">
-        <img className="hero-img" src="https://mediastream.jumeirah.com/webimage/heroactual//globalassets/global/hotels-and-resorts/dubai/burj-al-arab/restaurants/al-muntaha/baa-al-muntaha-alaskan-king-crab-hero4.jpg" />
-      </div>
-            <SearchFormContainer />
    </nav>
   );
 
@@ -43,9 +39,6 @@ const NavBar = ({ currentUser, login, logout, openModal, history }) => {
           <Link className="btn" id="btn-profile" to={`/users/${currentUser.id}`}>My Profile</Link>
           <button className="btn btn-demo" onClick={handleLogout}>Log Out</button>
         </div>
-      </div>
-      <div id="navbar-hero">
-        <img className="hero-img" src="https://mediastream.jumeirah.com/webimage/heroactual//globalassets/global/hotels-and-resorts/dubai/burj-al-arab/restaurants/al-muntaha/baa-al-muntaha-alaskan-king-crab-hero4.jpg" />
       </div>
     </nav>
   );

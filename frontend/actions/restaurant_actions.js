@@ -44,3 +44,9 @@ export const createRestaurant = restaurant => dispatch => {
     dispatch(receiveSingleRestaurant(newRestaurant)),
     errors => dispatch(receiveRestaurantErrors(errors.responseJSON)));
 };
+
+export const searchRestaurants = searchTerms => dispatch => {
+  return APIUtil.fetchSearchRestaurants(searchTerms)
+         .then(searchResult => (dispatch(receiveAllRestaurants(searchResult)))),
+         err => (dispatch(receiveRestaurantErrors(err.responseJSON)));
+};

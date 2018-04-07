@@ -1,30 +1,35 @@
-import { connect } from 'react-redux';
-import UserProfile from './user_profile';
-import { requestAllReservation } from '../../actions/reservation_actions';
-import { requestAllRestaurant } from '../../actions/restaurant_actions';
-import { createReview } from '../../actions/review_actions';
-import { addFavorite, removeFavorite, requestAllFavorite } from '../../actions/favorite_actions';
+import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
 
-const mapStateToProps = (state) => ({
-  currentUser: state.currentUser,
-  restaurants: state.restaurants,
-  // reservations: state.reservations,
-  // reviews: state.reviews,
-  // favorite: state.favorite
-});
+class UserProfile extends Component {
 
-const mapDispatchToProps = (dispatch) => ({
-  requestAllReservation: () => dispatch(requestAllReservation()),
-  requestAllRestaurant: () => dispatch(requestAllRestaurant()),
-  createReview: (review) => dispatch(createReview()),
-  // requestAllFavorite: () => dispatch(requestAllFavorite())
-  // addFavorite: (favorite) => dispatch(addFavorite()),
-  removeFavorite: (favorite) => dispatch(removeFavorite(favorite))
+  constructor(props) {
+    super(props);
 
-  // requestSingleRestaurant: (id) => dispatch(requestSingleRestaurant(id))
-});
+    // this.scrollTo = this.scrollTo.bind(this);
+    // this.upcomingReservations = this.upcomingReservations.bind(this);
+    // this.pastReservations = this.pastReservations.bind(this);
+    // this.favoriteRestaurants = this.favoriteRestaurants.bind(this);
+  }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UserProfile);
+  // componentDidMount() {
+  //   this.props.requestAllRestaurant();
+  //   this.props.requestAllReservation();
+  // }
+
+  render() {
+    let user = this.props.user;
+    return (
+      <div>
+        <h1>{user.firstName}</h1>
+        <h1>User profile</h1>
+        <h1>User profile</h1>
+        <h1>User profile</h1>
+        <h1>User profile</h1>
+      </div>
+    );
+  }
+
+}
+
+export default UserProfile;

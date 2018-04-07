@@ -4,71 +4,39 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: {
-        city: '' ,
-        cuisine: '',
-        restaurant: '',
-        time: '',
-        num_people: '',
-        date: new Date(),
-      }
+      searchTerms: ""
     };
-    this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleInput(e) {
-    this.setState({
-      search: Object.assign(
-        {},
-        this.state.search,
-        { [e.target.id]: e.target.value }
-      )
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
     });
   }
 
-  handleSubmit(e) {
+  handleSubmit(e){
     e.preventDefault();
-    let city = document.getElementById("city");
-    let restaurant = document.getElementById("restaurant");
-    let cuisine = document.getElementById("cuisine");
-    this.setState({
-      search: Object.assign(
-        {},
-        this.state.search,
-        {
-          city: city.value,
-          restaurant: restaurant.value,
-          cuisine: cuisine.value,
-        }
-      )
-    });
-    this.props.requestSearchRestaurants(this.state);
+    this.props.searchRestaurants(this.state.searchTerms);
   }
 
   render() {
     return (
-      <div>
-        <h1 className="search-form">Search</h1>
-        <form>
-          <input
-            type="text"
-            placeholder="city"
-          />
+      <form>
+        <h1>Make restaurant reservations the easy way</h1>
+        <div className="search-bar">
+          <input type="text"
+            className="search-input"
+            value={this.state.searchTerms}
+            onChange={this.update('searchTerms')}
+            placeholder="Location, Restaurant, or Cuisine"/>
 
-          <input
-            type="text"
-            placeholder="cusine"
-          />
-
-          <input
-            type="text"
-            placeholder="star"
-          />
-
-          <input type="submit" value="Search" />
-        </form>
-      </div>
+          <input className="submit-button"
+            onClick={this.handleSubmit}
+            type="submit"
+            value="Find a Table" />
+        </div>
+      </form>
     );
   }
 }
