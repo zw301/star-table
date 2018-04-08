@@ -18,6 +18,14 @@ User.create(
   phone_number: "347-464-1688"
 )
 
+User.create(
+  email: "zii@mail.com",
+  password: "password",
+  first_name: "Zii",
+  last_name: "Wang",
+  phone_number: "347-464-9999"
+)
+
 10.times do
   User.create(
     email: Faker::Internet.unique.email,

@@ -1,12 +1,7 @@
 class Api::RestaurantsController < ApplicationController
 
   def index
-    # @restaurants = Restaurant.all
-    # if( params[:data] )
-    #   @restaurants = Restaurant.where("id: 1")
-    # end
-    # searchTerms = params[:searchTerms];
-    # @restaurants = Restaurant.where(id: 1)
+
     if params[:searchTerms]
       @restaurants = Restaurant.find_by_keyword(params[:searchTerms])
       if  @restaurants
@@ -14,8 +9,8 @@ class Api::RestaurantsController < ApplicationController
       else
         render json: ["No Restaurants Found"], status: 404
       end
-    else
-      @restaurants = Restaurant.all
+    # else
+    #   @restaurants = Restaurant.all
     end
     render :index
   end

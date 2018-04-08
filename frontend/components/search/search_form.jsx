@@ -28,7 +28,9 @@ class SearchForm extends React.Component {
       // debugger
     this.props.history.push("/restaurants");
     // this.context.router.push("/restaurants");
+    document.getElementById("search-content").value = "";
   }
+
 
   generatePartySizes() {
     const partySizes = [];
@@ -45,7 +47,7 @@ class SearchForm extends React.Component {
       <form className="search-form-container">
         <h3>Make restaurant reservations the easy way</h3>
         <div className="search-form">
-          
+
           <select
             className="search-form searchbar-partysize"
             value={this.state.partySize}
@@ -66,6 +68,7 @@ class SearchForm extends React.Component {
 
           <input type="text"
             className="search-input"
+            id="search-content"
             value={this.state.searchTerms}
             onChange={this.update('searchTerms')}
             placeholder="Location, Restaurant, or Cuisine"/>

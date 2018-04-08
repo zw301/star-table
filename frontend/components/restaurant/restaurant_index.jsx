@@ -5,12 +5,12 @@ import SearchFormContainer from '../search/search_form_container';
 
 class RestaurantIndex extends React.Component {
 
-  componentWillMount() {
-    this.props.requestAllRestaurants();
-  }
+  // componentWillMount() {
+  //   this.props.requestAllRestaurants();
+  // }
 
   render() {
-    const restaurants = this.props.restaurants.map((restaurant, index) => {
+    let restaurants = this.props.restaurants.map((restaurant, index) => {
       return (
         <li key={index}>
           <Link to={`/restaurants/${restaurant.id}`}>
@@ -25,6 +25,15 @@ class RestaurantIndex extends React.Component {
         </li>
       );
     });
+    if(restaurants.length === 0) {
+      restaurants = (
+        <div>
+          <p>WE DID NOT FIND A MATCH FOR YOUR SEARCH.</p>
+          <p>Sorry, we couldn't find any results.
+          Try checking your spelling or using less specific keywords.</p>
+        </div>
+      );
+    }
     return (
       <div>
         <div id="navbar-hero">

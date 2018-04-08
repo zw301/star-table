@@ -8,7 +8,7 @@ export const DESTROY_RESERVATION = 'DESTROY_RESERVATION';
 export const RECEIVE_RESERVATION_ERRORS = 'RECEIVE_RESERVATION_ERRORS';
 
 
-export const requestAllReservation = () => dispatch => (
+export const requestAllReservations = () => dispatch => (
   APIUtil.fetchAllReservation()
     .then(reservations => dispatch(receiveAllReservation(reservations)))
 );
