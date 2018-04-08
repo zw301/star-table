@@ -46,13 +46,11 @@ export const updateReservation = reservation => dispatch => (
 
 export const deleteReservation = id => dispatch => (
   APIUtil.deleteReservation(id)
-    .then(reservation => dispatch(removeReservation(reservation.id)),
-      err => dispatch(receiveReservationErrors(err.responseJSON)))
+    .then(reservation => dispatch(removeReservation(id)),
+      err => dispatch(receiveReservationErrors(err.responseJSON))
+    )
 );
 
-// export const resetReservation = () => dispatch => (
-//   dispatch(clearReservation({}))
-// );
 
 const receiveAllReservation = (reservations) => ({
   type: RECEIVE_ALL_RESERVATION,
@@ -68,14 +66,7 @@ const removeReservation = (reservationId) => ({
   type: DESTROY_RESERVATION,
   reservationId
 });
-// const clearReservation = (reservation) => ({
-//   type: CLEAR_RESERVATION,
-//   reservation,
-// });
 
-// export const receiveDelete = () => ({
-//   type: RECEIVE_DELETE
-// });
 
 export const receiveReservationErrors = (errors) => ({
   type: RECEIVE_RESERVATION_ERRORS,

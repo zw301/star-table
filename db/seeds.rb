@@ -97,10 +97,42 @@ Reservation.create(
   seats: 2
 )
 
+Reservation.create(
+  user_id: 1,
+  restaurant_id: 2,
+  time: "7",
+  date: "2018-05-07",
+  seats: 1
+)
+
+Reservation.create(
+  user_id: 1,
+  restaurant_id: 5,
+  time: "8",
+  date: "2018-06-06",
+  seats: 6
+)
+
+Reservation.create(
+  user_id: 1,
+  restaurant_id: 8,
+  time: "8",
+  date: "2018-05-30",
+  seats: 2
+)
+
+Reservation.create(
+  user_id: 1,
+  restaurant_id: 10,
+  time: "6",
+  date: "2018-05-20",
+  seats: 4
+)
+
 10.times do
   Reservation.create(
-    user_id: (1..10).to_a.sample,
-    restaurant_id: (1..10).to_a.sample,
+    user_id: (1..12).to_a.sample,
+    restaurant_id: (1..12).to_a.sample,
     time: ("5".."10").to_a.sample,
     date: rand(30.days).seconds.from_now.to_s.split(" ").first,
     seats: (1..6).to_a.sample

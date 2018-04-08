@@ -9,7 +9,8 @@ import {
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
-  reservations: state.reservations
+  reservations: state.entities.reservations,
+  // restaurants:
   // reviews: state.reviews,
   // favorite: state.favorite
 });

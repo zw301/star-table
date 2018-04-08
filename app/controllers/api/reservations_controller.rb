@@ -11,7 +11,13 @@ class Api::ReservationsController < ApplicationController
   end
 
   def index
-    @reservations = Reservation.all
+    # @reservations = Reservation.all
+    user = User.find_by(id: params[:userId])
+     if user
+       @reservations = user.reservations
+     else
+       render json: ["User not found"], status: 404
+     end
   end
 
   def show
@@ -19,13 +25,18 @@ class Api::ReservationsController < ApplicationController
   end
 
   def destroy
-    @reservation = Reservation.find(params[:id])
-    @reservation.destroy
-    render '/api/reservation/show'
+    reservation = Reservation.find(params[:id])
+    if reservation
+      reservation.destroy
+      render json: reservation
+    else
+      render json: ["Reservation doesn't exist"], status: 404
+    end
   end
 
-
+  private
   def reservation_params
     params.require(:reservation).permit(:user_id, :restaurant_id, :seats, :date, :time)
   end
+  
 end

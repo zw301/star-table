@@ -15,9 +15,9 @@ const ReservationsReducer = (state = {}, action) => {
       const reservation = action.reservation;
       return merge({}, state, {[reservation.id]: reservation});
     case DESTROY_RESERVATION:
-      let newReservations = merge({}, state);
-      delete state[action.reservationId];
-      return newReservations;
+      let newState = merge({}, state);
+      delete newState[action.reservationId];
+      return newState;
     default:
       return state;
   }

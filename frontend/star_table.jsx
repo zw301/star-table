@@ -11,15 +11,20 @@ import configureStore from './store/store';
 import {
   fetchAllRestaurants,
   fetchSingleRestaurant,
-  createRestaurant,
-  filteredRestaurants
+  createRestaurant
 } from './util/restaurant_api_util';
+
+import {
+  fetchUserReservations,
+  deleteReservation
+} from './util/reservation_api_util';
 
 
 window.fetchAllRestaurants = fetchAllRestaurants;
 window.fetchSingleRestaurant = fetchSingleRestaurant;
 window.createRestaurant = createRestaurant;
-window.filteredRestaurants = filteredRestaurants;
+window.fetchUserReservations = fetchUserReservations;
+window.deleteReservation = deleteReservation;
 
 
 document.addEventListener('DOMContentLoaded', () => {
