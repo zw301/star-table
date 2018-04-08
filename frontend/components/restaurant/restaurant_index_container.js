@@ -1,10 +1,7 @@
 import { connect } from 'react-redux';
 
 import RestaurantIndex from './restaurant_index';
-import {
-  requestAllRestaurants,
-  filteredRestaurants
-} from '../../actions/restaurant_actions';
+import { requestAllRestaurants } from '../../actions/restaurant_actions';
 
 import {
   selectAllRestaurants

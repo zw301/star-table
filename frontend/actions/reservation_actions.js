@@ -7,12 +7,16 @@ export const DESTROY_RESERVATION = 'DESTROY_RESERVATION';
 
 export const RECEIVE_RESERVATION_ERRORS = 'RECEIVE_RESERVATION_ERRORS';
 
-
-export const requestAllReservations = () => dispatch => (
-  APIUtil.fetchAllReservation()
-    .then(reservations => dispatch(receiveAllReservation(reservations)))
+export const createReservation = reservation => dispatch => (
+  APIUtil.createReservation(reservation)
+    .then((newReservation) => {
+      dispatch(receiveSingleReservation(newReservation.id));
+      // dispatch(receiveReservationErrors([]));
+    }, err => (dispatch(receiveReservationErrors(err.responseJSON))))
 );
 
+
+//fetch a reservation for reservation show page
 export const requestSingleReservation = (id) => dispatch => (
   APIUtil.fetchSingleReservation(id)
   .then(reservation => {
@@ -21,23 +25,29 @@ export const requestSingleReservation = (id) => dispatch => (
   })
 );
 
-export const createReservation = reservation => dispatch => (
-  APIUtil.createReservation(reservation)
-    .then((newReservation) => {
-      dispatch(receiveSingleReservation(newReservation.id));
-      dispatch(receiveReservationErrors([]));
-    }, err => (dispatch(receiveReservationErrors(err.responseJSON))))
+// fetch all current user's reservations
+export const requestUserReservations = userId => dispatch => (
+  APIUtil.fetchUserReservations(userId)
+    .then(reservations => dispatch(receiveAllReservation(reservations)),
+          err => dispatch(receiveReservationErrors(err.responseJSON)))
 );
+// export const requestAllReservations = () => dispatch => (
+//   APIUtil.fetchAllReservation()
+//     .then(reservations => dispatch(receiveAllReservation(reservations)))
+// );
+
 
 export const updateReservation = reservation => dispatch => (
   APIUtil.updateReservation(reservation).then(updatedReservation =>
-    dispatch(receiveSingleReservation(updatedReservation)))
+    dispatch(receiveSingleReservation(updatedReservation)),
+      err => dispatch(receiveReservationErrors(err.responseJSON)))
 );
 
 
 export const deleteReservation = id => dispatch => (
   APIUtil.deleteReservation(id)
-    .then(reservation => dispatch(removeReservation(reservation.id)))
+    .then(reservation => dispatch(removeReservation(reservation.id)),
+      err => dispatch(receiveReservationErrors(err.responseJSON)))
 );
 
 // export const resetReservation = () => dispatch => (

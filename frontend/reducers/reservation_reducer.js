@@ -5,20 +5,18 @@ import {
   DESTROY_RESERVATION,
 } from '../actions/reservation_actions';
 
-const _nullReservations = Object.freeze({
-});
 
-const ReservationsReducer = (state = _nullReservations, action) => {
+const ReservationsReducer = (state = {}, action) => {
+  Object.freeze(state);
   switch(action.type) {
     case RECEIVE_ALL_RESERVATION:
-      const reservations = action.reservations;
-      return merge({}, state, reservations);
+      return action.reservations;
     case RECEIVE_SINGLE_RESERVATION:
       const reservation = action.reservation;
-      return merge({}, state, {reservation});
+      return merge({}, state, {[reservation.id]: reservation});
     case DESTROY_RESERVATION:
       let newReservations = merge({}, state);
-      delete state[action.id];
+      delete state[action.reservationId];
       return newReservations;
     default:
       return state;
