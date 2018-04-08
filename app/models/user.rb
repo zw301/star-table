@@ -4,7 +4,10 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  # has_many
+  has_many :reservations,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Reservation
 
   after_initialize :ensure_session_token
 

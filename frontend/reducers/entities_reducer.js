@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 
 import restaurantReducer from './restaurant_reducer';
+import reservationsReducer from './reservation_reducer';
 
 
 export default combineReducers({
-  restaurants: restaurantReducer
+  restaurants: restaurantReducer,
+  reservation: reservationsReducer
 });

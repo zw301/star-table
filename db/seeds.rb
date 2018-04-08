@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Restaurant.destroy_all
+Reservation.destroy_all
 
 User.create(
   email: "guest@mail.com",
@@ -26,8 +28,6 @@ User.create(
   )
 end
 
-
-Restaurant.destroy_all
 
 Restaurant.create(
   owner_id: 1,
@@ -64,7 +64,7 @@ Restaurant.create(
 
 10.times do
   Restaurant.create(
-    owner_id: [1,2,3,4,5,6,7,8,9,10].sample,
+    owner_id:  (1..10).to_a.sample,
     name: Faker::Food.dish,
     address: Faker::Address.street_address,
     star: [1,2,3].sample,
@@ -76,5 +76,25 @@ Restaurant.create(
     close_time: "22:00:00",
     cuisine: Faker::Address.country,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  )
+end
+
+
+
+Reservation.create(
+  user_id: 1,
+  restaurant_id: 1,
+  time: "6",
+  date: "2018-04-07",
+  seats: 2
+)
+
+10.times do
+  Reservation.create(
+    user_id: (1..10).to_a.sample,
+    restaurant_id: (1..10).to_a.sample,
+    time: ("5".."10").to_a.sample,
+    date: rand(30.days).seconds.from_now.to_s.split(" ").first,
+    seats: (1..6).to_a.sample
   )
 end

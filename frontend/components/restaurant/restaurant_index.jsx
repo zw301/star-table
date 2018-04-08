@@ -9,8 +9,6 @@ class RestaurantIndex extends React.Component {
     this.props.requestAllRestaurants();
   }
 
-
-
   render() {
     const restaurants = this.props.restaurants.map((restaurant, index) => {
       return (
@@ -30,7 +28,7 @@ class RestaurantIndex extends React.Component {
     return (
       <div>
         <div id="navbar-hero">
-          <img className="hero-img" src="http://www.edgehillcommunity.com/filephotos/182/header/inner-header-left-fine-dining.jpg" />
+          <img className="hero-img" src="http://res.cloudinary.com/chengzii/image/upload/v1523146895/restaurant_index.jpg" />
           <SearchFormContainer />
         </div>
         <ul className='restaurant-list'>
