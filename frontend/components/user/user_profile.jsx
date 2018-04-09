@@ -8,26 +8,16 @@ class UserProfile extends Component {
 
   constructor(props) {
     super(props);
-    // this.scrollTo = this.scrollTo.bind(this);
-    // this.upcomingReservations = this.upcomingReservations.bind(this);
-    // this.pastReservations = this.pastReservations.bind(this);
+    this.scrollTo = this.scrollTo.bind(this);
+    this.upcomingReservations = this.upcomingReservations.bind(this);
+    this.pastReservations = this.pastReservations.bind(this);
     // this.favoriteRestaurants = this.favoriteRestaurants.bind(this);
   }
 
 
-  // componentDidMount() {
-  //   this.props.requestUserReservations(this.props.currentUser.id);
-  // }
   componentDidMount() {
     this.props.requestUserReservations(this.props.currentUser.id);
   }
-
-
-  // componentWillMount(){
-  //   if(this.props.currentUser){
-  //     this.props.requestUserReservations(this.props.currentUser.id);
-  //   }
-  // }
 
   deleteReservation(idx){
     return (e) => {
@@ -36,67 +26,182 @@ class UserProfile extends Component {
     };
   }
 
-  reservationIndex(){
-    return Object.keys(this.props.reservations).map(idx => (
-      <div className="profile-reservations">
-        <div className="profile-reservations-top">
-          <Link
-            key={idx}
-            to={`/restaurants/${this.props.reservations[idx].restaurant.id}`}
-            className="reservation-index-item-link">
-            <p>{this.props.reservations[idx].restaurant.name}</p>
-          </Link>
-          <button type="button"
-                  onClick={this.deleteReservation(idx)}
-                  className="cancel-reservation">
-                  Cancel
-          </button>
-        </div>
-        <ReservationIndexItem
-          key={idx}
-          reservation={this.props.reservations[idx]} />
-        <br />
-      </div>
-    ));
-  }
+  scrollTo(el) {
+   return () => {
+     el.scrollIntoView();
+   };
+ }
 
-  reservationChecker(){
-    let reservations = this.reservationIndex();
-    if (reservations.length > 0){
-      return reservations;
-    }else{
+  upcomingReservations() {
+    const upcoming = [];
+    const today = new Date().toJSON();
+
+    const allRes = Object.values(this.props.reservations);
+    allRes.forEach((reservation) => {
+      if(Date.parse(today.slice(0, 10)) < Date.parse(reservation.date)) {
+        upcoming.push(reservation);
+      }
+    });
+
+    if(upcoming.length > 0) {
       return(
-        <p>No reservations</p>
+        <div>
+        {upcoming.map((res, idx) =>
+          <section key={`upcoming-${idx}`} className="upcoming-item">
+            <section>
+              <Link
+                to={`/restaurants/${res.restaurant.id}`}
+                className='upcoming-res-name-link'
+              >
+                <section className='upcoming-res-name'>
+                  {res.restaurant.name}
+                </section>
+              </Link>
+
+              <button type="button"
+                      onClick={this.deleteReservation(res.id)}
+                      className="cancel-reservation">
+                      Cancel
+              </button>
+
+              <section className='upcoming-res-date'>
+                {res.date}
+              </section>
+              <section className='upcoming-res-time'>
+                {res.time}
+              </section>
+              <section className='upcoming-res-seats'>
+                Table for {res.seats}
+              </section>
+            </section>
+            <br />
+          </section>
+        )}
+        </div>
+      );
+    } else {
+      return (
+        <p>No upcoming reservations</p>
       );
     }
   }
 
+  pastReservations() {
+    const past = [];
+    const today = new Date().toJSON();
+
+    const allRes = Object.values(this.props.reservations);
+    allRes.forEach((reservation) => {
+      if(Date.parse(today.slice(0, 10)) >= Date.parse(reservation.date)) {
+        past.push(reservation);
+      }
+    });
+
+    if(past.length > 0) {
+      return(
+        <div>
+        {past.map((res, idx) =>
+          <section key={`past-${idx}`} className="past-item">
+            <section>
+              <Link
+                to={`/restaurants/${res.restaurant.id}`}
+                className='past-res-name-link'
+              >
+                <section className='past-res-name'>
+                  {res.restaurant.name}
+                </section>
+              </Link>
+                <section className='past-res-date'>
+                  {res.date}
+                </section>
+                <section className='past-res-time'>
+                  {res.time}
+                </section>
+                <section className='past-res-seats'>
+                  Table for {res.seats} people
+                </section>
+            </section>
+            <br />
+          </section>
+        )}
+        </div>
+      );
+    } else {
+      return (
+        <p>No reservations history</p>
+      );
+    }
+  }
+
+  favoriteRestaurants() {
+
+    return(
+      <div>
+        favorite restaurants part coming soon
+      </div>
+    );
+  }
+
+
   render() {
     const user = this.props.currentUser;
     return (
-      <div>
-        <div>
-          <h1>User Info</h1>
-          <h1>{user.firstName}</h1>
-        </div>
+      <div className='user-profile-main'>
+        <nav className='user-profile-nav'>
+          <section
+            className='user-nav-link'
+            onClick={this.scrollTo(this.upcomingSection)}
+          >Upcoming Reservations</section>
+          <section
+            className='user-nav-link'
+            onClick={this.scrollTo(this.pastSection)}
+          >Past Reservations</section>
+          <section
+            className='user-nav-link'
+            onClick={this.scrollTo(this.pastSection)}
+          >Favorite Restaurants</section>
+        </nav>
         <hr />
 
-        <div>
-          <h1>Reservation</h1>
-          <br />
-          {this.reservationChecker()}
-        </div>
-        <hr />
+        <div className='user-profile-content'>
+          <div className='user-profile-upcoming-reservation'>
+            <div>
+              <h1>User Info</h1>
+              <h1>{user.firstName}</h1>
+            </div>
+            <hr />
 
-        <div>
-          <h1>Your Reviews</h1>
-        </div>
-        <hr />
+            <div className='user-profile-content-title' name='upcoming'
+              ref={ el => this.upcomingSection = el }>
+              <h2>Upcoming Reservations</h2>
+            </div>
+            <div className='user-profile-upcoming-lists' >
+              {this.upcomingReservations()}
+            </div>
+            <hr />
 
-        <div>
-          <h1>Favorite Restaurants</h1>
-        </div>
 
+            <div className='user-profile-content-title' name='past'
+              ref={ el => this.pastSection = el }>
+              <h2>Past Reservations</h2>
+            </div>
+            <div className='user-profile-past-lists' >
+              {this.pastReservations()}
+            </div>
+            <hr/>
+
+            <div className='user-profile-favorite'>
+             <div className='user-profile-content-title' name='favorite'
+               ref={ el => this.favoriteSection = el }>
+               <h2>Favorite Restaurants</h2>
+             </div>
+             <div className='user-profile-favorite-lists' >
+               {this.favoriteRestaurants()}
+             </div>
+           </div>
+
+          </div>
+        </div>
 
       </div>
     );

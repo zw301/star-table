@@ -6,7 +6,7 @@ class Api::ReservationsController < ApplicationController
     if @reservation.save
       render '/api/reservations/show'
     else
-      render json: {base: @reservation.errors.full_messages}, status: 422
+      render json: @reservation.errors.full_messages, status: 422
     end
   end
 
@@ -14,7 +14,7 @@ class Api::ReservationsController < ApplicationController
     # @reservations = Reservation.all
     user = User.find_by(id: params[:userId])
      if user
-       @reservations = user.reservations
+       @reservations = user.reservations.order(:date)
      else
        render json: ["User not found"], status: 404
      end
@@ -38,5 +38,5 @@ class Api::ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(:user_id, :restaurant_id, :seats, :date, :time)
   end
-  
+
 end

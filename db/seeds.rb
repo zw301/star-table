@@ -36,6 +36,14 @@ User.create(
   )
 end
 
+User.create(
+  email: "ting@mail.com",
+  password: "password",
+  first_name: "Ting",
+  last_name: "Jiang",
+  phone_number: "347-464-9988"
+)
+
 
 Restaurant.create(
   owner_id: 1,
@@ -93,7 +101,7 @@ Reservation.create(
   user_id: 1,
   restaurant_id: 1,
   time: "6",
-  date: "2018-04-07",
+  date: "2018-04-01",
   seats: 2
 )
 
@@ -101,7 +109,7 @@ Reservation.create(
   user_id: 1,
   restaurant_id: 2,
   time: "7",
-  date: "2018-05-07",
+  date: "2018-04-07",
   seats: 1
 )
 
@@ -109,7 +117,7 @@ Reservation.create(
   user_id: 1,
   restaurant_id: 5,
   time: "8",
-  date: "2018-06-06",
+  date: "2018-05-06",
   seats: 6
 )
 
@@ -125,13 +133,33 @@ Reservation.create(
   user_id: 1,
   restaurant_id: 10,
   time: "6",
-  date: "2018-05-20",
+  date: "2018-06-02",
   seats: 4
 )
 
+5.times do
+  Reservation.create(
+    user_id: 2,
+    restaurant_id: (1..12).to_a.sample,
+    time: ("5".."10").to_a.sample,
+    date: rand(30.days).seconds.ago.to_s.split(" ").first,
+    seats: (1..6).to_a.sample
+  )
+end
+
+5.times do
+  Reservation.create(
+    user_id: 2,
+    restaurant_id: (1..12).to_a.sample,
+    time: ("5".."10").to_a.sample,
+    date: rand(30.days).seconds.from_now.to_s.split(" ").first,
+    seats: (2..8).to_a.sample
+  )
+end
+
 10.times do
   Reservation.create(
-    user_id: (1..12).to_a.sample,
+    user_id: (1..11).to_a.sample,
     restaurant_id: (1..12).to_a.sample,
     time: ("5".."10").to_a.sample,
     date: rand(30.days).seconds.from_now.to_s.split(" ").first,

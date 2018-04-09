@@ -16,15 +16,18 @@ import {
 
 import {
   fetchUserReservations,
-  deleteReservation
+  deleteReservation,
+  createReservation
 } from './util/reservation_api_util';
 
 
 window.fetchAllRestaurants = fetchAllRestaurants;
 window.fetchSingleRestaurant = fetchSingleRestaurant;
 window.createRestaurant = createRestaurant;
+
 window.fetchUserReservations = fetchUserReservations;
 window.deleteReservation = deleteReservation;
+window.createReservation = createReservation;
 
 
 document.addEventListener('DOMContentLoaded', () => {

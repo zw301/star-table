@@ -1,5 +1,5 @@
 class Reservation < ApplicationRecord
-  validates :user_id, :restaurant_id, presence: true
+  validates :user_id, :restaurant_id, :seats, :date, :time, presence: true
 
   belongs_to :user,
    primary_key: :id,

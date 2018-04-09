@@ -8,18 +8,16 @@ import {
 
 import ReservationForm from './reservation_form';
 
-//TODO: take out restaurants later if it's not used
-const mapStateToProps = ({restaurants, session, errors}) => {
-  return {
-    currentUser: session.currentUser,
-    restaurants: restaurants,
-    errors: errors.reservations
-  };
-};
+
+const mapStateToProps = ({restaurants, session, errors}) => ({
+  currentUser: session.currentUser,
+  // restaurants: restaurants,
+  errors: errors.reservation
+});
 
 const mapDispatchToProps = dispatch => ({
   createReservation: reservation => dispatch(createReservation(reservation)),
-  clearReservationErrors: () => dispatch(receiveReservationErrors([]))
+  clearErrors: () => dispatch(receiveReservationErrors([]))
 });
 
 export default connect(
