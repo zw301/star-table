@@ -30,13 +30,13 @@ export const fetchSingleReservation = (id) => (
   })
 );
 
-export const updateReservation = (reservation) => (
-  $.ajax({
-    method: 'PATCH',
-    url: `/api/reservations/${reservation.id}`,
-    data: {reservation}
-  })
-);
+// export const updateReservation = (reservation) => (
+//   $.ajax({
+//     method: 'PATCH',
+//     url: `/api/reservations/${reservation.id}`,
+//     data: {reservation}
+//   })
+// );
 
 export const deleteReservation = (id) => (
   $.ajax({

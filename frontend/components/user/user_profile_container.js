@@ -6,19 +6,20 @@ import {
   deleteReservation
 } from '../../actions/reservation_actions';
 
+import {requestUserReviews} from '../../actions/review_actions';
+
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
   reservations: state.entities.reservations,
+  // reviews: state.entities.reviews,
   // restaurants:
-  // reviews: state.reviews,
   // favorite: state.favorite
 });
 
 const mapDispatchToProps = (dispatch) => ({
   requestUserReservations: userId => dispatch(requestUserReservations(userId)),
   deleteReservation: reservationId => dispatch(deleteReservation(reservationId)),
-
 });
 
 export default connect(

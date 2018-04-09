@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import ReservationIndexItem from '../reservation/reservation_index_item';
-// import RestaurantIndexItem from '../restaurant/restaurant_index_item';
 
 class UserProfile extends Component {
 
@@ -116,7 +115,7 @@ class UserProfile extends Component {
                   {res.date}
                 </section>
                 <section className='past-res-time'>
-                  {res.time}
+                  {res.time}:00
                 </section>
                 <section className='past-res-seats'>
                   Table for {res.seats} people
@@ -133,6 +132,8 @@ class UserProfile extends Component {
       );
     }
   }
+
+
 
   favoriteRestaurants() {
 
@@ -200,6 +201,7 @@ class UserProfile extends Component {
                {this.favoriteRestaurants()}
              </div>
            </div>
+           <hr/>
 
           </div>
         </div>

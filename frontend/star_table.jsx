@@ -20,6 +20,14 @@ import {
   createReservation
 } from './util/reservation_api_util';
 
+import {
+  createReview,
+  fetchReview,
+  fetchUserReviews,
+  fetchRestaurantReviews
+} from './util/review_api_util';
+
+
 
 window.fetchAllRestaurants = fetchAllRestaurants;
 window.fetchSingleRestaurant = fetchSingleRestaurant;
@@ -28,6 +36,11 @@ window.createRestaurant = createRestaurant;
 window.fetchUserReservations = fetchUserReservations;
 window.deleteReservation = deleteReservation;
 window.createReservation = createReservation;
+
+window.createReview = createReview;
+window.fetchReview = fetchReview;
+window.fetchUserReviews = fetchUserReviews;
+window.fetchRestaurantReviews = fetchRestaurantReviews;
 
 
 document.addEventListener('DOMContentLoaded', () => {

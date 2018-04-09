@@ -9,6 +9,7 @@
 User.destroy_all
 Restaurant.destroy_all
 Reservation.destroy_all
+Review.destroy_all
 
 User.create(
   email: "guest@mail.com",
@@ -113,29 +114,25 @@ Reservation.create(
   seats: 1
 )
 
-Reservation.create(
-  user_id: 1,
-  restaurant_id: 5,
-  time: "8",
-  date: "2018-05-06",
-  seats: 6
-)
+8.times do
+  Reservation.create(
+    user_id: 1,
+    restaurant_id: (1..12).to_a.sample,
+    time: ("5".."10").to_a.sample,
+    date: rand(30.days).seconds.ago.to_s.split(" ").first,
+    seats: (1..6).to_a.sample
+  )
+end
 
-Reservation.create(
-  user_id: 1,
-  restaurant_id: 8,
-  time: "8",
-  date: "2018-05-30",
-  seats: 2
-)
-
-Reservation.create(
-  user_id: 1,
-  restaurant_id: 10,
-  time: "6",
-  date: "2018-06-02",
-  seats: 4
-)
+10.times do
+  Reservation.create(
+    user_id: 1,
+    restaurant_id: (1..12).to_a.sample,
+    time: ("5".."10").to_a.sample,
+    date: rand(30.days).seconds.from_now.to_s.split(" ").first,
+    seats: (1..6).to_a.sample
+  )
+end
 
 5.times do
   Reservation.create(
@@ -164,5 +161,21 @@ end
     time: ("5".."10").to_a.sample,
     date: rand(30.days).seconds.from_now.to_s.split(" ").first,
     seats: (1..6).to_a.sample
+  )
+end
+
+Review.create(
+  user_id: 1,
+  restaurant_id: 1,
+  rating: 5,
+  comment: "Love this place! I've been going for years and always receive great customer service and the sushi is always delicious. It's great bc it's local and fairly priced, so enjoying sushi doesn't always have to be a splurge."
+)
+
+50.times do
+  Review.create(
+    user_id: (1..11).to_a.sample,
+    restaurant_id: (1..12).to_a.sample,
+    rating: (1..5).to_a.sample,
+    comment:Faker::Lovecraft.paragraph
   )
 end

@@ -1,7 +1,6 @@
 class Api::RestaurantsController < ApplicationController
 
   def index
-
     if params[:searchTerms]
       @restaurants = Restaurant.find_by_keyword(params[:searchTerms])
       if  @restaurants

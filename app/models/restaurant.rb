@@ -9,6 +9,11 @@ class Restaurant < ApplicationRecord
     foreign_key: :restaurant_id,
     class_name: :Reservation
 
+  has_many :reviews,
+    primary_key: :id,
+    foreign_key: :restaurant_id,
+    class_name: :Review
+
   def ensure_logo
     self.logo ||= "default_logo_url";
   end
@@ -33,4 +38,7 @@ class Restaurant < ApplicationRecord
               .or(Restaurant.where("lower(state) like ?", "#{keyword.downcase}%"))
   end
 
+  def rating_arr
+    self.reviews.pluck(:rating)
+  end
 end

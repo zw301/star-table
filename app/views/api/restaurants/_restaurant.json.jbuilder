@@ -13,5 +13,10 @@ json.extract! restaurant,
 :cuisine,
 :description,
 :logo
+# :reviews
+
+
+# json.reviews restaurant.reviews
+json.rating_arr restaurant.rating_arr
 
 # json.logo asset_path(restaurant.logo)

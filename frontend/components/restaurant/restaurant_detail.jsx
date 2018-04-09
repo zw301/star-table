@@ -1,8 +1,20 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../../util/route_util';
+
 import
   ReservationFormContainer
 from '../reservation/reservation_form_container';
+
+import
+  ReviewFormContainer
+from '../review/review_form_container';
+
+import
+  ReviewIndexContainer
+from '../review/review_index_container';
+
+
 
 class RestaurantDetail extends React.Component {
   constructor(props) {
@@ -11,20 +23,20 @@ class RestaurantDetail extends React.Component {
     this.scrollTo = this.scrollTo.bind(this);
   }
 
-  componentWillMount() {
-    this.props.requestSingleRestaurant(this.props.match.params.restaurantId);
-  }
-
   // componentWillReceiveProps(nextProps) {
   //   if (this.props.match.params.restaurantId !== nextProps.match.params.restaurantId) {
   //     this.props.requestSingleRestaurant(nextProps.match.params.restaurantId);
   //   }
   // }
 
+  componentDidMount() {
+    this.props.requestSingleRestaurant(this.props.match.params.restaurantId);
+  }
+
   scrollTo(el) {
-   return () => {
-     el.scrollIntoView();
-   };
+   // return () => {
+     el.scrollIntoView({ behavior: 'smooth' });
+   // };
  }
 
 
@@ -32,6 +44,12 @@ class RestaurantDetail extends React.Component {
     if (!this.props.restaurant) return null;
 
     const restaurant = this.props.restaurant;
+    let sum = 0;
+    for (var i = 0; i < restaurant.ratingArr.length; i++) {
+      sum += restaurant.ratingArr[i];
+    }
+
+    let aveRating = sum / restaurant.ratingArr.length;
 
     return (
       <div className='restaurant-showpage'>
@@ -41,7 +59,7 @@ class RestaurantDetail extends React.Component {
           </div>
           <section>
             <h1>{restaurant.name}</h1>
-            <div>Rating</div>
+            <div>Rating: {aveRating}</div>
             <span>{restaurant.cuisine} </span>
             <span>| {restaurant.city} </span>
             <span>| Star: {restaurant.star}</span>
@@ -52,11 +70,13 @@ class RestaurantDetail extends React.Component {
         <div className='restaurant-showpage-main-container'>
           <div className='restaurant-showpage-nav-link'>
             <nav className='nav-link-wrapper'>
-              <a className='page-nav-link' onClick={this.scrollTo(this.reservationSection)}>Reservation</a>
+              <a className='page-nav-link' onClick={() => this.scrollTo(this.reservationSection)}>Reservation</a>
               <br />
-              <a className='page-nav-link' onClick={this.scrollTo(this.aboutSection)}>About</a>
+              <a className='page-nav-link' onClick={() => this.scrollTo(this.aboutSection)}>About</a>
               <br />
-              <a className='page-nav-link' onClick={this.scrollTo(this.reviewsSection)}>Reviews</a>
+              <a className='page-nav-link' onClick={() => this.scrollTo(this.reviewsSection)}>Reviews</a>
+              <br />
+              <a className='page-nav-link' onClick={() => this.scrollTo(this.writeReviewsSection)}>Reviews</a>
               <br />
             </nav>
           </div>
@@ -65,39 +85,40 @@ class RestaurantDetail extends React.Component {
           <div className='restaurant-showpage-main'>
             <div
               name='reservation'
-              ref={ el => this.reservationSection = el }
+              ref={ el => { this.reservationSection = el;} }
               className='restaurant-showpage-reservation'>
-              <Route
+              <ProtectedRoute
                 path={`/restaurants/:restaurantId`}
                 component={ReservationFormContainer}
               />
             </div>
             <hr />
 
-            <div ref={ el => this.aboutSection = el } className='restaurant-showpage-content-about' id='about'>
+            <div ref={ el => { this.aboutSection = el;} } className='restaurant-showpage-content-about' id='about'>
                 <span className='restaurant-showpage-content-header'>
                   <h2>About {this.props.restaurant.name}</h2>
                 </span>
                 <section className='restaurant-showpage-content-about-text'>
-                  <p>Restaurant Detail</p><span>   rating</span>
+                  <span>Rating {aveRating}</span>
                   <p>{restaurant.cusine}</p>
                   <p>{restaurant.phoneNumber}</p>
                   <p>Hours of operation:{restaurant.openTime} - {restaurant.closeTime}</p>
                   <p>Address {restaurant.address},{restaurant.city} {restaurant.state} {restaurant.zipcode}</p>
                   <p>{restaurant.description}</p>
-                  <p>{restaurant.description}</p>
-                  <p>{restaurant.description}</p>
-                  <p>{restaurant.description}</p>
-                  <p>{restaurant.description}</p>
-                  <p>{restaurant.description}</p>
-                  <p>{restaurant.description}</p>
                 </section>
             </div>
-            <br />
+            <hr />
 
-            <div ref={ el => this.reviewsSection = el } className='restaurant-showpage-reviews' name='reviews'>
-              Reviews Coming Soon
+            <div ref={ el => { this.reviewsSection = el;} } className='restaurant-showpage-reviews' name='reviews'>
+                Reviews List
+                <Route path={'/restaurants/:restaurantId'}
+                  component={ReviewIndexContainer} />
             </div>
+            <hr />
+
+          
+
+
           </div>
         </div>
       </div>
