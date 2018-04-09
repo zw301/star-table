@@ -25,7 +25,6 @@ class SearchForm extends React.Component {
     e.preventDefault();
     this.props.searchRestaurants(this.state.searchTerms);
       // .then(() => this.history.push("/restaurants"));
-      // debugger
     this.props.history.push("/restaurants");
     // this.context.router.push("/restaurants");
     document.getElementById("search-content").value = "";

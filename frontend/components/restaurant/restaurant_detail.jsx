@@ -7,9 +7,11 @@ from '../reservation/reservation_form_container';
 class RestaurantDetail extends React.Component {
   constructor(props) {
     super(props);
+
+    this.scrollTo = this.scrollTo.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.requestSingleRestaurant(this.props.match.params.restaurantId);
   }
 
@@ -19,6 +21,12 @@ class RestaurantDetail extends React.Component {
   //   }
   // }
 
+  scrollTo(el) {
+   return () => {
+     el.scrollIntoView();
+   };
+ }
+
 
   render() {
     if (!this.props.restaurant) return null;
@@ -26,26 +34,72 @@ class RestaurantDetail extends React.Component {
     const restaurant = this.props.restaurant;
 
     return (
-      <div>
-        <div>Make a reservation
-          <Route
-              path={`/restaurants/:restaurantId`}
-              component={ReservationFormContainer}
-          />
+      <div className='restaurant-showpage'>
+        <div className='restaurant-showpage-header'>
+          <div className='showpage-header-left'>
+            showpage-header-image
+          </div>
+          <section>
+            <h1>{restaurant.name}</h1>
+            <div>Rating</div>
+            <span>{restaurant.cuisine} </span>
+            <span>| {restaurant.city} </span>
+            <span>| Star: {restaurant.star}</span>
+          </section>
         </div>
-        <h1>{restaurant.name}</h1>
-        <div>Review-rating</div>
-        <h1>Detail</h1>
-        <div>save to favorites</div>
-        <div>
-          <span>Detail(style later)</span>
-          <p>{restaurant.cusine}</p>
-          <p>{restaurant.phoneNumber}</p>
-          <p>Hours of operation:{restaurant.openTime} - {restaurant.closeTime}</p>
-          <p>Address {restaurant.address},{restaurant.city} {restaurant.state} {restaurant.zipcode}</p>
-          <p>{restaurant.description}</p>
+        <hr />
+
+        <div className='restaurant-showpage-main-container'>
+          <div className='restaurant-showpage-nav-link'>
+            <nav className='nav-link-wrapper'>
+              <a className='page-nav-link' onClick={this.scrollTo(this.reservationSection)}>Reservation</a>
+              <br />
+              <a className='page-nav-link' onClick={this.scrollTo(this.aboutSection)}>About</a>
+              <br />
+              <a className='page-nav-link' onClick={this.scrollTo(this.reviewsSection)}>Reviews</a>
+              <br />
+            </nav>
+          </div>
+          <hr />
+
+          <div className='restaurant-showpage-main'>
+            <div
+              name='reservation'
+              ref={ el => this.reservationSection = el }
+              className='restaurant-showpage-reservation'>
+              <Route
+                path={`/restaurants/:restaurantId`}
+                component={ReservationFormContainer}
+              />
+            </div>
+            <hr />
+
+            <div ref={ el => this.aboutSection = el } className='restaurant-showpage-content-about' id='about'>
+                <span className='restaurant-showpage-content-header'>
+                  <h2>About {this.props.restaurant.name}</h2>
+                </span>
+                <section className='restaurant-showpage-content-about-text'>
+                  <p>Restaurant Detail</p><span>   rating</span>
+                  <p>{restaurant.cusine}</p>
+                  <p>{restaurant.phoneNumber}</p>
+                  <p>Hours of operation:{restaurant.openTime} - {restaurant.closeTime}</p>
+                  <p>Address {restaurant.address},{restaurant.city} {restaurant.state} {restaurant.zipcode}</p>
+                  <p>{restaurant.description}</p>
+                  <p>{restaurant.description}</p>
+                  <p>{restaurant.description}</p>
+                  <p>{restaurant.description}</p>
+                  <p>{restaurant.description}</p>
+                  <p>{restaurant.description}</p>
+                  <p>{restaurant.description}</p>
+                </section>
+            </div>
+            <br />
+
+            <div ref={ el => this.reviewsSection = el } className='restaurant-showpage-reviews' name='reviews'>
+              Reviews Coming Soon
+            </div>
+          </div>
         </div>
-        <ul>Reviews</ul>
       </div>
     );
   }

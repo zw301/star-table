@@ -50,12 +50,14 @@ class ReservationForm extends React.Component {
       time: this.state.time
     };
 
-    // this.props.createReservation(fetchInfo)
-    // .then(() => this.props.history.push(`/users/${this.props.currentUser.id}`));
+    this.props.createReservation(fetchInfo).then(() => {
+      this.props.clearErrors();
+      this.props.history.push(`/users/${this.props.currentUser.id}`);
+    });
 
-    this.props.createReservation(fetchInfo).then(() =>
-      this.props.clearErrors()
-    );
+    // this.props.createReservation(fetchInfo).then(() =>
+    //   this.props.clearErrors()
+    // );
   }
 
 
@@ -103,7 +105,7 @@ class ReservationForm extends React.Component {
          value={num}
          selected={num === 2 ? "selected" : ""}
          >
-         {num}
+         {num === 1 ? (num + " person") : (num + " people")}
        </option>
      ));
 
@@ -114,8 +116,8 @@ class ReservationForm extends React.Component {
     let date = new Date();
     let minDate = date.toISOString().slice(0,10);
     return(
-      <div className="rest-show-background">
-        <h1>Make a reservation</h1><hr/>
+      <div className="reservation-show">
+        <h1>Make a reservation</h1>
         {this.renderErrors()}
         <form>
           <select className="reservation-input"

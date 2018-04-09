@@ -8,6 +8,7 @@ class UserProfile extends Component {
 
   constructor(props) {
     super(props);
+
     this.scrollTo = this.scrollTo.bind(this);
     this.upcomingReservations = this.upcomingReservations.bind(this);
     this.pastReservations = this.pastReservations.bind(this);
@@ -68,7 +69,7 @@ class UserProfile extends Component {
                 {res.date}
               </section>
               <section className='upcoming-res-time'>
-                {res.time}
+                {res.time}:00
               </section>
               <section className='upcoming-res-seats'>
                 Table for {res.seats}
