@@ -9,7 +9,7 @@ import {
 import ReservationForm from './reservation_form';
 
 
-const mapStateToProps = ({restaurants, session, errors}) => ({
+const mapStateToProps = ({session, errors}) => ({
   currentUser: session.currentUser,
   // restaurants: restaurants,
   errors: errors.reservation

@@ -34,9 +34,7 @@ class RestaurantDetail extends React.Component {
   }
 
   scrollTo(el) {
-   // return () => {
-     el.scrollIntoView({ behavior: 'smooth' });
-   // };
+    el.scrollIntoView({ behavior: 'smooth' });
  }
 
 
@@ -76,7 +74,7 @@ class RestaurantDetail extends React.Component {
               <br />
               <a className='page-nav-link' onClick={() => this.scrollTo(this.reviewsSection)}>Reviews</a>
               <br />
-              <a className='page-nav-link' onClick={() => this.scrollTo(this.writeReviewsSection)}>Reviews</a>
+              <a className='page-nav-link' onClick={() => this.scrollTo(this.writeReviewsSection)}>Write Reviews</a>
               <br />
             </nav>
           </div>
@@ -116,7 +114,11 @@ class RestaurantDetail extends React.Component {
             </div>
             <hr />
 
-          
+            <div ref={ el => { this.writeReviewsSection = el;} } className='restaurant-showpage-reviews' name='write-reviews'>
+                Write Reviews
+                <Route path={'/restaurants/:restaurantId'}
+                    component={ReviewFormContainer} />
+            </div>
 
 
           </div>

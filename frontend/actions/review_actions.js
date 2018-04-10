@@ -30,41 +30,37 @@ export const receiveReviewErrors = errors => ({
 //create a review
 export const createReview = review => dispatch => (
   APIUtil.createReview(review)
-                .then(newReview => (dispatch(receiveReview(newReview))),
-                 err => (dispatch(receiveReviewErrors(err.responseJSON))))
+    .then((newReview) => {
+      dispatch(receiveReview(newReview));
+    }, err => {
+      dispatch(receiveReviewErrors(err.responseJSON));
+    })
 );
 
 //fetch a review for review show page
 export const requestReview = reviewId => dispatch => (
   APIUtil.fetchReview(reviewId)
-                .then(review => (dispatch(receiveReview(review))),
-                 err => dispatch(receiveReviewErrors(err.responseJSON)))
+    .then(review => (dispatch(receiveReview(review))),
+        err => dispatch(receiveReviewErrors(err.responseJSON)))
 );
 
 // fetch all of current restaurant's reviews
 export const requestRestaurantReviews = ({userId, restaurantId}) => dispatch => (
   APIUtil.fetchRestaurantReviews(userId, restaurantId)
-                .then(reviews => (dispatch(receiveReviews(reviews))),
-                 err => (dispatch(receiveReviewErrors(err.responseJSON))))
+    .then(reviews => (dispatch(receiveReviews(reviews))),
+        err => (dispatch(receiveReviewErrors(err.responseJSON))))
 );
 
 // fetch all of current user's reviews
 export const requestUserReviews = userId => dispatch => (
   APIUtil.fetchUserReviews(userId)
-                .then(reviews => (dispatch(receiveReviews(reviews))),
-                 err => (dispatch(receiveReviewErrors(err.responseJSON))))
+    .then(reviews => (dispatch(receiveReviews(reviews))),
+      err => (dispatch(receiveReviewErrors(err.responseJSON))))
 );
 
 // cancel a review
 export const deleteReview = reviewId => dispatch => (
   APIUtil.destroyReview(reviewId)
-                .then(review => (dispatch(removeReview(reviewId))),
-                 err => dispatch(receiveReviewErrors(err.responseJSON)))
+    .then(review => (dispatch(removeReview(reviewId))),
+      err => dispatch(receiveReviewErrors(err.responseJSON)))
 );
-
-// modify a reservaiton
-// export const editReview = review => dispatch => (
-//   APIUtil.updateReview(review)
-//                 .then(newReview => (dispatch(receiveReview(newReview))),
-//                  err => dispatch(receiveReviewErrors(err.responseJSON)))
-// );

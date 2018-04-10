@@ -6,6 +6,7 @@ class ReviewIndexItem extends React.Component {
   }
   render(){
     const review = this.props.review;
+    if(!review.user) {return null; }
     return (
       <li>
         <p>Rating: {review.rating}</p>
