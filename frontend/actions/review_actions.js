@@ -45,20 +45,26 @@ export const requestReview = reviewId => dispatch => (
 );
 
 // fetch all of current restaurant's reviews
-export const requestRestaurantReviews = ({userId, restaurantId}) => dispatch => (
-  APIUtil.fetchRestaurantReviews(userId, restaurantId)
+// export const requestRestaurantReviews = ({userId, restaurantId}) => dispatch => (
+//   APIUtil.fetchRestaurantReviews(userId, restaurantId)
+//     .then(reviews => (dispatch(receiveReviews(reviews))),
+//         err => (dispatch(receiveReviewErrors(err.responseJSON))))
+// );
+
+export const requestRestaurantReviews = (restaurantId) => dispatch => (
+  APIUtil.fetchRestaurantReviews(restaurantId)
     .then(reviews => (dispatch(receiveReviews(reviews))),
         err => (dispatch(receiveReviewErrors(err.responseJSON))))
 );
 
 // fetch all of current user's reviews
-export const requestUserReviews = userId => dispatch => (
-  APIUtil.fetchUserReviews(userId)
-    .then(reviews => (dispatch(receiveReviews(reviews))),
-      err => (dispatch(receiveReviewErrors(err.responseJSON))))
-);
+// export const requestUserReviews = userId => dispatch => (
+//   APIUtil.fetchUserReviews(userId)
+//     .then(reviews => (dispatch(receiveReviews(reviews))),
+//       err => (dispatch(receiveReviewErrors(err.responseJSON))))
+// );
 
-// cancel a review
+// delete a review
 export const deleteReview = reviewId => dispatch => (
   APIUtil.destroyReview(reviewId)
     .then(review => (dispatch(removeReview(reviewId))),

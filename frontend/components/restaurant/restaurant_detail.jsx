@@ -47,7 +47,7 @@ class RestaurantDetail extends React.Component {
       sum += restaurant.ratingArr[i];
     }
 
-    let aveRating = sum / restaurant.ratingArr.length;
+    let aveRating = Math.round(sum / restaurant.ratingArr.length * 10) / 10;
 
     return (
       <div className='restaurant-showpage'>

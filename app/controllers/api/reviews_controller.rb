@@ -1,15 +1,24 @@
 class Api::ReviewsController < ApplicationController
+  # def index
+  #   current_restaurant = Restaurant.find(params[:restaurantId]) if params[:restaurantId]
+  #   if current_restaurant
+  #     @reviews = current_restaurant.reviews.order(:created_at)
+  #   else
+  #     user = User.find_by(id: params[:userId])
+  #     if user
+  #       @reviews = user.reviews.order(:created_at)
+  #     else
+  #       render json: ["User not found"], status: 404
+  #     end
+  #   end
+  # end
+
   def index
     current_restaurant = Restaurant.find(params[:restaurantId]) if params[:restaurantId]
     if current_restaurant
       @reviews = current_restaurant.reviews.order(:created_at)
     else
-      user = User.find_by(id: params[:userId])
-      if user
-        @reviews = user.reviews.order(:created_at)
-      else
-        render json: ["User not found"], status: 404
-      end
+      render json: ["Restaurant not found"], status: 404
     end
   end
 

@@ -20,7 +20,7 @@ class ReservationIndex extends React.Component {
     return(
       <div className="reservation-index">
         <h1>Reservations</h1><hr/>
-        {this.ownerReservations(this.indexEl())}
+        {this.indexEl()}
       </div>
     );
   }

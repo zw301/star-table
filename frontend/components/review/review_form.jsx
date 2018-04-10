@@ -23,9 +23,9 @@ class ReviewForm extends React.Component {
      this.renderErrors = this.renderErrors.bind(this);
   }
 
-  // componentDidMount(){
-  //   this.props.clearReviewErrors();
-  // }
+  componentDidMount(){
+    this.props.clearErrors();
+  }
 
   update(field) {
    return e => {
@@ -51,11 +51,7 @@ class ReviewForm extends React.Component {
       this.state.user_id = this.props.currentUser.id;
     }
 
-    this.props.createReview(this.state).then(() => {
-      this.props.clearErrors();
-      // this.props.history.push(`/restaurants/${this.props.match.params.restaurantId}`);
-      }
-    ).then(() => (
+    this.props.createReview(this.state).then(() => (
       this.setState({
         user_id: "",
         //restaurant_id subject to change depends on container
@@ -145,9 +141,10 @@ class ReviewForm extends React.Component {
          </h3>
          <div className="review-form-middle">
            <textarea
-             value={this.state.comment}
-             onChange={this.update('comment')}
-             className="review-text-input"
+            placeholder="Please leave your feedback!"
+            value={this.state.comment}
+            onChange={this.update('comment')}
+            className="review-text-input"
            />
          </div>
 

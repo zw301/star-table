@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import ReservationIndexItem from '../reservation/reservation_index_item';
+// import ReservationIndexItem from '../reservation/reservation_index_item';
 
 class UserProfile extends Component {
 
@@ -120,6 +120,15 @@ class UserProfile extends Component {
                 <section className='past-res-seats'>
                   Table for {res.seats} people
                 </section>
+
+                <Link
+                  to={`/restaurants/${res.restaurant.id}`}
+                  className='past-res-name-link'
+                >
+                  Write Review
+                </Link>
+
+
             </section>
             <br />
           </section>
@@ -136,7 +145,6 @@ class UserProfile extends Component {
 
 
   favoriteRestaurants() {
-
     return(
       <div>
         favorite restaurants part coming soon
@@ -160,7 +168,7 @@ class UserProfile extends Component {
           >Past Reservations</section>
           <section
             className='user-nav-link'
-            onClick={this.scrollTo(this.pastSection)}
+            onClick={this.scrollTo(this.favoriteSection)}
           >Favorite Restaurants</section>
         </nav>
         <hr />

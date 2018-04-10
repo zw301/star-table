@@ -8,8 +8,8 @@ class Api::RestaurantsController < ApplicationController
       else
         render json: ["No Restaurants Found"], status: 404
       end
-    # else
-    #   @restaurants = Restaurant.all
+    else
+      @restaurants = Restaurant.all
     end
     render :index
   end

@@ -15,20 +15,11 @@ export const fetchReview = reviewId => (
 );
 
 
-export const fetchUserReviews = (userId) => (
+export const fetchRestaurantReviews = (restaurantId) => (
   $.ajax({
     method: 'GET',
     url: '/api/reviews',
-    data: {userId}
-  })
-);
-
-
-export const fetchRestaurantReviews = (userId, restaurantId) => (
-  $.ajax({
-    method: 'GET',
-    url: '/api/reviews',
-    data: {userId, restaurantId}
+    data: {restaurantId}
   })
 );
 

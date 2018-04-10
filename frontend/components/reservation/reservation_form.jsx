@@ -20,6 +20,7 @@ class ReservationForm extends React.Component {
     //helper methods
     this.timePickerBuilder = this.timePickerBuilder.bind(this);
     this.seatsBuilder = this.seatsBuilder.bind(this);
+    debugger
   }
 
   componentWillUnmount() {

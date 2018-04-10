@@ -4,17 +4,10 @@ import ReviewIndexItem from './review_index_item';
 class ReviewIndex extends React.Component {
   constructor(props){
     super(props);
-    // this.indexEl = this.indexEl.bind(this);
-    // this.reviewChecker = this.reviewChecker.bind(this);
-
   }
 
   componentDidMount(){
-    let fetchInfo = {
-      userId: this.props.currentUser.id,
-      restaurantId: this.props.restaurantId
-    };
-    this.props.requestRestaurantReviews(fetchInfo);
+    this.props.requestRestaurantReviews(this.props.restaurantId);
   }
 
 
