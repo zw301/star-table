@@ -90,7 +90,7 @@ Restaurant.create(
     zipcode: Faker::Address.zip_code,
     phone_number: Faker::PhoneNumber.phone_number,
     open_time: "12:00:00",
-    close_time: "22:00:00",
+    close_time: "20:00:00",
     cuisine: Faker::Address.country,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
   )

@@ -19,11 +19,11 @@ class Restaurant < ApplicationRecord
   end
 
   def ensure_open_time
-    self.open_time = "12:00:00"
+    self.open_time ||= "12:00:00"
   end
 
   def ensure_close_time
-    self.close_time = "22:00:00"
+    self.close_time ||= "22:00:00"
   end
 
   def ensure_star

@@ -18,5 +18,6 @@ json.extract! restaurant,
 
 # json.reviews restaurant.reviews
 json.rating_arr restaurant.rating_arr
+json.reservationUserIds restaurant.reservations.pluck(:user_id).uniq
 
 # json.logo asset_path(restaurant.logo)

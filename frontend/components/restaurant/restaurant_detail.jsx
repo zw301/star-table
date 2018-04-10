@@ -21,6 +21,7 @@ class RestaurantDetail extends React.Component {
     super(props);
 
     this.scrollTo = this.scrollTo.bind(this);
+    // this.reviewFromChecker = this.reviewFromChecker.bind(this);
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -35,7 +36,40 @@ class RestaurantDetail extends React.Component {
 
   scrollTo(el) {
     el.scrollIntoView({ behavior: 'smooth' });
- }
+  }
+
+  reservationFormChecker() {
+    if(this.props.currentUser) {
+      return (
+        <Route
+          path={`/restaurants/:restaurantId`}
+          component={ReservationFormContainer}
+        />
+      );
+    } else {
+      return (
+        <div>Please Log In to make a reservation!</div>
+      );
+    }
+  }
+
+  reviewFromChecker() {
+    if(!this.props.currentUser) { return null; }
+
+    const reservationUserIds = this.props.restaurant.reservationUserIds;
+    const currentUser = this.props.currentUser;
+    if(reservationUserIds.includes(currentUser.id)) {
+      return (
+        <div>
+          Write Reviews
+          <Route path={'/restaurants/:restaurantId'}
+              component={ReviewFormContainer} />
+        </div>
+      );
+    }
+  }
+
+
 
 
   render() {
@@ -85,10 +119,7 @@ class RestaurantDetail extends React.Component {
               name='reservation'
               ref={ el => { this.reservationSection = el;} }
               className='restaurant-showpage-reservation'>
-              <ProtectedRoute
-                path={`/restaurants/:restaurantId`}
-                component={ReservationFormContainer}
-              />
+                {this.reservationFormChecker()}
             </div>
             <hr />
 
@@ -115,9 +146,7 @@ class RestaurantDetail extends React.Component {
             <hr />
 
             <div ref={ el => { this.writeReviewsSection = el;} } className='restaurant-showpage-reviews' name='write-reviews'>
-                Write Reviews
-                <Route path={'/restaurants/:restaurantId'}
-                    component={ReviewFormContainer} />
+                {this.reviewFromChecker()}
             </div>
 
 

@@ -6,7 +6,7 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      partySize: '',
+      seats: '',
       date: '',
       time: '',
       searchTerms: ''
@@ -47,12 +47,11 @@ class SearchForm extends React.Component {
         <h3>Make restaurant reservations the easy way</h3>
         <div className="search-form">
 
-          <select
-            className="search-form searchbar-partysize"
-            value={this.state.partySize}
-            onChange={this.update('partySize')}>
-            {this.generatePartySizes()}
-          </select>
+          <input type="text"
+            className="search-input search-select"
+            value={this.state.seats}
+            onChange={this.update('seats')}
+            placeholder="2 People" />
 
           <input type="text"
             className="search-input search-select"
@@ -62,7 +61,6 @@ class SearchForm extends React.Component {
           <input type="text"
             className="search-input search-select"
             value=""
-
             placeholder="7:00 PM"/>
 
           <input type="text"

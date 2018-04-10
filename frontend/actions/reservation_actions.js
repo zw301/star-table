@@ -31,10 +31,6 @@ export const requestUserReservations = userId => dispatch => (
     .then(reservations => dispatch(receiveAllReservation(reservations)),
           err => dispatch(receiveReservationErrors(err.responseJSON)))
 );
-// export const requestAllReservations = () => dispatch => (
-//   APIUtil.fetchAllReservation()
-//     .then(reservations => dispatch(receiveAllReservation(reservations)))
-// );
 
 
 export const updateReservation = reservation => dispatch => (

@@ -11,7 +11,7 @@ class ReservationForm extends React.Component {
       user_id: "",
       restaurant_id: this.props.match.params.restaurantId,
       seats: 2,
-      time: "12:00",
+      time: "18:00",
       date: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,7 +20,6 @@ class ReservationForm extends React.Component {
     //helper methods
     this.timePickerBuilder = this.timePickerBuilder.bind(this);
     this.seatsBuilder = this.seatsBuilder.bind(this);
-    debugger
   }
 
   componentWillUnmount() {
@@ -77,7 +76,12 @@ class ReservationForm extends React.Component {
 
   timePickerBuilder(){
     let timeArr = [];
-    for(let i = 0; i < 24; i++){
+    let openTime = this.props.restaurants[this.state.restaurant_id].openTime;
+    openTime = parseInt(openTime.split(":")[0]);
+    let closeTime = this.props.restaurants[this.state.restaurant_id].closeTime;
+    closeTime = parseInt(closeTime.split(":")[0]);
+
+    for(let i = openTime; i < closeTime; i++){
         timeArr.push(i);
     }
 
@@ -85,7 +89,7 @@ class ReservationForm extends React.Component {
       <option
         key={time}
         value={time}
-        selected={time === 12 ? "selected" : ""}
+        selected={time === 18 ? "selected" : ""}
       > {time < 10 ? ("0" + time + ":00") : (time + ":00")}
       </option>
     ));
