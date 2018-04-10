@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import {browserHistory} from 'react-router';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -27,7 +26,13 @@ class SearchForm extends React.Component {
       // .then(() => this.history.push("/restaurants"));
     this.props.history.push("/restaurants");
     // this.context.router.push("/restaurants");
-    document.getElementById("search-content").value = "";
+    // document.getElementById("search-content").value = "";
+    this.setState({
+      seats: '',
+      date: '',
+      time: '',
+      searchTerms: ''
+    });
   }
 
 

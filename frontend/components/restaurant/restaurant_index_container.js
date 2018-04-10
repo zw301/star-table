@@ -13,8 +13,8 @@ import {
 
 const mapStateToProps = state => ({
   currentUser:state.currentUser,
-  restaurants: selectAllRestaurants(state.entities),
-
+  // restaurants: selectAllRestaurants(state.entities),
+  restaurants: Object.values(state.entities.restaurants),
 });
 
 const mapDispatchToProps = dispatch => ({
