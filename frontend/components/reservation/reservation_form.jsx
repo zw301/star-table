@@ -60,7 +60,6 @@ class ReservationForm extends React.Component {
     // );
   }
 
-
   renderErrors() {
     return(
       <ul className="error-ul">

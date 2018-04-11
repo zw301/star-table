@@ -10,9 +10,9 @@ class SearchForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    this.props.searchRestaurants(this.state.searchTerms);
-  }
+  // componentDidMount() {
+  //   this.props.searchRestaurants(this.state.searchTerms);
+  // }
 
   update(field) {
     return e => this.setState({
