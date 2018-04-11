@@ -1,0 +1,88 @@
+
+
+.user-profile {
+  height: 80px;
+  background: #fff;
+
+  font-size: 30px;
+  line-height: 80px;
+  padding-left: 40px;
+
+}
+
+.user-profile-body {
+  background-color: #f7f7f7;
+  border: 1px solid #f7f7f7;
+  margin: 0 auto;
+}
+
+.user-profile-side{
+  width: 180px;
+  position: fixed;
+  padding: 50px 0 0 30px;
+  // text-align: right;
+}
+
+.user-nav-link {
+  width: 80%;
+  font-size: 18px;
+  margin: 20px 10px 20px 10px;
+  color: #356273;
+}
+
+.user-nav-link:hover {
+  cursor: pointer;
+  color: #E5656E;
+}
+
+.user-profile-content {
+  padding-left: 250px;
+  width: 70%;
+}
+
+.user-profile-section:first-of-type {
+  margin-top: 20px;
+}
+
+.user-profile-section {
+  background: #fff;
+  margin-bottom: 40px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.user-profile-content-title {
+  font-size: 30px;
+  padding: 26px 0 26px 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.reservation-list {
+  display: flex;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+
+.restaurant-detail-container div {
+  color: #DA3743;
+  padding: 4px 0;
+}
+
+.reservation-btn{
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+}
+
+.review-btn {
+  padding: 2px 12px;
+  display: inline-block;
+  line-height: 34px;
+}
+
+.no-reservation {
+  padding: 10px 0 10px 24px;
+}

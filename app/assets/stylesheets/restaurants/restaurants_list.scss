@@ -1,10 +1,79 @@
 .restaurant-list {
   // position: relative;
-  max-width: 70%;
-  border: 1px solid #ccc;
+  max-width: 100%;
+  border: 1px solid #fff;
   margin: 20px auto;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0px 3px 6px 0px #ccc;
-  padding: 20px;
+  background-color: #f7f7f7;
+  padding: 0 20px;
+}
+
+.restaurantList-img-container {
+  background: url("http://res.cloudinary.com/chengzii/image/upload/v1523397594/restaurantList.jpg") no-repeat;
+  background-size: cover;
+  background-position: 0 -100px;
+  height: 360px;
+  min-width:900px;
+}
+
+.restaurant-li {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  padding: 20px 0 20px 90px;
+}
+
+.restaurant-li:last-of-type {
+  border-bottom: none;
+}
+
+.restaurant-logo-container {
+  width: 180px;
+  height: 130px;
+  overflow: hidden;
+  margin-right: 20px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.restaurant-logo-container img {
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+  top: -28px;
+}
+
+.restaurant-detail-ul {
+  font-size: 14px;
+  margin-left: 40px;
+}
+
+.restaurant-detail-ul li {
+  padding: 3px;
+  position: relative;
+}
+
+.restaurant-detail-ul li:last-of-type {
+  padding-bottom: 0;
+}
+
+.restaurant-name {
+  display: flex;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+  height: 44px;
+  line-height: 44px;
+}
+
+.restaurant-star{
+
+  // position: absolute;
+  // top: 12px;
+}
+
+.restaurant-name:hover {
+  cursor: pointer;
+  color: #E5656E;
 }

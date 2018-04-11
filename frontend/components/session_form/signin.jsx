@@ -84,7 +84,7 @@ class Login extends React.Component {
               />
 
             <button type="submit" className="session-submit">Log In</button>
-            <p className="changeForm">New to OpenTable?  {this.props.changeForm}</p>
+            <p className="changeForm">New to StarTable?  {this.props.changeForm}</p>
           </div>
         </form>
         <div onClick={this.props.closeModal} className="close-x">&times;</div>

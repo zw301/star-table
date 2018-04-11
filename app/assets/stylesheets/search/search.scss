@@ -1,36 +1,38 @@
 .search-form-container {
+  width: 100%;
+}
+
+.search-form-container {
     border: 1px solid #fff;
     height: 180px;
-    width: 800px;
-    // display: flex;
-    // justify-content: space-evenly;
+    width: 100%;
+    min-width: 400px;
     margin: 0 auto;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0px 2px 6px 0px #ccc;
     // position: absolute; left: 50%; top: 50%;
-    // margin-top: -300px;    /* 高度的一半 */
+    // margin-top: -100px auto;    /* 高度的一半 */
     // margin-left: -400px;    /* 宽度的一半 */
     // transform: translate(-50%, -50%);
 
-    position: absolute; left: 0; right: 0; top: 28%;
-    margin: auto;
+    // position: absolute; left: 0; right: 0; top: 28%;
+    // margin: auto;
 }
 
 .search-form-container h3 {
   text-align: center;
-  font-size: 36px;
+  font-size: 46px;
   font-weight: bold;
   // font-family: BrandonText,Helvetica Neue,Helvetica,Arial,sans-serif;
-  padding: 30px 0 10px 0;
+  padding-top: 30px;
 }
 
 .search-form {
   align-items: center;
   text-align: center;
   height: 40%;
-  padding: 20px 0 0 0;
-
+  padding-top: 20px;
 }
 
 .search-form input {
@@ -40,7 +42,7 @@
 
 .search-input {
   border: 1px solid #ccc;
-  width: 260px;
+  width: 60%;
   font-size: 15px;
   padding-left: 10px;
 }
@@ -51,11 +53,6 @@
   font-size: 15px;
 }
 
-.search-select {
-  width: 100px;
-  border: 1px solid #ccc;
-  border-right: none;
-}
 
 .submit-button {
   background-color: #da3743;
@@ -72,4 +69,31 @@
 .refine-search-form {
   display: flex;
   justify-content: space-evenly;
+}
+
+.restaurant-search-error {
+  padding: 30px 0 20px 80px;
+}
+
+.restaurant-search-error div{
+  color: grey;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1200px) {
+  .search-form-container h3 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 900px) {
+  .search-form-container h3 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .search-form-container h3 {
+    font-size: 22px;
+  }
 }

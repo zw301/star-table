@@ -30,7 +30,6 @@ const App = () => (
   <div>
     <Modal />
     <header>
-      <Link to="/restaurants/new" >For Restaurants</Link>
       <Route path="/" component={NavBarContainer} />
     </header>
     <Switch>

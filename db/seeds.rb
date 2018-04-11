@@ -15,7 +15,7 @@ User.create(
   email: "guest@mail.com",
   password: "password",
   first_name: "Guest",
-  last_name: "Guest",
+  last_name: ".",
   phone_number: "347-464-1688"
 )
 
@@ -24,7 +24,7 @@ User.create(
   password: "password",
   first_name: "Zii",
   last_name: "Wang",
-  phone_number: "347-464-9999"
+  phone_number: "347-666-9999"
 )
 
 10.times do
@@ -33,7 +33,7 @@ User.create(
     password: "password",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number,
+    phone_number: Faker::PhoneNumber.phone_number.delete("(").delete(")").slice(0,12),
   )
 end
 
@@ -67,19 +67,121 @@ Restaurant.create(
   name: "IzzI",
   address: "20 Brooklyn",
   star: "3",
-  city: "New York",
-  state: "NY",
-  zipcode: "11024",
+  city: "San Francisco",
+  state: "CA",
+  zipcode: "94043",
   phone_number: "212-823-9800",
   open_time: "18:00:00",
-  close_time: "22:00:00",
+  close_time: "24:00:00",
   cuisine: "Chinese",
   description: "Hot pot lalala",
   logo: "izzi_logo.png"
 )
 
+6.times do
+  Restaurant.create(
+    owner_id:  (1..10).to_a.sample,
+    name: Faker::Food.dish,
+    address: Faker::Address.street_address,
+    star: [1,2,3].sample,
+    city: "New York",
+    state: "NY",
+    zipcode: Faker::Address.zip_code,
+    phone_number: Faker::PhoneNumber.phone_number.delete("(").delete(")").slice(0,12),
+    open_time: "18:00:00",
+    close_time: "24:00:00",
+    cuisine: Faker::Address.country,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  )
+end
 
-10.times do
+6.times do
+  Restaurant.create(
+    owner_id:  (1..10).to_a.sample,
+    name: Faker::Food.dish,
+    address: Faker::Address.street_address,
+    star: [1,2,3].sample,
+    city: "San Francisco",
+    state: "CA",
+    zipcode: Faker::Address.zip_code,
+    phone_number: Faker::PhoneNumber.phone_number.delete("(").delete(")").slice(0,12),
+    open_time: "12:00:00",
+    close_time: "20:00:00",
+    cuisine: Faker::Address.country,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  )
+end
+
+6.times do
+  Restaurant.create(
+    owner_id:  (1..10).to_a.sample,
+    name: Faker::Food.dish,
+    address: Faker::Address.street_address,
+    star: [1,2,3].sample,
+    city: "Chicago",
+    state: "IL",
+    zipcode: Faker::Address.zip_code,
+    phone_number: Faker::PhoneNumber.phone_number.delete("(").delete(")").slice(0,12),
+    open_time: "10:00:00",
+    close_time: "18:00:00",
+    cuisine: Faker::Address.country,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  )
+end
+
+6.times do
+  Restaurant.create(
+    owner_id:  (1..10).to_a.sample,
+    name: Faker::Food.dish,
+    address: Faker::Address.street_address,
+    star: [1,2,3].sample,
+    city: "Los Angeles",
+    state: "CA",
+    zipcode: Faker::Address.zip_code,
+    phone_number: Faker::PhoneNumber.phone_number.delete("(").delete(")").slice(0,12),
+    open_time: "16:00:00",
+    close_time: "22:00:00",
+    cuisine: Faker::Address.country,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  )
+end
+
+6.times do
+  Restaurant.create(
+    owner_id:  (1..10).to_a.sample,
+    name: Faker::Food.dish,
+    address: Faker::Address.street_address,
+    star: [1,2,3].sample,
+    city: "Washington",
+    state: "DC",
+    zipcode: Faker::Address.zip_code,
+    phone_number: Faker::PhoneNumber.phone_number.delete("(").delete(")").slice(0,12),
+    open_time: "12:00:00",
+    close_time: "24:00:00",
+    cuisine: Faker::Address.country,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  )
+end
+
+6.times do
+  Restaurant.create(
+    owner_id:  (1..10).to_a.sample,
+    name: Faker::Food.dish,
+    address: Faker::Address.street_address,
+    star: [1,2,3].sample,
+    city: "Seattle",
+    state: "WA",
+    zipcode: Faker::Address.zip_code,
+    phone_number: Faker::PhoneNumber.phone_number.delete("(").delete(")").slice(0,12),
+    open_time: "08:00:00",
+    close_time: "20:00:00",
+    cuisine: Faker::Address.country,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  )
+end
+
+
+12.times do
   Restaurant.create(
     owner_id:  (1..10).to_a.sample,
     name: Faker::Food.dish,
@@ -88,7 +190,7 @@ Restaurant.create(
     city: Faker::Address.city,
     state: Faker::Address.state,
     zipcode: Faker::Address.zip_code,
-    phone_number: Faker::PhoneNumber.phone_number,
+    phone_number: Faker::PhoneNumber.phone_number.delete("(").delete(")").slice(0,12),
     open_time: "12:00:00",
     close_time: "20:00:00",
     cuisine: Faker::Address.country,
@@ -124,7 +226,7 @@ Reservation.create(
   )
 end
 
-10.times do
+8.times do
   Reservation.create(
     user_id: 1,
     restaurant_id: (1..12).to_a.sample,
@@ -154,7 +256,17 @@ end
   )
 end
 
-10.times do
+3.times do
+  Reservation.create(
+    user_id: (1..11).to_a.sample,
+    restaurant_id: (1..12).to_a.sample,
+    time: ("5".."10").to_a.sample,
+    date: rand(30.days).seconds.ago.to_s.split(" ").first,
+    seats: (1..6).to_a.sample
+  )
+end
+
+3.times do
   Reservation.create(
     user_id: (1..11).to_a.sample,
     restaurant_id: (1..12).to_a.sample,
@@ -163,6 +275,7 @@ end
     seats: (1..6).to_a.sample
   )
 end
+
 
 Review.create(
   user_id: 1,

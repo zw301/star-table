@@ -36,7 +36,7 @@ class AddRestaurant extends React.Component {
     e.preventDefault();
     this.props.createRestaurant(this.state).then(
       (payload) => {
-        this.props.clearErrors();
+        // this.props.clearErrors();
         this.props.history.push(`/restaurants/${payload.restaurant.id}`);
       }
     );

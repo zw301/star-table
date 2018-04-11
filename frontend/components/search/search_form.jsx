@@ -5,9 +5,6 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      seats: '',
-      date: '',
-      time: '',
       searchTerms: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,17 +19,15 @@ class SearchForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.searchRestaurants(this.state.searchTerms);
-      // .then(() => this.history.push("/restaurants"));
-    this.props.history.push("/restaurants");
+    this.props.searchRestaurants(this.state.searchTerms)
+      .then(() =>
+        this.setState({
+          searchTerms: ''
+        })
+      ).then(() => this.props.history.push("/restaurants"));
+    // this.props.history.push("/restaurants");
     // this.context.router.push("/restaurants");
     // document.getElementById("search-content").value = "";
-    this.setState({
-      seats: '',
-      date: '',
-      time: '',
-      searchTerms: ''
-    });
   }
 
 
@@ -52,21 +47,6 @@ class SearchForm extends React.Component {
         <h3>Make restaurant reservations the easy way</h3>
         <div className="search-form">
 
-          <input type="text"
-            className="search-input search-select"
-            value={this.state.seats}
-            onChange={this.update('seats')}
-            placeholder="2 People" />
-
-          <input type="text"
-            className="search-input search-select"
-            value=""
-            placeholder="Apr 7, 2018"/>
-
-          <input type="text"
-            className="search-input search-select"
-            value=""
-            placeholder="7:00 PM"/>
 
           <input type="text"
             className="search-input"

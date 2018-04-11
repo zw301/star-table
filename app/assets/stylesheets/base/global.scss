@@ -2,10 +2,10 @@
 // Typeface
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 
-
 html {
   // font-family: 'Hind', sans-serif;
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
 }
 
 body {
@@ -16,6 +16,6 @@ header, main {
   background: #fff;
 }
 #root {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }

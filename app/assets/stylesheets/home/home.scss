@@ -1,0 +1,146 @@
+// #navbar-hero {
+//   min-height: 300px;
+//
+// }
+
+.hero-img-container {
+  background: url("http://res.cloudinary.com/chengzii/image/upload/v1523400632/home_background.jpg") no-repeat;
+  background-size: cover;
+  background-position: 0 -40px;
+  height: 360px;
+  min-width:900px;
+  z-index: 2;
+}
+
+
+.content {
+  min-width: 400px;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: -120px;
+}
+
+.cities {
+  margin-top: 40px;
+  padding-bottom: 2px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+
+  box-shadow: 0px 3px 6px 0px #ccc;
+}
+
+.cities h3 {
+  border-bottom: 1px solid #ccc;
+  margin: 20px 0;
+  font-size: 24px;
+  padding: 10px 0;
+  margin: 20px;
+  font-weight: bold;
+}
+
+.city-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.city-col {
+  // width: 33.33%;
+  width: 372px;
+  height: 200px;
+
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 200px;
+
+  text-shadow: 1px 1px 2px #000;
+}
+
+.city-col:hover {
+  opacity: 0.80;
+  cursor: pointer;
+}
+
+#new_york {
+  background: url("http://res.cloudinary.com/chengzii/image/upload/v1523398619/ny_city.jpg") no-repeat;
+  background-size: cover;
+}
+
+#los_angeles {
+  background: url("http://res.cloudinary.com/chengzii/image/upload/v1523398699/la_city.jpg");
+  background-size: cover;
+}
+
+#chicago {
+  background: url("http://res.cloudinary.com/chengzii/image/upload/v1523398619/chicago_city.jpg");
+  background-size: cover;
+}
+
+#san_francisco {
+  background: url("http://res.cloudinary.com/chengzii/image/upload/v1523398619/sf_city.jpg");
+  background-size: cover;
+}
+
+#washington {
+  background: url("http://res.cloudinary.com/chengzii/image/upload/v1523398619/dc_city.jpg");
+  background-size: cover;
+}
+
+#seattle {
+  background: url("http://res.cloudinary.com/chengzii/image/upload/v1523398619/seattle_city.jpg");
+  background-size: cover;
+}
+
+.section-footer {
+  background-image: url("http://res.cloudinary.com/chengzii/image/upload/v1523146697/footer.jpg");
+  background-size: cover;
+  background-position: 0 -260px;
+
+  height: 280px;
+
+  min-width: 400px;
+  width: 70%;
+  margin: 40px auto;
+  text-align: center;
+  color: #fff;
+  font-weight: lighter;
+
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px 0px #ccc;
+}
+
+.section-footer h4 {
+  font-size: 24px;
+  padding: 40px 0;
+}
+
+
+#addRestaurant {
+  display: inline-block;
+  margin-top: 30px;
+  width: 160px;
+  height: 30px;
+  padding: 10px;
+  line-height: 30px;
+  border-radius: 3px;
+}
+
+
+@media (max-width: 1660px) {
+  .city-col {
+    width: 33.3%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .city-col {
+    width: 49%;
+  }
+}
+
+@media (max-width: 900px) {
+  .city-col {
+    width: 100%;
+  }
+}

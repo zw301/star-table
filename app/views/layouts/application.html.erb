@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>StarTable</title>
+    <%= favicon_link_tag source="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_50/v1523389939/star.png" %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -14,6 +15,7 @@
         window.currentUser = {
           "id": <%= current_user.id %>,
           "firstName": "<%= current_user.first_name %>",
+          "lastName": "<%= current_user.last_name %>",
           "email": "<%= current_user.email %>"
         };
       </script>

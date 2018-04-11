@@ -27,10 +27,10 @@ class UserProfile extends Component {
   }
 
   scrollTo(el) {
-   return () => {
-     el.scrollIntoView();
-   };
- }
+    return () => {
+    el.scrollIntoView({ behavior: 'smooth' });
+    };
+  }
 
   upcomingReservations() {
     const upcoming = [];
@@ -47,41 +47,41 @@ class UserProfile extends Component {
       return(
         <div>
         {upcoming.map((res, idx) =>
-          <section key={`upcoming-${idx}`} className="upcoming-item">
-            <section>
+          <section key={`upcoming-${idx}`} className="reservation-list">
+            <div className="restaurant-logo-container">
+              <img src="https://image.freepik.com/free-vector/restaurant-logo-template_1236-155.jpg"/>
+            </div>
+            <div className="restaurant-detail-container">
               <Link
                 to={`/restaurants/${res.restaurant.id}`}
-                className='upcoming-res-name-link'
-              >
-                <section className='upcoming-res-name'>
+                className="restaurant-name">
                   {res.restaurant.name}
-                </section>
               </Link>
+
+
+              <div className='upcoming-res-date'>
+                {res.date}
+              </div>
+              <div className='upcoming-res-time'>
+                {res.time}:00
+              </div>
+              <div className='upcoming-res-seats'>
+                Table for {res.seats}
+              </div>
 
               <button type="button"
                       onClick={this.deleteReservation(res.id)}
-                      className="cancel-reservation">
+                      className="btn btn-demo reservation-btn">
                       Cancel
               </button>
-
-              <section className='upcoming-res-date'>
-                {res.date}
-              </section>
-              <section className='upcoming-res-time'>
-                {res.time}:00
-              </section>
-              <section className='upcoming-res-seats'>
-                Table for {res.seats}
-              </section>
-            </section>
-            <br />
+            </div>
           </section>
         )}
         </div>
       );
     } else {
       return (
-        <p>No upcoming reservations</p>
+        <p className="no-reservation">No upcoming reservations</p>
       );
     }
   }
@@ -101,43 +101,39 @@ class UserProfile extends Component {
       return(
         <div>
         {past.map((res, idx) =>
-          <section key={`past-${idx}`} className="past-item">
-            <section>
+          <section key={`past-${idx}`} className="reservation-list">
+            <div className="restaurant-logo-container">
+              <img src="https://image.freepik.com/free-vector/restaurant-logo-template_1236-155.jpg"/>
+            </div>
+            <div className="restaurant-detail-container">
               <Link
                 to={`/restaurants/${res.restaurant.id}`}
-                className='past-res-name-link'
-              >
-                <section className='past-res-name'>
+                className="restaurant-name">
                   {res.restaurant.name}
-                </section>
               </Link>
-                <section className='past-res-date'>
-                  {res.date}
-                </section>
-                <section className='past-res-time'>
-                  {res.time}:00
-                </section>
-                <section className='past-res-seats'>
-                  Table for {res.seats} people
-                </section>
+              <div className='past-res-date'>
+                {res.date}
+              </div>
+              <div className='past-res-time'>
+                {res.time}:00
+              </div>
+              <div className='past-res-seats'>
+                Table for {res.seats} people
+              </div>
 
-                <Link
-                  to={`/restaurants/${res.restaurant.id}`}
-                  className='past-res-name-link'
-                >
-                  Write Review
-                </Link>
-
-
-            </section>
-            <br />
+              <Link
+                to={`/restaurants/${res.restaurant.id}`}
+                className="btn btn-demo reservation-btn review-btn">
+                Write Review
+              </Link>
+            </div>
           </section>
         )}
         </div>
       );
     } else {
       return (
-        <p>No reservations history</p>
+        <p className="no-reservation">No reservations history</p>
       );
     }
   }
@@ -146,7 +142,7 @@ class UserProfile extends Component {
 
   favoriteRestaurants() {
     return(
-      <div>
+      <div className="no-reservation">
         favorite restaurants part coming soon
       </div>
     );
@@ -156,65 +152,62 @@ class UserProfile extends Component {
   render() {
     const user = this.props.currentUser;
     return (
-      <div className='user-profile-main'>
-        <nav className='user-profile-nav'>
-          <section
-            className='user-nav-link'
-            onClick={this.scrollTo(this.upcomingSection)}
-          >Upcoming Reservations</section>
-          <section
-            className='user-nav-link'
-            onClick={this.scrollTo(this.pastSection)}
-          >Past Reservations</section>
-          <section
-            className='user-nav-link'
-            onClick={this.scrollTo(this.favoriteSection)}
-          >Favorite Restaurants</section>
-        </nav>
-        <hr />
-
-        <div className='user-profile-content'>
-          <div className='user-profile-upcoming-reservation'>
-            <div>
-              <h1>User Info</h1>
-              <h1>{user.firstName}</h1>
-            </div>
-            <hr />
-
-            <div className='user-profile-content-title' name='upcoming'
-              ref={ el => this.upcomingSection = el }>
-              <h2>Upcoming Reservations</h2>
-            </div>
-            <div className='user-profile-upcoming-lists' >
-              {this.upcomingReservations()}
-            </div>
-            <hr />
-
-
-            <div className='user-profile-content-title' name='past'
-              ref={ el => this.pastSection = el }>
-              <h2>Past Reservations</h2>
-            </div>
-            <div className='user-profile-past-lists' >
-              {this.pastReservations()}
-            </div>
-            <hr/>
-
-            <div className='user-profile-favorite'>
-             <div className='user-profile-content-title' name='favorite'
-               ref={ el => this.favoriteSection = el }>
-               <h2>Favorite Restaurants</h2>
-             </div>
-             <div className='user-profile-favorite-lists' >
-               {this.favoriteRestaurants()}
-             </div>
-           </div>
-           <hr/>
-
-          </div>
+      <section className='user-profile-main'>
+        <div className="user-profile">
+          <h3>{user.firstName} {user.lastName}</h3>
         </div>
 
-      </div>
+        <div className='user-profile-body'>
+          <aside className='user-profile-side'>
+            <div
+              className='user-nav-link'
+              onClick={this.scrollTo(this.upcomingSection)}
+            >Upcoming Reservations</div>
+            <div
+              className='user-nav-link'
+              onClick={this.scrollTo(this.pastSection)}
+            >Past Reservations</div>
+            <div
+              className='user-nav-link'
+              onClick={this.scrollTo(this.favoriteSection)}
+            >Favorite Restaurants</div>
+          </aside>
+
+          <section className='user-profile-content'>
+            <div className='user-profile-section'>
+              <div className='user-profile-content-title' name='upcoming'
+                ref={ el => this.upcomingSection = el }>
+                <h2>Upcoming Reservations</h2>
+              </div>
+              <div className='user-profile-section-lists' >
+                {this.upcomingReservations()}
+              </div>
+            </div>
+
+            <div className='user-profile-section'>
+              <div className='user-profile-content-title' name='past'
+                ref={ el => this.pastSection = el }>
+                <h2>Past Reservations</h2>
+              </div>
+              <div className='user-profile-section-lists' >
+                {this.pastReservations()}
+              </div>
+            </div>
+
+
+            <div className='user-profile-section'>
+              <div className='user-profile-content-title' name='favorite'
+                  ref={ el => this.favoriteSection = el }>
+                  <h2>Favorite Restaurants</h2>
+              </div>
+              <div className='user-profile-section-lists' >
+                {this.favoriteRestaurants()}
+              </div>
+            </div>
+
+          </section>
+        </div>
+      </section>
     );
   }
 

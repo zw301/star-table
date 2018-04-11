@@ -6,8 +6,6 @@ class ReservationIndexItem extends React.Component {
     this.reservation = this.props.reservation;
   }
 
-
-
   render(){
     const reservation = this.props.reservation;
     return(

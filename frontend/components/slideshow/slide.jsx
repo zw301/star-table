@@ -1,0 +1,29 @@
+import React from "react";
+
+class Slide extends React.Component {
+ render() {
+   var settings = {
+     dots: true,
+     infinite: true,
+     speed: 2000,
+     slidesToShow: 1,
+     slidesToScroll: 1,
+     autoplay: true,
+     autoplaySpeed: 7000
+   };
+   return (
+     <Slider className="slider-container" {...settings}>
+       <div className="slider one">
+       </div>
+       <div className="slider two">
+       </div>
+       <div className="slider three">
+       </div>
+       <div className="slider four">
+       </div>
+     </Slider>
+   );
+ }
+}
+
+export default Slide;
