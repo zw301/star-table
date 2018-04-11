@@ -19,7 +19,6 @@ from '../review/review_index_container';
 class RestaurantDetail extends React.Component {
   constructor(props) {
     super(props);
-
     this.scrollTo = this.scrollTo.bind(this);
     // this.reviewFromChecker = this.reviewFromChecker.bind(this);
   }
@@ -48,10 +47,17 @@ class RestaurantDetail extends React.Component {
       );
     } else {
       return (
-        <div>Please Log In to make a reservation!</div>
+        <div>
+          <div>Please Log In to make a reservation!</div>
+          <Route
+            path={`/restaurants/:restaurantId`}
+            component={ReservationFormContainer}
+          />
+        </div>
       );
     }
   }
+
 
   reviewFromChecker() {
     if(!this.props.currentUser) { return null; }
@@ -70,6 +76,31 @@ class RestaurantDetail extends React.Component {
   }
 
 
+  getStar() {
+      let starCount = this.props.restaurant.star;
+      if (starCount === 3) {
+        return(
+          <div className="restaurant-star">
+            <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+            <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+            <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+          </div>
+        );
+      } else if(starCount === 2) {
+        return(
+          <div className="restaurant-star">
+            <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+            <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+          </div>
+        );
+      } else {
+        return(
+          <div className="restaurant-star">
+            <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+          </div>
+        );
+      }
+    }
 
 
   render() {
@@ -88,6 +119,7 @@ class RestaurantDetail extends React.Component {
       aveRating = Math.round(sum / restaurant.ratingArr.length * 10) / 10;
     }
 
+
     return (
       <div className='restaurant-showpage'>
         <div className='restaurant-showpage-header'>
@@ -95,62 +127,62 @@ class RestaurantDetail extends React.Component {
             showpage-header-image
           </div>
         </div>
-
-        <div className='restaurant-showpage-main-container'>
-          <div className='restaurant-showpage-nav'>
+        <div className="restaurant-main-container">
+          <div className='restaurant-main-left'>
             <nav className='nav-link-wrapper'>
-              <a className='page-nav-link' onClick={() => this.scrollTo(this.reservationSection)}>Reservation</a>
               <a className='page-nav-link' onClick={() => this.scrollTo(this.aboutSection)}>About</a>
               <a className='page-nav-link' onClick={() => this.scrollTo(this.reviewsSection)}>Reviews</a>
-              <a className='page-nav-link' onClick={() => this.scrollTo(this.writeReviewsSection)}>Write Reviews</a>
             </nav>
-          </div>
 
-          <section className='restaurant-showpage-nav-info'>
-            <h1>{restaurant.name}</h1>
-            <div>Rating: {aveRating}</div>
-            <span>{restaurant.cuisine} </span>
-            <span>| {restaurant.city} </span>
-            <span>| Star: {restaurant.star}</span>
-          </section>
-          <div>
-            <div>Add to Favorites</div>
-          </div>
+            <section className='restaurant-nav-info'>
+              <div className='restaurant-nav-name'>
+                <h1>{restaurant.name}</h1>
+                <span>{this.getStar()}</span>
+              </div>
+              <div className="restaurant-nav-favorite btn-demo">
+                Add to Favorites
+              </div>
+              <div className='restaurant-nav-detail'>
+                <div>Rating: {aveRating}</div>
+                <div>{restaurant.countReview} reviews</div>
+                <div>{restaurant.cuisine} </div>
+              </div>
+            </section>
 
-          <div className='restaurant-showpage-main'>
+
+
+            <div className='restaurant-showpage-main'>
+
+              <div ref={ el => { this.aboutSection = el;} } className='restaurant-content-about' id='about'>
+                    <p className="restaurant-description">{restaurant.description}</p>
+                    <p>Cusines: {restaurant.cuisine}</p>
+                    <p>Phone number: {restaurant.phoneNumber}</p>
+                    <p>Hours of operation: {restaurant.openTime} - {restaurant.closeTime}</p>
+                    <p>Address: {restaurant.address},{restaurant.city} {restaurant.state} {restaurant.zipcode}</p>
+              </div>
+
+              <div
+                ref={ el => { this.reviewsSection = el;} }
+                className='restaurant-reviews'
+                name='reviews'>
+                  <h5>What {this.props.restaurant.ratingArr.length} People Are Saying</h5>
+                  <Route path={'/restaurants/:restaurantId'}
+                    component={ReviewIndexContainer} />
+              </div>
+
+            </div>
+          </div>
+          <aside className="restaurant-main-right">
             <div
               name='reservation'
-              ref={ el => { this.reservationSection = el;} }
-              className='restaurant-showpage-reservation'>
+              className='restaurant-reservation'>
                 {this.reservationFormChecker()}
             </div>
 
-            <div ref={ el => { this.aboutSection = el;} } className='restaurant-showpage-content-about' id='about'>
-                <span className='restaurant-showpage-content-header'>
-                  <h2>About {this.props.restaurant.name}</h2>
-                </span>
-                <section className='restaurant-showpage-content-about-text'>
-                  <span>Rating {aveRating}</span>
-                  <p>{restaurant.cusine}</p>
-                  <p>{restaurant.phoneNumber}</p>
-                  <p>Hours of operation:{restaurant.openTime} - {restaurant.closeTime}</p>
-                  <p>Address {restaurant.address},{restaurant.city} {restaurant.state} {restaurant.zipcode}</p>
-                  <p>{restaurant.description}</p>
-                </section>
-            </div>
-
-            <div ref={ el => { this.reviewsSection = el;} } className='restaurant-showpage-reviews' name='reviews'>
-                Reviews List
-                <Route path={'/restaurants/:restaurantId'}
-                  component={ReviewIndexContainer} />
-            </div>
-
-            <div ref={ el => { this.writeReviewsSection = el;} } className='restaurant-showpage-reviews' name='write-reviews'>
+            <div className='restaurant-write-reviews'>
                 {this.reviewFromChecker()}
             </div>
-
-
-          </div>
+          </aside>
         </div>
       </div>
     );

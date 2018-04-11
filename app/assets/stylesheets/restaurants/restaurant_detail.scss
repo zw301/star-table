@@ -3,22 +3,124 @@
 }
 
 .restaurant-showpage-header {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   background-color: #fff;
   border: 1px solid black;
   padding: 20px;
-  margin-bottom: 20px
+  margin-bottom: 20px;
+  height: 200px;
 }
 
 .showpage-header-img {
-  background: url();
 }
 
-.restaurant-showpage-main-container {
-  width: 80%;
-  margin: 0 auto;
+.restaurant-main-container {
+  display: flex;
+  width: 84.5%;
+  margin: -20px auto;
+  background-color: #f7f7f7;
+}
+.restaurant-main-left {
+  flex: 80%;
   background-color: #fff;
   border: 1px solid black;
   padding: 20px;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.restaurant-main-right {
+  flex: 20%;
+  background-color: #f7f7f7;
+  border: 1px solid black;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+.nav-link-wrapper {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.page-nav-link{
+  padding: 6px 0;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.page-nav-link:first-of-type {
+  border-bottom: 2px solid #da3743;
+  color: #da3743;
+}
+
+.page-nav-link:hover {
+  border-bottom: 2px solid #da3743;
+  color: #da3743;
+}
+
+.restaurant-nav-info {
+  position: relative;
+}
+
+.restaurant-nav-name {
+  display: flex;
+  font-size: 46px;
+  padding: 20px 0;
+  font-weight: bold;
+}
+.restaurant-nav-name span {
+  position: relative;
+  top: -10px;
+}
+
+.restaurant-nav-favorite {
+  position: absolute;
+  right: 0;
+  bottom: 70px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 8px;
+  border-radius: 3px;
+}
+
+.restaurant-nav-detail {
+  display: flex;
+  border-top: 1px solid #ccc;
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.restaurant-nav-detail div {
+  padding-right: 20px;
+}
+
+.restaurant-content-about {
+  padding: 20px 0;
+}
+
+.restaurant-content-about p {
+  padding: 4px 0;
+}
+
+.restaurant-content-about p:first-of-type {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+
+
+.restaurant-reservation {
+  background: #fff;
+}
+
+.restaurant-reviews {
+  background: #fff;
+  padding: 10px 0;
+}
+
+
+.disabled-btn {
+
 }

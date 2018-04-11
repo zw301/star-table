@@ -120,7 +120,7 @@ class ReservationForm extends React.Component {
   render(){
     let date = new Date();
     let minDate = date.toISOString().slice(0,10);
-    return(
+    return (
       <div className="reservation-show">
         <h1>Make a reservation</h1>
         {this.renderErrors()}
@@ -142,11 +142,23 @@ class ReservationForm extends React.Component {
             className="reservation-input"
           />
 
-          <input type="submit"
+          { this.props.currentUser ?
+          (<input type="submit"
             onClick={this.handleSubmit}
             value="Book a Table"
             className="submit-button reservation-submit"
-          />
+          />)
+          :
+          (
+            <input type="submit"
+              onClick={this.handleSubmit}
+              value="Book a Table"
+              className="submit-button disabled-btn"
+              disabled="disabled"
+              background="grey"
+            />
+          )
+          }
         </form>
       </div>
     );

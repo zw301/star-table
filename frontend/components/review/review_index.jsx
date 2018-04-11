@@ -17,7 +17,7 @@ class ReviewIndex extends React.Component {
         <ReviewIndexItem key={review.id} review={review} />
     ));
     return (
-      <ul>
+      <ul className="review-ul">
         {reviews}
       </ul>
     );
