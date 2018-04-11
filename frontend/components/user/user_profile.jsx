@@ -154,7 +154,7 @@ class UserProfile extends Component {
     return (
       <section className='user-profile-main'>
         <div className="user-profile">
-          <h3>{user.firstName} {user.lastName}</h3>
+          <h3>{user.firstName} {user.lastName === "." ? "" : user.lastName}</h3>
         </div>
 
         <div className='user-profile-body'>

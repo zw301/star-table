@@ -30,15 +30,17 @@
 }
 
 .cities h3 {
-  border-bottom: 1px solid #ccc;
+  // border-bottom: 1px solid #ccc;
   margin: 20px 0;
   font-size: 24px;
   padding: 10px 0;
-  margin: 20px;
+  margin: 10px 20px;
   font-weight: bold;
 }
 
 .city-list {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -136,6 +138,9 @@
 @media (max-width: 1200px) {
   .city-col {
     width: 49%;
+  }
+  .section-footer {
+    background-position: 0px 0px;
   }
 }
 

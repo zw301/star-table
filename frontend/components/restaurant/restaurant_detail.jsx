@@ -91,33 +91,31 @@ class RestaurantDetail extends React.Component {
     return (
       <div className='restaurant-showpage'>
         <div className='restaurant-showpage-header'>
-          <div className='showpage-header-left'>
+          <div className='showpage-header-img'>
             showpage-header-image
           </div>
-          <section>
+        </div>
+
+        <div className='restaurant-showpage-main-container'>
+          <div className='restaurant-showpage-nav'>
+            <nav className='nav-link-wrapper'>
+              <a className='page-nav-link' onClick={() => this.scrollTo(this.reservationSection)}>Reservation</a>
+              <a className='page-nav-link' onClick={() => this.scrollTo(this.aboutSection)}>About</a>
+              <a className='page-nav-link' onClick={() => this.scrollTo(this.reviewsSection)}>Reviews</a>
+              <a className='page-nav-link' onClick={() => this.scrollTo(this.writeReviewsSection)}>Write Reviews</a>
+            </nav>
+          </div>
+
+          <section className='restaurant-showpage-nav-info'>
             <h1>{restaurant.name}</h1>
             <div>Rating: {aveRating}</div>
             <span>{restaurant.cuisine} </span>
             <span>| {restaurant.city} </span>
             <span>| Star: {restaurant.star}</span>
           </section>
-        </div>
-        <hr />
-
-        <div className='restaurant-showpage-main-container'>
-          <div className='restaurant-showpage-nav-link'>
-            <nav className='nav-link-wrapper'>
-              <a className='page-nav-link' onClick={() => this.scrollTo(this.reservationSection)}>Reservation</a>
-              <br />
-              <a className='page-nav-link' onClick={() => this.scrollTo(this.aboutSection)}>About</a>
-              <br />
-              <a className='page-nav-link' onClick={() => this.scrollTo(this.reviewsSection)}>Reviews</a>
-              <br />
-              <a className='page-nav-link' onClick={() => this.scrollTo(this.writeReviewsSection)}>Write Reviews</a>
-              <br />
-            </nav>
+          <div>
+            <div>Add to Favorites</div>
           </div>
-          <hr />
 
           <div className='restaurant-showpage-main'>
             <div
@@ -126,7 +124,6 @@ class RestaurantDetail extends React.Component {
               className='restaurant-showpage-reservation'>
                 {this.reservationFormChecker()}
             </div>
-            <hr />
 
             <div ref={ el => { this.aboutSection = el;} } className='restaurant-showpage-content-about' id='about'>
                 <span className='restaurant-showpage-content-header'>
@@ -141,14 +138,12 @@ class RestaurantDetail extends React.Component {
                   <p>{restaurant.description}</p>
                 </section>
             </div>
-            <hr />
 
             <div ref={ el => { this.reviewsSection = el;} } className='restaurant-showpage-reviews' name='reviews'>
                 Reviews List
                 <Route path={'/restaurants/:restaurantId'}
                   component={ReviewIndexContainer} />
             </div>
-            <hr />
 
             <div ref={ el => { this.writeReviewsSection = el;} } className='restaurant-showpage-reviews' name='write-reviews'>
                 {this.reviewFromChecker()}
