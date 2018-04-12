@@ -92,12 +92,18 @@
 .restaurant-nav-detail {
   display: flex;
   border-top: 1px solid #ccc;
-  padding: 15px 0;
+  padding: 10px 0;
   border-bottom: 1px solid #ccc;
+  align-items: center;
 }
+
+
 
 .restaurant-nav-detail div {
   padding-right: 20px;
+}
+
+.rating_icon {
 }
 
 .restaurant-content-about {
@@ -122,9 +128,4 @@
 .restaurant-reviews {
   background: #fff;
   padding: 10px 0;
-}
-
-
-.disabled-btn {
-
 }

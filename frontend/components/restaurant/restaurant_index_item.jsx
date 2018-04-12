@@ -63,25 +63,25 @@ class RestaurateurIndexItem extends React.Component {
     }
 
     return (
-      <li className="restaurant-li">
-          <div className="restaurant-logo-container">
-            <img
-              className="restaurant-logo"
-              src={restaurant.logo}/>
-          </div>
-          <ul className="restaurant-detail-ul">
-            <li>
-              <Link to={`/restaurants/${restaurant.id}`} className="restaurant-name">
-                <h5>{restaurant.name}</h5>
-                <span className="restaurant-star">{this.getStar()}</span>
-              </Link>
-            </li>
-            <li>Rating: {aveRating}</li>
-            <li>Cuisine: {restaurant.cuisine}</li>
-            <li>Address: {restaurant.address}, {restaurant.city}, {restaurant.state}, {restaurant.zipcode}</li>
-            <li>Contact: {restaurant.phoneNumber}</li>
-          </ul>
-      </li>
+      <Link to={`/restaurants/${restaurant.id}`}>
+        <li className="restaurant-list-section">
+            <div className="restaurant-logo-container">
+              <img
+                className="restaurant-logo"
+                src={restaurant.logo}/>
+            </div>
+            <ul className="restaurant-detail-ul">
+              <li className="restaurant-name">
+                  <h5>{restaurant.name}</h5>
+                  <span className="restaurant-star">{this.getStar()}</span>
+              </li>
+              <li>Rating: {aveRating}</li>
+              <li>Cuisine: {restaurant.cuisine}</li>
+              <li>Address: {restaurant.address}, {restaurant.city}, {restaurant.state}, {restaurant.zipcode}</li>
+              <li>Contact: {restaurant.phoneNumber}</li>
+            </ul>
+        </li>
+      </Link>
     );
   }
 }

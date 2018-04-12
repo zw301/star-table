@@ -21,6 +21,8 @@ class RestaurantDetail extends React.Component {
     super(props);
     this.scrollTo = this.scrollTo.bind(this);
     // this.reviewFromChecker = this.reviewFromChecker.bind(this);
+
+    this.getAveRating = this.getAveRating.bind(this);
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -75,46 +77,20 @@ class RestaurantDetail extends React.Component {
 
 
   getStar() {
-      let starCount = this.props.restaurant.star;
-      const stars = [];
+    let starCount = this.props.restaurant.star;
+    const stars = [];
 
-      for (let i = 0; i < starCount; i++) {
-        stars.push(
-          <img
-            key={(""+Math.random()).substring(2,7)}
-            src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-        );
-      }
-      return stars;
-
-      // if (starCount === 3) {
-      //   return(
-      //     <div className="restaurant-star">
-      //       <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-      //       <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-      //       <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-      //     </div>
-      //   );
-      // } else if(starCount === 2) {
-      //   return(
-      //     <div className="restaurant-star">
-      //       <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-      //       <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-      //     </div>
-      //   );
-      // } else {
-      //   return(
-      //     <div className="restaurant-star">
-      //       <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-      //     </div>
-      //   );
-      // }
+    for (let i = 0; i < starCount; i++) {
+      stars.push(
+        <img
+          key={(""+Math.random()).substring(2,7)}
+          src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+      );
     }
+    return stars;
+  }
 
-
-  render() {
-    if (!this.props.restaurant) return null;
-
+  getAveRating(){
     const restaurant = this.props.restaurant;
     let sum = 0;
     for (var i = 0; i < restaurant.ratingArr.length; i++) {
@@ -128,6 +104,49 @@ class RestaurantDetail extends React.Component {
       aveRating = (Math.round(sum / restaurant.ratingArr.length * 10) / 10).toFixed(1);
     }
 
+    return aveRating;
+  }
+
+  getRate() {
+    const restaurant = this.props.restaurant;
+    let sum = 0;
+    for (var i = 0; i < restaurant.ratingArr.length; i++) {
+      sum += restaurant.ratingArr[i];
+    }
+
+    let aveRating;
+    if (sum === 0) {
+      aveRating = 0;
+    } else {
+      aveRating = Math.floor((sum / restaurant.ratingArr.length * 10) / 10);
+    }
+
+    const rateArr = [];
+
+    for (var i = 0; i < aveRating; i++) {
+      rateArr.push (
+        <img
+          key={(""+Math.random()).substring(2,7)}
+          src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523511580/rating_icon_full.png"
+          />
+      );
+    }
+
+    for (var i = aveRating; i < 5 ; i++) {
+      rateArr.push (
+        <img
+          key={(""+Math.random()).substring(2,7)}
+          src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523511580/rating_icon_empty.png"
+          />
+      );
+    }
+    return rateArr;
+  }
+
+
+  render() {
+    if (!this.props.restaurant) return null;
+    const restaurant = this.props.restaurant;
 
     return (
       <div className='restaurant-showpage'>
@@ -152,7 +171,8 @@ class RestaurantDetail extends React.Component {
                 Save to Favorites
               </div>
               <div className='restaurant-nav-detail'>
-                <div>Rating: {aveRating}</div>
+                <span>{this.getRate()}</span>
+                <div className='rating_icon'>{this.getAveRating()}</div>
                 <div>{restaurant.countReview} reviews</div>
                 <div>{restaurant.cuisine} </div>
               </div>

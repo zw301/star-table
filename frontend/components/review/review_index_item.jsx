@@ -4,16 +4,44 @@ class ReviewIndexItem extends React.Component {
   constructor(props){
     super(props);
   }
+
+  getRate() {
+    let rating = this.props.review.rating;
+
+    const rateArr = [];
+
+    for (var i = 0; i < rating; i++) {
+      rateArr.push (
+        <img
+          key={(""+Math.random()).substring(2,7)}
+          src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523511580/rating_icon_full.png"
+          />
+      );
+    }
+
+    for (var i = rating; i < 5 ; i++) {
+      rateArr.push (
+        <img
+          key={(""+Math.random()).substring(2,7)}
+          src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523511580/rating_icon_empty.png"
+          />
+      );
+    }
+    return rateArr;
+  }
+
+
   render(){
     const review = this.props.review;
-    // if(!review.user) {return null; }
+
+
     let createdAt = review.createdAt.slice(0,10);
     return (
       <li className="review-li">
         <span className="review-name">{review.user.first_name}</span>
-        <span>Rating: {review.rating}</span>
+        <span className="rate-icon">{this.getRate()}</span>
         <span>-comment on {createdAt}</span>
-        <p>Comment: {review.comment}</p>
+        <p>{review.comment}</p>
       </li>
     );
   }

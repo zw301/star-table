@@ -1,5 +1,6 @@
 .restaurant-list {
   // position: relative;
+  // display: block;
   max-width: 100%;
   border: 1px solid #fff;
   margin: 20px auto;
@@ -18,7 +19,7 @@
   min-width:900px;
 }
 
-.restaurant-li {
+.restaurant-list-section {
   border-bottom: 1px solid #ccc;
   display: flex;
   padding: 20px 0 20px 90px;
@@ -44,13 +45,16 @@
 
 .restaurant-detail-ul {
   font-size: 14px;
-  margin-left: 40px;
+  margin-left: 30px;
 }
+
 
 .restaurant-detail-ul li {
   padding: 3px;
   position: relative;
+  color: #000;
 }
+
 
 .restaurant-detail-ul li:last-of-type {
   padding-bottom: 0;
@@ -61,15 +65,10 @@
   font-size: 20px;
   color: black;
   text-decoration: none;
-  height: 44px;
-  line-height: 44px;
+  height: 36px;
+  line-height: 36px;
 }
 
-.restaurant-star{
-
-  // position: absolute;
-  // top: 12px;
-}
 
 .restaurant-name:hover {
   cursor: pointer;

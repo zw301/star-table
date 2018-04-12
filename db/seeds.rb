@@ -59,7 +59,7 @@ Restaurant.create(
   close_time: "22:00:00",
   cuisine: "Japanese",
   description: "Masayoshi Takayama's appreciation for food started at a young age, growing up working for his family’s fish market in a town of Tochigi Prefecture, Japan. From his early years of delivering fresh sashimi to neighbors on his bicycle, to prepping and grilling hundreds of fish courses to cater weddings in high school, his relationship with food has always been a way of life.",
-  logo: "https://cdn.vox-cdn.com/thumbor/lWPKjUWlBnNjBwQgV1Bglan9zVY=/0x0:942x632/1020x765/filters:focal(396x241:546x391)/cdn.vox-cdn.com/uploads/chorus_image/image/57389021/Screen_Shot_2015-09-30_at_6.26.49_PM.0.0.png"
+  logo: "http://res.cloudinary.com/chengzii/image/upload/v1523493767/masa_logo.jpg"
 )
 
 Restaurant.create(

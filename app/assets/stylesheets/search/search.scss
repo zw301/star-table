@@ -6,7 +6,7 @@
     border: 1px solid #fff;
     height: 180px;
     width: 100%;
-    min-width: 400px;
+    min-width: 460px;
     margin: 0 auto;
     background: #fff;
     border-radius: 5px;
@@ -24,7 +24,6 @@
   text-align: center;
   font-size: 46px;
   font-weight: bold;
-  // font-family: BrandonText,Helvetica Neue,Helvetica,Arial,sans-serif;
   padding-top: 30px;
 }
 
@@ -42,9 +41,12 @@
 
 .search-input {
   border: 1px solid #ccc;
-  width: 60%;
+  width: 58%;
   font-size: 15px;
-  padding-left: 10px;
+  padding-left: 40px;
+  background: url("http://res.cloudinary.com/chengzii/image/upload/v1523509175/search_icon.png") no-repeat;
+  background-size: 25px 25px;
+  background-position: 10px 13px;
 }
 
 .search-form input[type="submit"] {

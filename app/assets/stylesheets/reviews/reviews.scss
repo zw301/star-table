@@ -15,14 +15,28 @@
   padding: 10px 4px;
 }
 
-.review-name {
-  font-size: 20px;
-}
 
 .review-li span {
   padding-right: 20px;
 }
 
+.review-li span:first-of-type {
+  padding-right: 6px;
+}
+
+.review-name {
+  font-size: 20px;
+}
+
 .review-li p {
   padding: 10px;
+}
+
+.rate-icon {
+  margin-right: 25px;
+}
+
+.rate-icon img {
+  position: relative;
+  top: 2px;
 }

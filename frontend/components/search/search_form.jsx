@@ -50,8 +50,6 @@ class SearchForm extends React.Component {
       <form className="search-form-container">
         <h3>Make restaurant reservations the easy way</h3>
         <div className="search-form">
-
-
           <input type="text"
             className="search-input"
             id="search-content"
