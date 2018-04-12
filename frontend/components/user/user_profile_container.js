@@ -8,10 +8,22 @@ import {
 
 import {requestUserReviews} from '../../actions/review_actions';
 
+/* in Selector
 
+  function upcoming(reservations) {
+    ... returns array
+  }
+
+  function past(reservations) {
+    ... returns array
+  }
+
+*/
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
   reservations: state.entities.reservations,
+  // upcoming: upcoming(state.entities.reservations),
+  // past: past(state.entities.reservations),
   // reviews: state.entities.reviews,
   // restaurants:
   // favorite: state.favorite

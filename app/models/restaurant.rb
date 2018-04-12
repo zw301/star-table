@@ -15,7 +15,7 @@ class Restaurant < ApplicationRecord
     class_name: :Review
 
   def ensure_logo
-    self.logo ||= "default_logo_url";
+    self.logo ||= "http://res.cloudinary.com/chengzii/image/upload/v1523493008/default_restaurant_img.jpg";
   end
 
   def ensure_open_time

@@ -72,12 +72,13 @@
 }
 
 .restaurant-search-error {
-  padding: 30px 0 20px 80px;
+  padding: 30px 0 30px 30px;
+  text-align: center;
 }
 
 .restaurant-search-error div{
   color: grey;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 1200px) {

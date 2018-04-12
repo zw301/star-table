@@ -1,0 +1,39 @@
+.review-form-container {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 3px;
+}
+
+.review-form-container h5 {
+  font-size: 20px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+
+
+.review-radio {
+  width: 100%;
+  text-align: center;
+  padding-top: 6px;
+}
+
+.star {
+  padding-right: 10px;
+  padding-left: 2px;
+}
+
+.review-form-middle {
+  margin-top: 10px;
+  width: 100%;
+  height: 100px;
+  border: 1px solid #ccc;
+}
+
+.review-text-input {
+  width: 100%;
+  overflow-y:visible;
+  padding: 10px
+}

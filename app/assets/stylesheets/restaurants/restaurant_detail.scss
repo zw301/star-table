@@ -4,37 +4,41 @@
 
 .restaurant-showpage-header {
   width: 100%;
+  min-width: 800px;
   margin: 0 auto;
   background-color: #fff;
-  border: 1px solid black;
-  padding: 20px;
   margin-bottom: 20px;
-  height: 200px;
+  height: 300px;
+  overflow: hidden;
 }
 
 .showpage-header-img {
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+  top: -300px;
 }
 
 .restaurant-main-container {
+  position: relative;
   display: flex;
-  width: 84.5%;
-  margin: -20px auto;
-  background-color: #f7f7f7;
+  width: 84%;
+  margin: -66px auto;
+
 }
 .restaurant-main-left {
-  flex: 80%;
+  width: 68%;
+  min-width: 460px;
   background-color: #fff;
-  border: 1px solid black;
+  border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
   margin-right: 20px;
 }
 
 .restaurant-main-right {
-  flex: 20%;
-  background-color: #f7f7f7;
-  border: 1px solid black;
-  padding: 20px 0;
+  width: 30%;
+  min-width: 300px;
   border-radius: 5px;
 }
 

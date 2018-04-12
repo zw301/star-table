@@ -66,10 +66,6 @@ class ReviewForm extends React.Component {
    return(
      <div className="review-radio">
 
-       <div className="review-radio-title">
-         {category.toUpperCase()}
-       </div>
-
        <div className="stars">
          <input type="radio"
                  value={this.state[category]}
@@ -77,35 +73,35 @@ class ReviewForm extends React.Component {
                  name={category}
                  className="star-1"
                  id="star-1" />
-         <label onClick={e=>e.preventDefault()} className="star-1" htmlFor="star-1">1</label>
+         <label onClick={e=>e.preventDefault()} className="star" htmlFor="star-1">1</label>
          <input type="radio"
                  value={this.state[category]}
                  onChange={this.updateRadio(category)}
                  name={category}
                  className="star-2"
                  id="star-2" />
-         <label onClick={e=>e.preventDefault()} className="star-2" htmlFor="star-2">2</label>
+         <label onClick={e=>e.preventDefault()} className="star" htmlFor="star-2">2</label>
          <input type="radio"
                  value={this.state[category]}
                  onChange={this.updateRadio(category)}
                  name={category}
                  className="star-3"
                  id="star-3" />
-         <label onClick={e=>e.preventDefault()} className="star-3" htmlFor="star-3">3</label>
+         <label onClick={e=>e.preventDefault()} className="star" htmlFor="star-3">3</label>
          <input type="radio"
                  value={this.state[category]}
                  onChange={this.updateRadio(category)}
                  name={category}
                  className="star-4"
                  id="star-4" />
-         <label onClick={e=>e.preventDefault()} className="star-4" htmlFor="star-4">4</label>
+         <label onClick={e=>e.preventDefault()} className="star" htmlFor="star-4">4</label>
          <input type="radio"
                  value={this.state[category]}
                  onChange={this.updateRadio(category)}
                  name={category}
                  className="star-5"
                  id="star-5" />
-         <label onClick={e=>e.preventDefault()} className="star-5" htmlFor="star-5">5</label>
+         <label onClick={e=>e.preventDefault()} className="star" htmlFor="star-5">5</label>
        </div>
      </div>
 
@@ -132,13 +128,9 @@ class ReviewForm extends React.Component {
      <div className="review-form-container">
        {this.renderErrors()}
        <form className="review-form">
-         <div className="review-form-top">
-           {this.reviewRadio("rating")}
-         </div>
+          <h5>Write Reviews</h5>
+          {this.reviewRadio("rating")}
 
-         <h3 className="review-text-input-title">
-           Your Review
-         </h3>
          <div className="review-form-middle">
            <textarea
             placeholder="Please leave your feedback!"
@@ -153,6 +145,7 @@ class ReviewForm extends React.Component {
              onClick={this.handleSubmit}
              value="Submit Review"
              className="submit-button"
+             id="reservation-submit"
            /><br/>
          </div>
        </form>

@@ -48,7 +48,6 @@ class RestaurantDetail extends React.Component {
     } else {
       return (
         <div>
-          <div>Please Log In to make a reservation!</div>
           <Route
             path={`/restaurants/:restaurantId`}
             component={ReservationFormContainer}
@@ -66,11 +65,10 @@ class RestaurantDetail extends React.Component {
     const currentUser = this.props.currentUser;
     if(reservationUserIds.includes(currentUser.id)) {
       return (
-        <div>
-          Write Reviews
-          <Route path={'/restaurants/:restaurantId'}
-              component={ReviewFormContainer} />
-        </div>
+
+        <Route path={'/restaurants/:restaurantId'}
+            component={ReviewFormContainer} />
+
       );
     }
   }
@@ -78,28 +76,39 @@ class RestaurantDetail extends React.Component {
 
   getStar() {
       let starCount = this.props.restaurant.star;
-      if (starCount === 3) {
-        return(
-          <div className="restaurant-star">
-            <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-            <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-            <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-          </div>
-        );
-      } else if(starCount === 2) {
-        return(
-          <div className="restaurant-star">
-            <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-            <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-          </div>
-        );
-      } else {
-        return(
-          <div className="restaurant-star">
-            <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-          </div>
+      const stars = [];
+
+      for (let i = 0; i < starCount; i++) {
+        stars.push(
+          <img
+            key={(""+Math.random()).substring(2,7)}
+            src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
         );
       }
+      return stars;
+
+      // if (starCount === 3) {
+      //   return(
+      //     <div className="restaurant-star">
+      //       <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+      //       <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+      //       <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+      //     </div>
+      //   );
+      // } else if(starCount === 2) {
+      //   return(
+      //     <div className="restaurant-star">
+      //       <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+      //       <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+      //     </div>
+      //   );
+      // } else {
+      //   return(
+      //     <div className="restaurant-star">
+      //       <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+      //     </div>
+      //   );
+      // }
     }
 
 
@@ -116,16 +125,16 @@ class RestaurantDetail extends React.Component {
     if (sum === 0) {
       aveRating = "No rating yet!";
     } else {
-      aveRating = Math.round(sum / restaurant.ratingArr.length * 10) / 10;
+      aveRating = (Math.round(sum / restaurant.ratingArr.length * 10) / 10).toFixed(1);
     }
 
 
     return (
       <div className='restaurant-showpage'>
         <div className='restaurant-showpage-header'>
-          <div className='showpage-header-img'>
-            showpage-header-image
-          </div>
+            <img
+              className='showpage-header-img'
+              src="http://res.cloudinary.com/chengzii/image/upload/v1523493008/default_restaurant_img.jpg" />
         </div>
         <div className="restaurant-main-container">
           <div className='restaurant-main-left'>
@@ -137,10 +146,10 @@ class RestaurantDetail extends React.Component {
             <section className='restaurant-nav-info'>
               <div className='restaurant-nav-name'>
                 <h1>{restaurant.name}</h1>
-                <span>{this.getStar()}</span>
+                <span className="restaurant-star">{this.getStar()}</span>
               </div>
               <div className="restaurant-nav-favorite btn-demo">
-                Add to Favorites
+                Save to Favorites
               </div>
               <div className='restaurant-nav-detail'>
                 <div>Rating: {aveRating}</div>
@@ -179,9 +188,7 @@ class RestaurantDetail extends React.Component {
                 {this.reservationFormChecker()}
             </div>
 
-            <div className='restaurant-write-reviews'>
-                {this.reviewFromChecker()}
-            </div>
+            {this.reviewFromChecker()}
           </aside>
         </div>
       </div>

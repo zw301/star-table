@@ -121,15 +121,15 @@ class ReservationForm extends React.Component {
     let minDate = date.toISOString().slice(0,10);
     return (
       <div className="reservation-show">
-        <h1>Make a reservation</h1>
+        <h5>Make a reservation</h5>
         {this.renderErrors()}
         <form>
-          <select className="reservation-input"
+          <select className="reservation-input  input-1"
                   onChange={this.update('seats')}>
             {this.seatsBuilder()}
           </select>
 
-          <select className="reservation-input"
+          <select className="reservation-input  input-2"
                   onChange={this.update('time')}>
             {this.timePickerBuilder()}
           </select>
@@ -138,26 +138,37 @@ class ReservationForm extends React.Component {
             min={minDate}
             value={this.state.date}
             onChange={this.update('date')}
-            className="reservation-input"
+            className="reservation-input  input-2"
           />
 
           { this.props.currentUser ?
-          (<input type="submit"
+          (
+            <input type="submit"
             onClick={this.handleSubmit}
             value="Book a Table"
-            className="submit-button reservation-submit"
-          />)
+            className="submit-button"
+            id="reservation-submit"/>
+          )
           :
           (
             <input type="submit"
               onClick={this.handleSubmit}
               value="Book a Table"
-              className="submit-button disabled-btn"
+              className="submit-button"
               disabled="disabled"
               background="grey"
-            />
+              id="disabled-btn"/>
           )
           }
+
+          { this.props.currentUser ?
+            (
+              <p className="offer">Special offers available. <span>See details</span></p>
+            ):(
+              <p className="offer need-login">Please Log In to make a reservation!</p>
+            )
+          }
+
         </form>
       </div>
     );

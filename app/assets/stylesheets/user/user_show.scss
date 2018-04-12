@@ -65,6 +65,10 @@
   position: relative;
 }
 
+.reservation-list:last-of-type {
+  border-bottom: none;
+}
+
 .restaurant-detail-container div {
   color: #DA3743;
   padding: 4px 0;

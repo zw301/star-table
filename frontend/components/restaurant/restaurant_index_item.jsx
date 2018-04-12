@@ -8,31 +8,45 @@ class RestaurateurIndexItem extends React.Component {
     this.getStar = this.getStar.bind(this);
   }
 
-getStar() {
+  getStar(){
     let starCount = this.props.restaurant.star;
-    if (starCount === 3) {
-      return(
-        <div className="restaurant-star">
-          <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-          <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-          <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-        </div>
-      );
-    } else if(starCount === 2) {
-      return(
-        <div className="restaurant-star">
-          <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-          <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-        </div>
-      );
-    } else {
-      return(
-        <div className="restaurant-star">
-          <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-        </div>
+    const stars = [];
+
+    for (let i = 0; i < starCount; i++) {
+      stars.push(
+        <img
+          key={(""+Math.random()).substring(2,7)}
+          src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
       );
     }
+    return stars;
   }
+
+// getStar() {
+//     let starCount = this.props.restaurant.star;
+//     if (starCount === 3) {
+//       return(
+//         <div className="restaurant-star">
+//           <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+//           <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+//           <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+//         </div>
+//       );
+//     } else if(starCount === 2) {
+//       return(
+//         <div className="restaurant-star">
+//           <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+//           <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+//         </div>
+//       );
+//     } else {
+//       return(
+//         <div className="restaurant-star">
+//           <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+//         </div>
+//       );
+//     }
+//   }
 
   render(){
     let restaurant = this.props.restaurant;
@@ -45,19 +59,21 @@ getStar() {
     if (sum === 0) {
       aveRating = "No rating yet!";
     } else {
-      aveRating = Math.round(sum / restaurant.ratingArr.length * 10) / 10;
+      aveRating = (Math.round(sum / restaurant.ratingArr.length * 10) / 10).toFixed(1);
     }
 
     return (
       <li className="restaurant-li">
           <div className="restaurant-logo-container">
-            <img src="https://image.freepik.com/free-vector/restaurant-logo-template_1236-155.jpg"/>
+            <img
+              className="restaurant-logo"
+              src={restaurant.logo}/>
           </div>
           <ul className="restaurant-detail-ul">
             <li>
               <Link to={`/restaurants/${restaurant.id}`} className="restaurant-name">
                 <h5>{restaurant.name}</h5>
-                {this.getStar()}
+                <span className="restaurant-star">{this.getStar()}</span>
               </Link>
             </li>
             <li>Rating: {aveRating}</li>

@@ -1,0 +1,57 @@
+.reservation-show {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 4px 20px;
+  margin-bottom: 20px;
+}
+
+.reservation-show h5 {
+  font-size: 20px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 11px 0;
+}
+
+
+
+.reservation-input {
+  height: 42px;
+  border-bottom: 1px solid #ccc;
+}
+
+.input-1 {
+  width: 99%;
+}
+
+.input-2 {
+  width: 49%;
+}
+
+#reservation-submit {
+  margin: 10px 0 20px 0;
+  width: 100%;
+  height: 40px;
+}
+
+#disabled-btn {
+  margin: 10px 0 20px 0;
+  width: 100%;
+  height: 40px;
+  background: grey;
+}
+
+.offer {
+  font-size: 14px;
+  border-top: 1px solid #ccc;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.offer span {
+  color: #da3743;
+  cursor: pointer;
+}
+
+.offer span:hover{
+  text-decoration: underline;
+}

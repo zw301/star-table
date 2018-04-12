@@ -22,6 +22,7 @@ class UserProfile extends Component {
   deleteReservation(idx){
     return (e) => {
      e.preventDefault();
+
      this.props.deleteReservation(idx);
     };
   }
@@ -38,7 +39,7 @@ class UserProfile extends Component {
 
     const allRes = Object.values(this.props.reservations);
     allRes.forEach((reservation) => {
-      if(Date.parse(today.slice(0, 10)) < Date.parse(reservation.date)) {
+      if(Date.parse(today.slice(0, 10)) <= Date.parse(reservation.date)) {
         upcoming.push(reservation);
       }
     });
@@ -49,7 +50,9 @@ class UserProfile extends Component {
         {upcoming.map((res, idx) =>
           <section key={`upcoming-${idx}`} className="reservation-list">
             <div className="restaurant-logo-container">
-              <img src="https://image.freepik.com/free-vector/restaurant-logo-template_1236-155.jpg"/>
+              <img
+                className="restaurant-logo"
+                src={res.restaurant.logo}/>
             </div>
             <div className="restaurant-detail-container">
               <Link
@@ -92,7 +95,7 @@ class UserProfile extends Component {
 
     const allRes = Object.values(this.props.reservations);
     allRes.forEach((reservation) => {
-      if(Date.parse(today.slice(0, 10)) >= Date.parse(reservation.date)) {
+      if(Date.parse(today.slice(0, 10)) > Date.parse(reservation.date)) {
         past.push(reservation);
       }
     });
@@ -103,7 +106,9 @@ class UserProfile extends Component {
         {past.map((res, idx) =>
           <section key={`past-${idx}`} className="reservation-list">
             <div className="restaurant-logo-container">
-              <img src="https://image.freepik.com/free-vector/restaurant-logo-template_1236-155.jpg"/>
+              <img
+                className="restaurant-logo"
+                src={res.restaurant.logo}/>
             </div>
             <div className="restaurant-detail-container">
               <Link
