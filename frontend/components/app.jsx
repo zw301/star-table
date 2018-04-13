@@ -33,12 +33,12 @@ const App = () => (
       <Route path="/" component={NavBarContainer} />
     </header>
     <Switch>
+      <ProtectedRoute path="/restaurants/new" component={AddRestaurant} />
       <Route exact path="/restaurants/:restaurantId" component={RestaurantDetailContainer} />
       <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer} />
       <Route path="/restaurants" component={RestaurantIndexContainer} />
       <Route path="/" component={Home} />
     </Switch>
-    <ProtectedRoute path="/restaurants/new" component={AddRestaurant} />
 
     <footer className="main-footer">
       <div className="footer-body">
