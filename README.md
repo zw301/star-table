@@ -1,6 +1,6 @@
 # StarTable
 
-[StarTable Live](https://github.com/user/repo/blob/branch/other_file.md)
+[StarTable Live](https://startable.herokuapp.com/#/)
 
 StarTable is a full-stack web application inspired by OpenTable. The backend is built on Ruby on Rails with a PostgreSQL database and the frontend consists of a React/Redux architecture.
 
