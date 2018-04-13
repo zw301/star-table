@@ -9,7 +9,8 @@
 StarTable is a full-stack web application inspired by OpenTable. The backend is built on Ruby on Rails with a PostgreSQL database and the frontend consists of a React/Redux architecture.
 It features restaurants that users can view, book and review. Users can search for restaurants by location, restaurant name, or cuisines through the search bar or by clicking on a specific image on index page.
 
-![index] (http://res.cloudinary.com/chengzii/image/upload/v1523652624/starTable_index.jpg)
+![index](http://res.cloudinary.com/chengzii/image/upload/v1523652624/starTable_index.jpg)
+
 
 ##Description
 ### Search
