@@ -18,9 +18,10 @@ json.extract! @user,
 :email,
 :first_name,
 :last_name,
-:phone_number,
-:reviews
+:phone_number
+# :reviews,
 
+# json.favoriteResaurantIds @user.favorites.pluck(:restaurant_id)
 
 # json.reservations @user.reservations do |reservation|
 #     json.reservation_id reservation.id

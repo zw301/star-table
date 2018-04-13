@@ -9,6 +9,7 @@ class Login extends React.Component {
       password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
@@ -37,12 +38,9 @@ class Login extends React.Component {
     );
   }
 
-  demoLogin(e) {
-    const user = {
-      email: "guest@mail.com",
-      password: "password"
-    };
-    this.props.demoLogin(user).then(() => this.props.closeModal());
+  handleDemo(event) {
+    event.preventDefault();
+    this.props.login({email:"guest@mail.com", password:'password'}).then(() => this.props.closeModal());
   }
 
   renderErrors() {
@@ -84,6 +82,9 @@ class Login extends React.Component {
               />
 
             <button type="submit" className="session-submit">Log In</button>
+
+            <button className="session-submit demo-login" onClick={this.handleDemo}>Guest Login</button>
+
             <p className="changeForm">New to StarTable?  {this.props.changeForm}</p>
           </div>
         </form>

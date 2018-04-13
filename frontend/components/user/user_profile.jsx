@@ -11,21 +11,25 @@ class UserProfile extends Component {
     this.scrollTo = this.scrollTo.bind(this);
     this.upcomingReservations = this.upcomingReservations.bind(this);
     this.pastReservations = this.pastReservations.bind(this);
-    // this.favoriteRestaurants = this.favoriteRestaurants.bind(this);
+    this.favoriteRestaurants = this.favoriteRestaurants.bind(this);
+
+    this.deleteReservation = this.deleteReservation.bind(this);
   }
 
 
   componentDidMount() {
     this.props.requestUserReservations(this.props.currentUser.id);
+    this.props.requestUserFavorites(this.props.currentUser.id);
   }
 
-  deleteReservation(idx){
+  deleteReservation(id){
     return (e) => {
      e.preventDefault();
 
-     this.props.deleteReservation(idx);
+     this.props.deleteReservation(id);
     };
   }
+
 
   scrollTo(el) {
     return () => {
@@ -146,11 +150,48 @@ class UserProfile extends Component {
 
 
   favoriteRestaurants() {
-    return(
-      <div className="no-reservation">
-        favorite restaurants part coming soon
-      </div>
-    );
+    let favorites = this.props.favorites;
+    if (Object.keys(favorites).length === 0 ) {
+      return (
+        <p className="no-reservation">No favorite</p>
+      );
+    } else {
+      return(
+        <div>
+        { Object.values(favorites).map((fav, idx) =>
+          <section key={`favorite-${idx}`} className="reservation-list">
+            <div className="restaurant-logo-container">
+              <img
+                className="restaurant-logo"
+                src={fav.restaurant.logo}/>
+            </div>
+            <div className="restaurant-detail-container">
+              <Link
+                to={`/restaurants/${fav.restaurant.id}`}
+                className="restaurant-name">
+                  {fav.restaurant.name}
+              </Link>
+
+              <div className='past-res-date'>
+                Michelin Star Level: {fav.restaurant.star}
+              </div>
+              <div className='past-res-time'>
+                Cuisine: {fav.restaurant.cuisine}
+              </div>
+
+              <Link
+                to={`/restaurants/${fav.restaurant.id}`}
+                className="btn btn-demo reservation-btn review-btn">
+                Reserve Now
+              </Link>
+
+            </div>
+          </section>
+        )}
+        </div>
+      );
+    }
+
   }
 
 

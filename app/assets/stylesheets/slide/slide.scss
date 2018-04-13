@@ -1,1 +1,35 @@
 
+.slider-container {
+ display: block;
+ border: 1px solid red;
+ margin: 20px 0;
+}
+
+.slider {
+ height: 30vh;
+ width: 100%;
+}
+.slider.one {
+ background-image: url("http://res.cloudinary.com/dgxmjwbrc/image/upload/v1523339264/600px-Application_field_automotive.jpg");
+ background-size: auto;
+ background-position: center;
+ background-repeat: no-repeat;
+}
+.slider.two {
+ background-image: url("http://res.cloudinary.com/dgxmjwbrc/image/upload/v1523339263/558px-Pick_and_place_internals_of_surface_mount_machine.jpg");
+ background-size: auto;
+ background-position: center;
+ background-repeat: no-repeat;
+}
+.slider.three {
+ background-image: url("http://res.cloudinary.com/dgxmjwbrc/image/upload/v1523339264/800px-Tesla_auto_bots.jpg");
+ background-size: auto;
+ background-position: center;
+ background-repeat: no-repeat;
+}
+.slider.four {
+ background-image: url("http://res.cloudinary.com/dgxmjwbrc/image/upload/v1523379395/FANUC_R2000iB_AtWork.jpg");
+ background-size: auto;
+ background-position: center;
+ background-repeat: no-repeat;
+}

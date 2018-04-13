@@ -115,6 +115,7 @@
 .section-footer h4 {
   font-size: 24px;
   padding: 40px 0;
+  text-shadow: 1px 1px 2px #000;
 }
 
 
@@ -128,6 +129,28 @@
   border-radius: 3px;
 }
 
+.main-footer {
+  height: 150px;
+  width: 100%;
+  background: #333;
+  border-top: 1px solid rgba(0,0,0,.10);
+}
+.footer-body {
+  min-width: 400px;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 20px;
+
+  margin-top: 60px;
+}
+
+.footer-body i {
+  font-size: 24px;
+  padding-right: 12px;
+}
 
 @media (max-width: 1660px) {
   .city-col {

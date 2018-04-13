@@ -79,15 +79,15 @@
   top: -10px;
 }
 
-.restaurant-nav-favorite {
-  position: absolute;
-  right: 0;
-  bottom: 70px;
-  height: 30px;
-  line-height: 30px;
-  padding: 0 8px;
-  border-radius: 3px;
-}
+// .restaurant-nav-favorite {
+//   position: absolute;
+//   right: 0;
+//   bottom: 70px;
+//   height: 30px;
+//   line-height: 30px;
+//   padding: 0 8px;
+//   border-radius: 3px;
+// }
 
 .restaurant-nav-detail {
   display: flex;
@@ -128,4 +128,29 @@
 .restaurant-reviews {
   background: #fff;
   padding: 10px 0;
+}
+
+.favorite-btn {
+  text-align: center;
+  padding: 16px 0;
+  border: 1px solid #d8d9db;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.favorite-btn i {
+  padding-right: 10px;
+}
+
+.favorite-btn:hover {
+  border: 2px solid #da3743;
+}
+
+
+.favorite-active {
+  border: 2px solid #da3743;
+}
+
+.favorite-active i {
+  color: #da3743;
 }

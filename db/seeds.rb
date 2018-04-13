@@ -10,6 +10,7 @@ User.destroy_all
 Restaurant.destroy_all
 Reservation.destroy_all
 Review.destroy_all
+Favorite.destroy_all
 
 User.create(
   email: "guest@mail.com",
@@ -598,5 +599,19 @@ Review.create(
     restaurant_id: (1..47).to_a.sample,
     rating: (3..5).to_a.sample,
     comment:Faker::Lovecraft.paragraph
+  )
+end
+
+10.times do |i|
+  Favorite.create(
+    user_id: 1,
+    restaurant_id: (1..47).to_a[i],
+  )
+end
+
+10.times do |i|
+  Favorite.create(
+    user_id: 2,
+    restaurant_id: (1..47).to_a[i],
   )
 end

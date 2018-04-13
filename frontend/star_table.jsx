@@ -27,6 +27,12 @@ import {
   fetchRestaurantReviews
 } from './util/review_api_util';
 
+import {
+  createFavorite,
+  fetchUserFavorites,
+  deleteFavorite
+} from './util/favorite_api_util';
+
 
 
 window.fetchAllRestaurants = fetchAllRestaurants;
@@ -42,6 +48,10 @@ window.fetchReview = fetchReview;
 window.fetchUserReviews = fetchUserReviews;
 window.fetchRestaurantReviews = fetchRestaurantReviews;
 
+
+window.createFavorite = createFavorite;
+window.fetchUserFavorites = fetchUserFavorites;
+window.deleteFavorite = deleteFavorite;
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');

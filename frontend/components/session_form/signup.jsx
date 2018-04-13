@@ -12,6 +12,7 @@ class Signup extends React.Component {
       confirm_password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
@@ -42,6 +43,11 @@ class Signup extends React.Component {
         }
       );
     }
+  }
+
+  handleDemo(event) {
+    event.preventDefault();
+    this.props.login({email:"guest@mail.com", password:'password'}).then(() => this.props.closeModal());
   }
 
   renderErrors() {
@@ -104,6 +110,7 @@ class Signup extends React.Component {
               />
 
             <button type="submit" className="session-submit">Create Account</button>
+            <button className="session-submit demo-login" onClick={this.handleDemo}>Guest Login</button>
             <p className="changeForm">Already have a count? {this.props.changeForm}</p>
           </div>
         </form>

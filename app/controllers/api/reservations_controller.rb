@@ -22,11 +22,13 @@ class Api::ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
+
+    render :show
   end
 
   def destroy
     reservation = Reservation.find(params[:id])
-    
+
     if reservation
       reservation.destroy
       render json: reservation

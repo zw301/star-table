@@ -1,6 +1,7 @@
 import React from "react";
+import Slider from "react-slick";
 
-class Slide extends React.Component {
+class SimpleSlider extends React.Component {
  render() {
    var settings = {
      dots: true,
@@ -8,8 +9,7 @@ class Slide extends React.Component {
      speed: 2000,
      slidesToShow: 1,
      slidesToScroll: 1,
-     autoplay: true,
-     autoplaySpeed: 7000
+     autoplay: false
    };
    return (
      <Slider className="slider-container" {...settings}>
@@ -26,4 +26,4 @@ class Slide extends React.Component {
  }
 }
 
-export default Slide;
+export default SimpleSlider;

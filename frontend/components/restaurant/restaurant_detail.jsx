@@ -23,16 +23,15 @@ class RestaurantDetail extends React.Component {
     // this.reviewFromChecker = this.reviewFromChecker.bind(this);
 
     this.getAveRating = this.getAveRating.bind(this);
+    this.deleteFavorite = this.deleteFavorite.bind(this);
+    this.createFavorite = this.createFavorite.bind(this);
+
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (this.props.match.params.restaurantId !== nextProps.match.params.restaurantId) {
-  //     this.props.requestSingleRestaurant(nextProps.match.params.restaurantId);
-  //   }
-  // }
 
   componentDidMount() {
     this.props.requestSingleRestaurant(this.props.match.params.restaurantId);
+
   }
 
   scrollTo(el) {
@@ -44,16 +43,14 @@ class RestaurantDetail extends React.Component {
       return (
         <Route
           path={`/restaurants/:restaurantId`}
-          component={ReservationFormContainer}
-        />
+          component={ReservationFormContainer}/>
       );
     } else {
       return (
         <div>
           <Route
             path={`/restaurants/:restaurantId`}
-            component={ReservationFormContainer}
-          />
+            component={ReservationFormContainer}/>
         </div>
       );
     }
@@ -67,13 +64,52 @@ class RestaurantDetail extends React.Component {
     const currentUser = this.props.currentUser;
     if(reservationUserIds.includes(currentUser.id)) {
       return (
-
         <Route path={'/restaurants/:restaurantId'}
             component={ReviewFormContainer} />
-
       );
     }
   }
+
+  favoriteChecker() {
+    if(!this.props.currentUser) { return null; }
+    const restaurant = this.props.restaurant;
+    if(restaurant.currentUserLikes){
+      return (
+        <div
+          onClick={this.deleteFavorite(restaurant.id)}
+          className="favorite-btn favorite-active">
+          <i className="far fa-bookmark"></i>
+          Restaurant saved!
+        </div>
+      );
+    } else {
+      return (
+        <div
+          onClick={this.createFavorite(restaurant.id)}
+          className="favorite-btn">
+          <i className="far fa-bookmark"></i>
+          Save this restaurant
+        </div>
+      );
+    }
+  }
+
+
+
+  deleteFavorite(id){
+    return (e) => {
+     e.preventDefault();
+     this.props.deleteFavorite(id);
+    };
+  }
+
+  createFavorite(){
+    return (e) => {
+     e.preventDefault();
+     this.props.createFavorite(this.props.restaurant.id);
+    };
+  }
+
 
 
   getStar() {
@@ -160,15 +196,13 @@ class RestaurantDetail extends React.Component {
             <nav className='nav-link-wrapper'>
               <a className='page-nav-link' onClick={() => this.scrollTo(this.aboutSection)}>About</a>
               <a className='page-nav-link' onClick={() => this.scrollTo(this.reviewsSection)}>Reviews</a>
+              <a className='page-nav-link' onClick={() => this.scrollTo(this.writeReviewsSection)}>Write a Review</a>
             </nav>
 
             <section className='restaurant-nav-info'>
               <div className='restaurant-nav-name'>
                 <h1>{restaurant.name}</h1>
                 <span className="restaurant-star">{this.getStar()}</span>
-              </div>
-              <div className="restaurant-nav-favorite btn-demo">
-                Save to Favorites
               </div>
               <div className='restaurant-nav-detail'>
                 <span>{this.getRate()}</span>
@@ -181,13 +215,12 @@ class RestaurantDetail extends React.Component {
 
 
             <div className='restaurant-showpage-main'>
-
               <div ref={ el => { this.aboutSection = el;} } className='restaurant-content-about' id='about'>
                     <p className="restaurant-description">{restaurant.description}</p>
                     <p>Cusines: {restaurant.cuisine}</p>
                     <p>Phone number: {restaurant.phoneNumber}</p>
                     <p>Hours of operation: {restaurant.openTime} - {restaurant.closeTime}</p>
-                    <p>Address: {restaurant.address},{restaurant.city} {restaurant.state} {restaurant.zipcode}</p>
+                    <p>Address: {restaurant.address}, {restaurant.city}, {restaurant.state} {restaurant.zipcode}</p>
               </div>
 
               <div
@@ -199,6 +232,13 @@ class RestaurantDetail extends React.Component {
                     component={ReviewIndexContainer} />
               </div>
 
+              <div
+                ref={ el => { this.writeReviewsSection = el;} }
+                className='restaurant-reviews'
+                name='writeReviews'>
+                {this.reviewFromChecker()}
+              </div>
+
             </div>
           </div>
           <aside className="restaurant-main-right">
@@ -208,7 +248,7 @@ class RestaurantDetail extends React.Component {
                 {this.reservationFormChecker()}
             </div>
 
-            {this.reviewFromChecker()}
+            {this.favoriteChecker()}
           </aside>
         </div>
       </div>
