@@ -73,7 +73,7 @@ class UserProfile extends Component {
                 {res.time}:00
               </div>
               <div className='upcoming-res-seats'>
-                Table for {res.seats}
+                Table for {res.seats} {res.seats === 1 ? "person" : "people"}
               </div>
 
               <button type="button"
@@ -127,7 +127,7 @@ class UserProfile extends Component {
                 {res.time}:00
               </div>
               <div className='past-res-seats'>
-                Table for {res.seats} people
+                Table for {res.seats} {res.seats === 1 ? "person" : "people"}
               </div>
 
               <Link
@@ -177,6 +177,9 @@ class UserProfile extends Component {
               </div>
               <div className='past-res-time'>
                 Cuisine: {fav.restaurant.cuisine}
+              </div>
+              <div className='past-res-time'>
+                Contact: {fav.restaurant.phone_number}
               </div>
 
               <Link

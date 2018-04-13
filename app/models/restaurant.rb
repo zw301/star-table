@@ -15,7 +15,7 @@ class Restaurant < ApplicationRecord
     class_name: :Review
 
   has_many :favorites
-  
+
   def ensure_logo
     self.logo ||= "http://res.cloudinary.com/chengzii/image/upload/v1523493008/default_restaurant_img.jpg";
   end

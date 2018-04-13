@@ -28,7 +28,7 @@ User.create(
   phone_number: "347-666-9999"
 )
 
-60.times do
+80.times do
   User.create(
     email: Faker::Internet.unique.email,
     password: "password",
@@ -1102,7 +1102,7 @@ end
 Reservation.create(
   user_id: 1,
   restaurant_id: 1,
-  time: "6",
+  time: "19",
   date: "2018-04-01",
   seats: 2
 )
@@ -1110,16 +1110,24 @@ Reservation.create(
 Reservation.create(
   user_id: 1,
   restaurant_id: 2,
-  time: "7",
-  date: "2018-04-07",
+  time: "18",
+  date: "2018-05-07",
   seats: 1
 )
 
-8.times do
+Reservation.create(
+  user_id: 1,
+  restaurant_id: 3,
+  time: "18",
+  date: "2018-06-07",
+  seats: 1
+)
+
+4.times do
   Reservation.create(
     user_id: 1,
-    restaurant_id: (1..12).to_a.sample,
-    time: ("5".."10").to_a.sample,
+    restaurant_id: (1..63).to_a.sample,
+    time: ("11".."21").to_a.sample,
     date: rand(30.days).seconds.ago.to_s.split(" ").first,
     seats: (1..6).to_a.sample
   )
@@ -1128,8 +1136,8 @@ end
 8.times do
   Reservation.create(
     user_id: 1,
-    restaurant_id: (1..12).to_a.sample,
-    time: ("5".."10").to_a.sample,
+    restaurant_id: (1..63).to_a.sample,
+    time: ("12".."20").to_a.sample,
     date: rand(30.days).seconds.from_now.to_s.split(" ").first,
     seats: (1..6).to_a.sample
   )
@@ -1138,8 +1146,8 @@ end
 5.times do
   Reservation.create(
     user_id: 2,
-    restaurant_id: (1..12).to_a.sample,
-    time: ("5".."10").to_a.sample,
+    restaurant_id: (1..63).to_a.sample,
+    time: ("12".."20").to_a.sample,
     date: rand(30.days).seconds.ago.to_s.split(" ").first,
     seats: (1..6).to_a.sample
   )
@@ -1148,8 +1156,8 @@ end
 5.times do
   Reservation.create(
     user_id: 2,
-    restaurant_id: (1..12).to_a.sample,
-    time: ("5".."10").to_a.sample,
+    restaurant_id: (1..63).to_a.sample,
+    time: ("12".."20").to_a.sample,
     date: rand(30.days).seconds.from_now.to_s.split(" ").first,
     seats: (2..8).to_a.sample
   )
@@ -1433,9 +1441,29 @@ Review.create(
   comment: "Love this place! I've been going for years and always receive great customer service and the sushi is always delicious. It's great bc it's local and fairly priced, so enjoying sushi doesn't always have to be a splurge."
 )
 
-200.times do
+12.times do
   Review.create(
     user_id: (1..63).to_a.sample,
+    restaurant_id: 1,
+    rating: (4..5).to_a.sample,
+    comment: commentData.sample
+  )
+end
+
+90.times do
+  Review.create(
+    user_id: (1..82).to_a.sample,
+    restaurant_id: (1..35).to_a.sample,
+    rating: (3..5).to_a.sample,
+    comment: commentData.sample
+  )
+end
+
+
+
+180.times do
+  Review.create(
+    user_id: (1..82).to_a.sample,
     restaurant_id: (1..63).to_a.sample,
     rating: (3..5).to_a.sample,
     comment: commentData.sample
