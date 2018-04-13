@@ -10,14 +10,15 @@ It features restaurants that users can view, book and review. Users can search f
 StarTable makes it easy for users to search Michelin star restaurants to find available reservations. One can search by location, restaurant name, or cuisines.
 
 ### Reservations
-When users come across a restaurant they like, StarTable allows the user to select the time, date, and party size for their reservation. Booking a reservation is as simple as a few clicks.
+Reservation form exists inside each restaurant's page. Once user select the time and submit the form, it will hit the database and will be stored in the joint table between users and restaurants with the specific date and time. This allows us to manage and keep track of records. All you favorites restaurants are also listed and can be edited in the profile page.
 
 
-### Reviews
+### Rating, Reviews, Favorites
 StarTable users once logged in can write reviews of restaurants they've booked.
-
-### Favorites
 User can favorite one restaurant and find the favorite restaurants list in their profile page.
+
+Once your reservation day passed, the review form will be available for user to share the experience. Those rating and reviews are made only by registered users. When unauthorised users try to access, they will be encouraged to sign up or will be redirected to homepage by protected routes.
+
 
 
 ### Features
@@ -30,6 +31,7 @@ User can favorite one restaurant and find the favorite restaurants list in their
 - Write reviews on restaurant
 - Favorite restaurant
 
+
 ### Frameworks, Libraries, Gems and Services
 - Rails
 - React
@@ -38,6 +40,9 @@ User can favorite one restaurant and find the favorite restaurants list in their
 - Jbuilder
 - BCrypt
 
+
 ### Furture additions
 - Back to top button in restaurant detail page and user profile page.
 - Improve restaurant review form
+- Maps: Restaurant show page has interactive map for restaurant
+- Image upload: Restaurant profile picture upload

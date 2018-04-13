@@ -1112,7 +1112,7 @@ Reservation.create(
   restaurant_id: 2,
   time: "18",
   date: "2018-05-07",
-  seats: 1
+  seats: 5
 )
 
 Reservation.create(
@@ -1120,7 +1120,7 @@ Reservation.create(
   restaurant_id: 3,
   time: "18",
   date: "2018-06-07",
-  seats: 1
+  seats: 3
 )
 
 4.times do
@@ -1129,7 +1129,7 @@ Reservation.create(
     restaurant_id: (1..63).to_a.sample,
     time: ("11".."21").to_a.sample,
     date: rand(30.days).seconds.ago.to_s.split(" ").first,
-    seats: (1..6).to_a.sample
+    seats: (1..10).to_a.sample
   )
 end
 
@@ -1139,7 +1139,7 @@ end
     restaurant_id: (1..63).to_a.sample,
     time: ("12".."20").to_a.sample,
     date: rand(30.days).seconds.from_now.to_s.split(" ").first,
-    seats: (1..6).to_a.sample
+    seats: (1..10).to_a.sample
   )
 end
 
@@ -1149,7 +1149,7 @@ end
     restaurant_id: (1..63).to_a.sample,
     time: ("12".."20").to_a.sample,
     date: rand(30.days).seconds.ago.to_s.split(" ").first,
-    seats: (1..6).to_a.sample
+    seats: (1..10).to_a.sample
   )
 end
 

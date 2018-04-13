@@ -67,6 +67,12 @@ class RestaurantDetail extends React.Component {
         <Route path={'/restaurants/:restaurantId'}
             component={ReviewFormContainer} />
       );
+    } else {
+      return (
+        <div className="review-form-container review-form-messgae">
+          <p>Want to write a review? Make a reservation first!</p>
+        </div>
+      );
     }
   }
 
