@@ -1,7 +1,8 @@
 import React from 'react';
 import SearchFormContainer from '../search/search_form_container';
 import CityListsContainer from '../city_lists/city_lists_container';
-import Slider from '../slideshow/slide';
+// import Slider from '../slideshow/slide';
+import SliderContainer from '../slideshow/slide_container';
 
 import { Link } from 'react-router-dom';
 import { ProtectedRoute } from '../../util/route_util';
@@ -16,7 +17,10 @@ export default () => (
       <div className="search-container">
         <SearchFormContainer />
       </div>
-      <Slider />
+      <div className="cuisines">
+        <h3>Top Cuisines</h3>
+        <SliderContainer />
+      </div>
       <CityListsContainer />
     </section>
 
@@ -34,11 +38,14 @@ export default () => (
 
     <footer className="main-footer">
       <div className="footer-body">
-        <div>
-          <i class="fab fa-github"></i>
-          <i class="fab fa-linkedin"></i>
+        <div className="footer-about">
+          <p>Welcome to StarTable. This web application was built using Ruby on Rails and React/Redux as a tribute to the popular reservation service OpenTable.</p>
         </div>
-        <div>© 2018 StarTable </div>
+        <div className="footer-links">
+          <i className="fab fa-github"></i><p>Github</p><br />
+          <i className="fab fa-linkedin"></i><p>LinkedIn</p><br />
+          <i className="far fa-file-alt"></i><p>README</p>
+        </div>
       </div>
     </footer>
   </section>

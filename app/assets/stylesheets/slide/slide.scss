@@ -1,36 +1,62 @@
 
 .slider-container {
  display: block;
- margin: 20px 0;
+ margin: 20px 0 10px 0;
  border-radius: 3px;
+ height: 240px;
 }
 
 .slider {
- height: 30vh;
+ height: 240px;
  width: 100%;
- object-fit: cover;
+
+ color: #fff;
+ text-align: center;
+ font-size: 18px;
+ font-weight: bold;
+ text-shadow: 1px 1px 1px #000;
+ background-color: rgba(255, 255, 255, 0.6);
+ cursor: pointer;
+}
+
+.slider p:first-of-type {
+  padding-top: 100px;
 }
 .slider.one {
- background-image: url("http://res.cloudinary.com/chengzii/image/upload/v1523580940/slide_4.jpg");
- background-size: 360px 240px;
+ background-image: url("http://res.cloudinary.com/chengzii/image/upload/v1523595721/cuisine_italian.jpg");
+ background-size: auto 240px;
  background-position: center;
  background-repeat: no-repeat;
 }
 .slider.two {
- background-image: url("http://res.cloudinary.com/chengzii/image/upload/v1523580939/slide_2.jpg");
- background-size: auto 240px;
+ background-image: url("http://res.cloudinary.com/chengzii/image/upload/v1523595638/cuisine_seafood.jpg");
+ background-size: 230px 240px;
  background-position: center;
  background-repeat: no-repeat;
 }
 .slider.three {
- background-image: url("http://res.cloudinary.com/chengzii/image/upload/v1523580940/slide_5.jpg");
- background-size: auto 240px;
+ background-image: url("http://res.cloudinary.com/chengzii/image/upload/v1523595575/cuisine_american.jpg");
+ background-size: 230px 240px;
  background-position: center;
  background-repeat: no-repeat;
 }
 .slider.four {
- background-image: url("http://res.cloudinary.com/chengzii/image/upload/v1523580940/slide_1.jpg");
- background-size: auto 240px;
+ background-image: url("https://res.cloudinary.com/chengzii/image/upload/v1523595993/cuisine_japanese.jpg");
+ background-size: 230px 240px;
  background-position: center;
  background-repeat: no-repeat;
+}
+
+.slider.five {
+ background-image: url("http://res.cloudinary.com/chengzii/image/upload/v1523595675/cuisine_french.jpg");
+ background-size: 230px 240px;
+ background-position: center;
+ background-repeat: no-repeat;
+}
+
+////////////
+
+.cuisines {
+  padding-bottom: 20px;
+
 }
