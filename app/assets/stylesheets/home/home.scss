@@ -144,7 +144,7 @@
   font-size: 15px;
   line-height: 20px;
   margin-top: 30px;
-    color: #ccc;
+  color: #ccc;
 }
 
 .footer-body i {
@@ -168,18 +168,18 @@
 ///back to top button in app.jsx
 #myBtn {
     // display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
+    position: absolute;; /* Fixed/sticky position */
+    // bottom: 0px; /* Place the button at the bottom of the page */
+    right: 0; /* Place the button 30px from the right */
     z-index: 99; /* Make sure it does not overlap */
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
-    background-color: red; /* Set a background color */
+    background-color: grey; /* Set a background color */
     color: white; /* Text color */
     cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 10px; /* Rounded corners */
-    font-size: 18px; /* Increase font size */
+    padding: 10px; /* Some padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 12px; /* Increase font size */
 }
 
 #myBtn:hover {

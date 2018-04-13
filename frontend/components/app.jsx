@@ -31,7 +31,7 @@ import BackToTop from './back_to_top/back_to_top';
 const App = () => (
   <div>
     <Modal />
-    <header>
+    <header id='top-of-page'>
       <Route path="/" component={NavBarContainer} />
     </header>
     <Switch>

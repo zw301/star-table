@@ -88,7 +88,7 @@ class ReservationForm extends React.Component {
       <option
         key={time}
         value={time}
-        defaultValue={time === 18 ? "selected" : ""}
+        selected={time === 18 ? "selected" : ""}
       > {time < 10 ? ("0" + time + ":00") : (time + ":00")}
       </option>
     ));
@@ -107,7 +107,7 @@ class ReservationForm extends React.Component {
        <option
          key={num}
          value={num}
-         defaultValue={num === 2 ? "selected" : ""}
+         selected={num === 2 ? "selected" : ""}
          >
          {num === 1 ? (num + " person") : (num + " people")}
        </option>
