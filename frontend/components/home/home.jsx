@@ -36,17 +36,5 @@ export default () => (
       </Link>
     </section>
 
-    <footer className="main-footer">
-      <div className="footer-body">
-        <div className="footer-about">
-          <p>Welcome to StarTable. This web application was built using Ruby on Rails and React/Redux as a tribute to the popular reservation service OpenTable.</p>
-        </div>
-        <div className="footer-links">
-          <i className="fab fa-github"></i><p>Github</p><br />
-          <i className="fab fa-linkedin"></i><p>LinkedIn</p><br />
-          <i className="far fa-file-alt"></i><p>README</p>
-        </div>
-      </div>
-    </footer>
   </section>
 );
