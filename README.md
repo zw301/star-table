@@ -1,11 +1,17 @@
+
+
 # StarTable
 
+## Demo
 [StarTable Live](https://startable.herokuapp.com/#/)
+[StarTable Wiki design document](https://github.com/zw301/starTable/wiki)
 
 StarTable is a full-stack web application inspired by OpenTable. The backend is built on Ruby on Rails with a PostgreSQL database and the frontend consists of a React/Redux architecture.
 It features restaurants that users can view, book and review. Users can search for restaurants by location, restaurant name, or cuisines through the search bar or by clicking on a specific image on index page.
 
+![index] (http://res.cloudinary.com/chengzii/image/upload/v1523652624/starTable_index.jpg)
 
+##Description
 ### Search
 StarTable makes it easy for users to search Michelin star restaurants to find available reservations. One can search by location, restaurant name, or cuisines.
 
@@ -14,10 +20,10 @@ Reservation form exists inside each restaurant's page. Once user select the time
 
 
 ### Rating, Reviews, Favorites
-StarTable users once logged in can write reviews of restaurants they've booked.
 User can favorite one restaurant and find the favorite restaurants list in their profile page.
 
-Once your reservation day passed, the review form will be available for user to share the experience. Those rating and reviews are made only by registered users. When unauthorised users try to access, they will be encouraged to sign up or will be redirected to homepage by protected routes.
+StarTable users once logged in can write reviews of restaurants they've booked.
+Those rating and reviews are made only by registered users. When unauthorised users try to access, they will be encouraged to sign up or will be redirected to homepage by protected routes.
 
 
 
