@@ -163,7 +163,7 @@ class ReservationForm extends React.Component {
 
           { this.props.currentUser ?
             (
-              <p className="offer">Special offers available. <span>See details</span></p>
+              <p className="offer"><i className="fa fa-check-square"></i>  Special offers available. <span>See details</span></p>
             ):(
               <p className="offer need-login">Please Log In to make a reservation!</p>
             )

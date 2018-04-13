@@ -1450,7 +1450,8 @@ Review.create(
   )
 end
 
-90.times do
+
+105.times do
   Review.create(
     user_id: (1..82).to_a.sample,
     restaurant_id: (1..35).to_a.sample,
@@ -1458,7 +1459,6 @@ end
     comment: commentData.sample
   )
 end
-
 
 
 180.times do

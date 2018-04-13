@@ -25,6 +25,8 @@ import UserProfileContainer from './user/user_profile_container';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
+import BackToTop from './back_to_top/back_to_top';
+
 
 const App = () => (
   <div>
@@ -46,9 +48,9 @@ const App = () => (
           <p>Welcome to StarTable. This web application was built using Ruby on Rails and React/Redux as a tribute to the popular reservation service OpenTable.</p>
         </div>
         <div className="footer-links">
-          <i className="fab fa-github"></i><p>Github</p><br />
+          <a href="https://github.com/zw301"><i className="fab fa-github"></i><p>Github</p></a><br />
           <i className="fab fa-linkedin"></i><p>LinkedIn</p><br />
-          <i className="far fa-file-alt"></i><p>README</p>
+          <i href="https://github.com/zw301/starTable"className="far fa-file-alt"></i><p>README</p>
         </div>
       </div>
     </footer>

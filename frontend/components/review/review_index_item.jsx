@@ -40,7 +40,7 @@ class ReviewIndexItem extends React.Component {
       <li className="review-li">
         <span className="review-name">{review.user.first_name}</span>
         <span className="rate-icon">{this.getRate()}</span>
-        <span>-comment on {createdAt}</span>
+        <span><i className="fa fa-share"></i> comment on {createdAt}</span>
         <p>{review.comment}</p>
       </li>
     );

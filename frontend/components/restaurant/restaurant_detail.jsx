@@ -189,7 +189,7 @@ class RestaurantDetail extends React.Component {
         <div className='restaurant-showpage-header'>
             <img
               className='showpage-header-img'
-              src="http://res.cloudinary.com/chengzii/image/upload/v1523493008/default_restaurant_img.jpg" />
+              src="http://res.cloudinary.com/chengzii/image/upload/v1523643464/restaurant_show.jpg" />
         </div>
         <div className="restaurant-main-container">
           <div className='restaurant-main-left'>
@@ -207,8 +207,8 @@ class RestaurantDetail extends React.Component {
               <div className='restaurant-nav-detail'>
                 <span>{this.getRate()}</span>
                 <div className='rating_icon'>{this.getAveRating()}</div>
-                <div>{restaurant.countReview} reviews</div>
-                <div>{restaurant.cuisine} </div>
+                <div><i className="fa fa-comment"></i>{restaurant.countReview} reviews</div>
+                <div><i className="fa fa-gift" aria-hidden="true"></i>{restaurant.cuisine} </div>
               </div>
             </section>
 
