@@ -114,19 +114,19 @@ class UserProfile extends Component {
                 className="restaurant-logo"
                 src={res.restaurant.logo}/>
             </div>
-            <div className="restaurant-detail-container">
+            <div className="restaurant-detail-container past-res">
               <Link
                 to={`/restaurants/${res.restaurant.id}`}
                 className="restaurant-name">
                   {res.restaurant.name}
               </Link>
-              <div className='past-res-date'>
+              <div>
                 {res.date}
               </div>
-              <div className='past-res-time'>
+              <div>
                 {res.time}:00
               </div>
-              <div className='past-res-seats'>
+              <div>
                 Table for {res.seats} {res.seats === 1 ? "person" : "people"}
               </div>
 
@@ -165,11 +165,11 @@ class UserProfile extends Component {
                 className="restaurant-logo"
                 src={fav.restaurant.logo}/>
             </div>
-            <div className="restaurant-detail-container">
+            <div className="restaurant-detail-container res-fav">
               <Link
                 to={`/restaurants/${fav.restaurant.id}`}
                 className="restaurant-name">
-                  {fav.restaurant.name}
+                  {fav.restaurant.name}  <i className="fas fa-heart"></i>
               </Link>
 
               <div className='past-res-date'>
