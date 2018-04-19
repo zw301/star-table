@@ -48,9 +48,9 @@ const App = () => (
           <p>Welcome to StarTable. This web application was built using Ruby on Rails and React/Redux as a tribute to the popular reservation service OpenTable.</p>
         </div>
         <div className="footer-links">
-          <a href="https://github.com/zw301"><i className="fab fa-github"></i><p>Github</p></a><br />
-          <i className="fab fa-linkedin"></i><p>LinkedIn</p><br />
-          <i href="https://github.com/zw301/starTable"className="far fa-file-alt"></i><p>README</p>
+          <a href="https://github.com/zw301" target="_blank"><i className="fab fa-github"></i><p>Github</p></a><br />
+          <a href="https://www.linkedin.com/in/ziyan-wang-4149b6161/" target="_blank"><i className="fab fa-linkedin"></i><p>LinkedIn</p></a><br />
+          <a href="https://github.com/zw301/starTable" target="_blank"><i className="far fa-file-alt" target="_blank"></i><p>README</p></a>
         </div>
       </div>
     </footer>
