@@ -164,7 +164,7 @@ class ReservationForm extends React.Component {
 
           { this.props.currentUser ?
             (
-              <p className="offer"><i className="fas fa-chart-line"></i>  Booked  {Math.floor(Math.random()*(200-20+1)+20)} times today.</p>
+              <p className="offer"><i className="fas fa-chart-line"></i>  Booked  { parseInt(this.state.restaurant_id.slice(0,1)) * 2 + 80 } times today.</p>
             ):(
               <p className="offer need-login">Please Log In to make a reservation!</p>
             )
