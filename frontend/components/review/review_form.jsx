@@ -186,7 +186,7 @@ class ReviewForm extends React.Component {
              onClick={this.handleSubmit}
              value="Submit Review"
              className="submit-button"
-             id="reservation-submit"
+             id="review-submit"
            /><br/>
          </div>
        </form>
