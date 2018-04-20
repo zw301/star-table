@@ -14,7 +14,7 @@ class ReviewIndexItem extends React.Component {
       rateArr.push (
         <img
           key={(""+Math.random()).substring(2,7)}
-          src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523511580/rating_icon_full.png"
+          src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523511580/rating_icon_full.png"
           />
       );
     }
@@ -23,7 +23,7 @@ class ReviewIndexItem extends React.Component {
       rateArr.push (
         <img
           key={(""+Math.random()).substring(2,7)}
-          src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523511580/rating_icon_empty.png"
+          src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523511580/rating_icon_empty.png"
           />
       );
     }

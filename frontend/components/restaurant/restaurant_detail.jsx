@@ -126,7 +126,7 @@ class RestaurantDetail extends React.Component {
       stars.push(
         <img
           key={(""+Math.random()).substring(2,7)}
-          src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+          src='https://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
       );
     }
     return stars;
@@ -169,7 +169,7 @@ class RestaurantDetail extends React.Component {
       rateArr.push (
         <img
           key={(""+Math.random()).substring(2,7)}
-          src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523511580/rating_icon_full.png"
+          src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523511580/rating_icon_full.png"
           />
       );
     }
@@ -178,7 +178,7 @@ class RestaurantDetail extends React.Component {
       rateArr.push (
         <img
           key={(""+Math.random()).substring(2,7)}
-          src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523511580/rating_icon_empty.png"
+          src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523511580/rating_icon_empty.png"
           />
       );
     }
@@ -195,7 +195,7 @@ class RestaurantDetail extends React.Component {
         <div className='restaurant-showpage-header'>
             <img
               className='showpage-header-img'
-              src="http://res.cloudinary.com/chengzii/image/upload/v1523643464/restaurant_show.jpg" />
+              src="https://res.cloudinary.com/chengzii/image/upload/v1523643464/restaurant_show.jpg" />
         </div>
         <div className="restaurant-main-container">
           <div className='restaurant-main-left'>

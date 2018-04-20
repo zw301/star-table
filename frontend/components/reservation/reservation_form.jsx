@@ -10,8 +10,8 @@ class ReservationForm extends React.Component {
     this.state = {
       user_id: "",
       restaurant_id: this.props.match.params.restaurantId,
-      seats: 2,
-      time: "18:00",
+      seats: 1,
+      time: "12:00",
       date: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -88,7 +88,6 @@ class ReservationForm extends React.Component {
       <option
         key={time}
         value={time}
-        selected={time === 18 ? "selected" : ""}
       > {time < 10 ? ("0" + time + ":00") : (time + ":00")}
       </option>
     ));
@@ -106,8 +105,7 @@ class ReservationForm extends React.Component {
      let numList = numPpl.map(num => (
        <option
          key={num}
-         value={num}
-         selected={num === 2 ? "selected" : ""}
+         value={this.state.seats}
          >
          {num === 1 ? (num + " person") : (num + " people")}
        </option>
@@ -163,7 +161,7 @@ class ReservationForm extends React.Component {
 
           { this.props.currentUser ?
             (
-              <p className="offer"><i className="fa fa-check-square"></i>  Special offers available. <span>See details</span></p>
+              <p className="offer"><i className="fa fa-check-square"></i>  Special offers available.</p>
             ):(
               <p className="offer need-login">Please Log In to make a reservation!</p>
             )

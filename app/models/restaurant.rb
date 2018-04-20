@@ -17,7 +17,7 @@ class Restaurant < ApplicationRecord
   has_many :favorites
 
   def ensure_logo
-    self.logo ||= "http://res.cloudinary.com/chengzii/image/upload/v1523493008/default_restaurant_img.jpg";
+    self.logo ||= "https://res.cloudinary.com/chengzii/image/upload/v1523493008/default_restaurant_img.jpg";
   end
 
   def ensure_open_time

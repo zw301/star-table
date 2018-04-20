@@ -16,37 +16,12 @@ class RestaurateurIndexItem extends React.Component {
       stars.push(
         <img
           key={(""+Math.random()).substring(2,7)}
-          src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+          src='https://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
       );
     }
     return stars;
   }
 
-// getStar() {
-//     let starCount = this.props.restaurant.star;
-//     if (starCount === 3) {
-//       return(
-//         <div className="restaurant-star">
-//           <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-//           <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-//           <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-//         </div>
-//       );
-//     } else if(starCount === 2) {
-//       return(
-//         <div className="restaurant-star">
-//           <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-//           <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-//         </div>
-//       );
-//     } else {
-//       return(
-//         <div className="restaurant-star">
-//           <img src='http://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
-//         </div>
-//       );
-//     }
-//   }
 
   render(){
     let restaurant = this.props.restaurant;
