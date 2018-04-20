@@ -1103,7 +1103,7 @@ Reservation.create(
   user_id: 1,
   restaurant_id: 1,
   time: "19",
-  date: "2018-04-01",
+  date: "2018-04-02",
   seats: 2
 )
 
