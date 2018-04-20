@@ -32,6 +32,12 @@ class ReservationForm extends React.Component {
     });
   }
 
+  updateTime(time) {
+    return e => this.setState({
+      time: e.currentTarget.value
+    });
+  }
+
 
   handleSubmit(e){
     e.preventDefault();
@@ -55,9 +61,6 @@ class ReservationForm extends React.Component {
       this.props.history.push(`/users/${this.props.currentUser.id}`);
     });
 
-    // this.props.createReservation(fetchInfo).then(() =>
-    //   this.props.clearErrors()
-    // );
   }
 
   renderErrors() {
