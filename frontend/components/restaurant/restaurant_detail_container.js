@@ -8,6 +8,8 @@ import {
   deleteFavorite
 } from '../../actions/favorite_actions';
 
+import {deleteReview} from '../../actions/review_actions';
+
 
 const mapStateToProps = (state, ownProps) => ({
   restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
@@ -17,7 +19,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   requestSingleRestaurant: id => dispatch(requestSingleRestaurant(id)),
   createFavorite: favorite => dispatch(createFavorite(favorite)),
-  deleteFavorite: favoriteId => dispatch(deleteFavorite(favoriteId))
+  deleteFavorite: favoriteId => dispatch(deleteFavorite(favoriteId)),
+  deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
 });
 
 

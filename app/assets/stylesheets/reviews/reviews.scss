@@ -30,7 +30,7 @@
 
 .review-li p {
   padding: 10px;
-  word-break:break-all; 
+  word-break:break-all;
 }
 
 .rate-icon {
@@ -47,4 +47,10 @@
   padding: 20px 0;
   text-align: center;
   color: #da3743;
+}
+
+#delete-review {
+  height: 26px;
+  font-size: 14px;
+  margin-left: 20px;
 }

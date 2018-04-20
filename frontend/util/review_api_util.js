@@ -24,12 +24,12 @@ export const fetchRestaurantReviews = (restaurantId) => (
 );
 
 //delete a review
-// export const destroyReview = reviewId => (
-//   $.ajax({
-//     method: 'DELETE',
-//     url: `/api/reviews/${reviewId}`
-//   })
-// );
+export const deleteReview = reviewId => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/reviews/${reviewId}`
+  })
+);
 
 //update a review
 // export const updateReview = review => (

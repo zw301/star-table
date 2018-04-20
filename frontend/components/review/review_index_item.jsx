@@ -30,20 +30,54 @@ class ReviewIndexItem extends React.Component {
     return rateArr;
   }
 
+  deleteReview(id){
+    return (e) => {
+     e.preventDefault();
+
+     this.props.deleteReview(id);
+    };
+  }
+
 
   render(){
     const review = this.props.review;
-
-
     let createdAt = review.createdAt.slice(0,10);
-    return (
-      <li className="review-li">
-        <span className="review-name">{review.user.first_name}</span>
-        <span className="rate-icon">{this.getRate()}</span>
-        <span><i className="fa fa-share"></i> comment on {createdAt}</span>
-        <p>{review.comment}</p>
-      </li>
-    );
+    if(!this.props.currentUser) {
+      return (
+          <li className="review-li">
+            <span className="review-name">
+              {review.user.first_name}
+              </span>
+            <span className="rate-icon">{this.getRate()}</span>
+            <span>
+              <i className="fa fa-share"></i>
+              comment on {createdAt}
+            </span>
+            <p>{review.comment}</p>
+          </li>
+        );
+    } else {
+      return (
+        <li className="review-li">
+          <span className="review-name">
+            {this.props.currentUser.id===review.user.id ? "You" : review.user.first_name}
+            </span>
+          <span className="rate-icon">{this.getRate()}</span>
+          <span>
+            <i className="fa fa-share"></i>
+            comment on {createdAt}
+            {this.props.currentUser.id === review.user.id ?
+              (<button type="button"
+                      onClick={this.deleteReview(review.id)}
+                      className="btn btn-demo" id="delete-review">
+                      Delete
+              </button>): ""
+            }
+          </span>
+          <p>{review.comment}</p>
+        </li>
+      );
+    }
   }
 }
 

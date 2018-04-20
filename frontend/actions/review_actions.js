@@ -66,7 +66,7 @@ export const requestRestaurantReviews = (restaurantId) => dispatch => (
 
 // delete a review
 export const deleteReview = reviewId => dispatch => (
-  APIUtil.destroyReview(reviewId)
+  APIUtil.deleteReview(reviewId)
     .then(review => (dispatch(removeReview(reviewId))),
       err => dispatch(receiveReviewErrors(err.responseJSON)))
 );

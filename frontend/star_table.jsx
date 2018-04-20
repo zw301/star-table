@@ -24,34 +24,36 @@ import {
   createReview,
   fetchReview,
   fetchUserReviews,
-  fetchRestaurantReviews
+  fetchRestaurantReviews,
+  deleteReview
 } from './util/review_api_util';
 
-import {
-  createFavorite,
-  fetchUserFavorites,
-  deleteFavorite
-} from './util/favorite_api_util';
+// import {
+//   createFavorite,
+//   fetchUserFavorites,
+//   deleteFavorite
+// } from './util/favorite_api_util';
 
 
 
-window.fetchAllRestaurants = fetchAllRestaurants;
-window.fetchSingleRestaurant = fetchSingleRestaurant;
-window.createRestaurant = createRestaurant;
-
-window.fetchUserReservations = fetchUserReservations;
-window.deleteReservation = deleteReservation;
-window.createReservation = createReservation;
+// window.fetchAllRestaurants = fetchAllRestaurants;
+// window.fetchSingleRestaurant = fetchSingleRestaurant;
+// window.createRestaurant = createRestaurant;
+//
+// window.fetchUserReservations = fetchUserReservations;
+// window.deleteReservation = deleteReservation;
+// window.createReservation = createReservation;
 
 window.createReview = createReview;
 window.fetchReview = fetchReview;
+window.deleteReview = deleteReview;
 window.fetchUserReviews = fetchUserReviews;
 window.fetchRestaurantReviews = fetchRestaurantReviews;
 
 
-window.createFavorite = createFavorite;
-window.fetchUserFavorites = fetchUserFavorites;
-window.deleteFavorite = deleteFavorite;
+// window.createFavorite = createFavorite;
+// window.fetchUserFavorites = fetchUserFavorites;
+// window.deleteFavorite = deleteFavorite;
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
