@@ -1,18 +1,15 @@
-import React from 'react';
-import {connect} from 'react-redux';
-
-
-
+import React from "react";
+import { connect } from "react-redux";
 
 class ReservationForm extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       user_id: "",
       restaurant_id: this.props.match.params.restaurantId,
       seats: 1,
       time: "12:00",
-      date: "",
+      date: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
@@ -27,26 +24,18 @@ class ReservationForm extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return e =>
+      this.setState({
+        [field]: e.currentTarget.value
+      });
   }
 
-  updateTime(time) {
-    return e => this.setState({
-      time: e.currentTarget.value
-    });
-  }
-
-
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
 
-    if(this.props.currentUser){
+    if (this.props.currentUser) {
       this.state.customerId = this.props.currentUser.id;
     }
-
-
 
     let fetchInfo = {
       user_id: this.state.customerId,
@@ -60,116 +49,116 @@ class ReservationForm extends React.Component {
       this.props.clearErrors();
       this.props.history.push(`/users/${this.props.currentUser.id}`);
     });
-
   }
 
   renderErrors() {
-    return(
+    return (
       <ul className="error-ul">
         {this.props.errors.map((error, idx) => (
-          <li key={`error-${idx}`}>
-            {error}
-          </li>
+          <li key={`error-${idx}`}>{error}</li>
         ))}
       </ul>
     );
   }
 
-
-  timePickerBuilder(){
+  timePickerBuilder() {
     let timeArr = [];
     let openTime = this.props.restaurants[this.state.restaurant_id].openTime;
     openTime = parseInt(openTime.split(":")[0]);
     let closeTime = this.props.restaurants[this.state.restaurant_id].closeTime;
     closeTime = parseInt(closeTime.split(":")[0]);
 
-    for(let i = openTime; i < closeTime; i++){
-        timeArr.push(i);
+    for (let i = openTime; i < closeTime; i++) {
+      timeArr.push(i);
     }
 
     let selectTime = timeArr.map(time => (
-      <option
-        key={time}
-        value={time}
-      > {time < 10 ? ("0" + time + ":00") : (time + ":00")}
+      <option key={time} value={time}>
+        {" "}
+        {time < 10 ? "0" + time + ":00" : time + ":00"}
       </option>
     ));
 
     return selectTime;
   }
 
-   seatsBuilder(){
-     let numPpl = [];
+  seatsBuilder() {
+    let numPpl = [];
 
-     for(let i = 1; i < 21; i++){
-       numPpl.push(i);
-     }
+    for (let i = 1; i < 21; i++) {
+      numPpl.push(i);
+    }
 
-     let numList = numPpl.map(num => (
-       <option
-         key={num}
-         value={this.state.seats}
-         >
-         {num === 1 ? (num + " person") : (num + " people")}
-       </option>
-     ));
+    let numList = numPpl.map(num => (
+      <option key={num} value={num}>
+        {num === 1 ? num + " person" : num + " people"}
+      </option>
+    ));
 
-     return numList;
-   }
+    return numList;
+  }
 
-  render(){
+  render() {
     let date = new Date();
-    let minDate = date.toISOString().slice(0,10);
+    let minDate = date.toISOString().slice(0, 10);
     return (
       <div className="reservation-show">
         <h5>Make a reservation</h5>
         {this.renderErrors()}
         <form>
-          <select className="reservation-input  input-1"
-                  onChange={this.update('seats')}>
+          <select
+            className="reservation-input  input-1"
+            onChange={this.update("seats")}
+          >
             {this.seatsBuilder()}
           </select>
 
-          <select className="reservation-input  input-2"
-                  onChange={this.update('time')}>
+          <select
+            className="reservation-input  input-2"
+            onChange={this.update("time")}
+          >
             {this.timePickerBuilder()}
           </select>
 
-          <input type="date"
+          <input
+            type="date"
             min={minDate}
             value={this.state.date}
-            onChange={this.update('date')}
+            onChange={this.update("date")}
             className="reservation-input  input-2"
           />
 
-          { this.props.currentUser ?
-          (
-            <input type="submit"
-            onClick={this.handleSubmit}
-            value="Book a Table"
-            className="submit-button"
-            id="reservation-submit"/>
-          )
-          :
-          (
-            <input type="submit"
+          {this.props.currentUser ? (
+            <input
+              type="submit"
+              onClick={this.handleSubmit}
+              value="Book a Table"
+              className="submit-button"
+              id="reservation-submit"
+            />
+          ) : (
+            <input
+              type="submit"
               onClick={this.handleSubmit}
               value="Book a Table"
               className="submit-button"
               disabled="disabled"
               background="grey"
-              id="disabled-btn"/>
-          )
-          }
+              id="disabled-btn"
+            />
+          )}
 
-          { this.props.currentUser ?
-            (
-              <p className="offer"><i className="fas fa-chart-line"></i>  Booked  { parseInt(this.state.restaurant_id.slice(0,1)) * 2 + 80 } times today.</p>
-            ):(
-              <p className="offer need-login">Please Log In to make a reservation!</p>
-            )
-          }
-
+          {this.props.currentUser ? (
+            <p className="offer">
+              <i className="fas fa-chart-line" /> Booked{" "}
+              {parseInt(this.state.restaurant_id.slice(0, 1)) * 2 + 80} times
+              today.
+            </p>
+          ) : (
+            <p className="offer need-login">
+              Please Log In to make a reservation!
+            </p>
+          )}
         </form>
       </div>
     );

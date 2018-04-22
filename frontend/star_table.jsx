@@ -25,7 +25,8 @@ import {
   fetchReview,
   fetchUserReviews,
   fetchRestaurantReviews,
-  deleteReview
+  deleteReview,
+  updateReview
 } from './util/review_api_util';
 
 // import {
@@ -47,6 +48,7 @@ import {
 window.createReview = createReview;
 window.fetchReview = fetchReview;
 window.deleteReview = deleteReview;
+window.updateReview = updateReview;
 window.fetchUserReviews = fetchUserReviews;
 window.fetchRestaurantReviews = fetchRestaurantReviews;
 

@@ -4,6 +4,7 @@ export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 export const RECEIVE_REVIEWS = 'RECEIVE_REVIEWS';
 export const REMOVE_REVIEW = 'REMOVE_REVIEW';
 export const RECEIVE_REVIEW_ERRORS = 'RECEIVE_REVIEW_ERRORS';
+export const UPDATE_REVIEW = "UPDATE_REVIEW";
 
 const receiveReviews = reviews => ({
   type: RECEIVE_REVIEWS,
@@ -18,6 +19,11 @@ const receiveReview = review => ({
 const removeReview = reviewId => ({
   type: REMOVE_REVIEW,
   reviewId
+});
+
+const updateReview = review => ({
+  type: UPDATE_REVIEW,
+  review
 });
 
 //error handling
@@ -67,6 +73,13 @@ export const requestRestaurantReviews = (restaurantId) => dispatch => (
 // delete a review
 export const deleteReview = reviewId => dispatch => (
   APIUtil.deleteReview(reviewId)
-    .then(review => (dispatch(removeReview(reviewId))),
+    .then(review => dispatch(removeReview(reviewId)),
       err => dispatch(receiveReviewErrors(err.responseJSON)))
+);
+
+// edit a review
+export const editReview = review => dispatch => (
+  APIUtil.updateReview(review)
+  .then(updatedReview => dispatch(updateReview(review)),
+    err => dispatch(receiveReviewErrors(err.responseJSON)))
 );

@@ -32,10 +32,10 @@ export const deleteReview = reviewId => (
 );
 
 //update a review
-// export const updateReview = review => (
-//   $.ajax({
-//     method: 'PATCH',
-//     url: `/api/reviews/${review.id}`,
-//     data: {review}
-//   })
-// );
+export const updateReview = review => (
+  $.ajax({
+    method: 'PATCH',
+    url: `/api/reviews/${review.id}`,
+    data: {review}
+  })
+);

@@ -3,7 +3,8 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_REVIEW,
   RECEIVE_REVIEWS,
-  REMOVE_REVIEW
+  REMOVE_REVIEW,
+  UPDATE_REVIEW
 } from '../actions/review_actions';
 
 
@@ -19,6 +20,9 @@ const reviewReducer = (state = {}, action) => {
       let newState = merge({}, state);
       delete newState[action.reviewId];
       return newState;
+    case UPDATE_REVIEW:
+      const updatedReview = action.review;
+      return merge({}, state, {[updatedReview.id]: updatedReview});
     default:
       return state;
   }
