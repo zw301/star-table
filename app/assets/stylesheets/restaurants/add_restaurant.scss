@@ -18,8 +18,22 @@
   text-shadow: 2px 0px 8px rgba(75, 75, 75, 1);
   position: relative;
   bottom: -50px;
+  position: relative;
 }
 
+.add-restaurant-container a {
+  color: #fff;
+  position: absolute;
+  top: 30px;
+  right: 4%;
+  font-size: 16px;
+}
+
+.add-restaurant-container a i {
+  color: #fff;
+  margin-left: 2px;
+  font-size: 12px;
+}
 .add-restaurant-form {
   position: relative;
   bottom: -60px;
