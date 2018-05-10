@@ -214,7 +214,7 @@ class RestaurantDetail extends React.Component {
                 <span>{this.getRate()}</span>
                 <div className='rating_icon'>{this.getAveRating()}</div>
                 <div><i className="fa fa-comment"></i>{restaurant.countReview} reviews</div>
-                <div><i className="fa fa-gift" aria-hidden="true"></i>{restaurant.cuisine} </div>
+                <div><i class="fas fa-utensils"></i>{restaurant.cuisine} </div>
               </div>
             </section>
 
