@@ -3,16 +3,22 @@ import { Route, Link, withRouter } from 'react-router-dom';
 import SearchFormContainer from '../search/search_form_container';
 import RestaurateurIndexItem from './restaurant_index_item';
 
+import LoadingSpinner from "../loading_spinner/loading_spinner";
+
 class RestaurantIndex extends React.Component {
 
   constructor(props){
     super(props);
-
     this.indexEl = this.indexEl.bind(this);
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   indexEl(){
-    if(this.props.restaurants.length === 0) {
+    if (this.props.loading) return <LoadingSpinner/>;
+    if (this.props.restaurants.length === 0) {
       return (
         <div className="restaurant-search-error">
           <div>WE DID NOT FIND A MATCH FOR YOUR SEARCH.</div>

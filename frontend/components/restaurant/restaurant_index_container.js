@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import RestaurantIndex from './restaurant_index';
 import {
   requestAllRestaurants,
-  requestSingleRestaurant
+  requestSingleRestaurant,
+  loadingRestaurants
 } from '../../actions/restaurant_actions';
 
 import {
@@ -15,6 +16,7 @@ const mapStateToProps = state => ({
   currentUser:state.currentUser,
   // restaurants: selectAllRestaurants(state.entities),
   restaurants: Object.values(state.entities.restaurants),
+  loading: state.ui.loading.indexLoading
 });
 
 const mapDispatchToProps = dispatch => ({

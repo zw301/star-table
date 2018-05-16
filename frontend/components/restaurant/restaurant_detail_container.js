@@ -14,6 +14,7 @@ import {deleteReview} from '../../actions/review_actions';
 const mapStateToProps = (state, ownProps) => ({
   restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
   currentUser: state.session.currentUser,
+  loading: state.ui.loading.indexLoading
 });
 
 const mapDispatchToProps = dispatch => ({
