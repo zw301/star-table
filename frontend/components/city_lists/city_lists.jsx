@@ -15,20 +15,26 @@ class CityLists extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
+    this.props.openModal("loading");
+
+    // Close the modal
+    clearTimeout(this.timer);
+    const that = this;
+    this.timer = setTimeout(function() {
+      that.props.closeModal()
+    }, 600)
 
     let cityName = e.target.id;
     if(cityName.includes('_')) {
       cityName = cityName.split("_").join(" ");
     }
 
-    this.props.openModal("loading");
 
     this.setState({
       searchTerms: cityName
     }, () => (
       this.props.searchRestaurants(this.state.searchTerms)
-      .then(() => this.props.closeModal()
-      ).then(() =>
+      .then(() =>
         this.setState({
           searchTerms: ''
         })
