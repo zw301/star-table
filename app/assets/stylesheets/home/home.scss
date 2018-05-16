@@ -1,7 +1,4 @@
-// #navbar-hero {
-//   min-height: 300px;
-//
-// }
+
 
 .hero-img-container {
   background: url("https://res.cloudinary.com/chengzii/image/upload/v1523400632/home_background.jpg") no-repeat;
@@ -14,10 +11,10 @@
 
 
 .content {
-  min-width: 460px;
   width: 70%;
   margin: 0 auto;
   margin-top: -120px;
+  min-width: 580px;
 }
 
 .cities, .cuisines {
