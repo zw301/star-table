@@ -47,7 +47,7 @@ class RestaurantIndex extends React.Component {
             {this.indexEl()}
           </ul>
         </section>
-        <BackToTop />
+
       </section>
     );
   }
