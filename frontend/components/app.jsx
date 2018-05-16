@@ -25,7 +25,7 @@ import UserProfileContainer from './user/user_profile_container';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-import BackToTop from './back_to_top/back_to_top';
+// import BackToTop from './back_to_top/back_to_top';
 
 
 const App = () => (
@@ -50,7 +50,7 @@ const App = () => (
         <div className="footer-links">
           <a href="https://github.com/zw301" target="_blank"><i className="fab fa-github"></i><p>Github</p></a><br />
           <a href="https://www.linkedin.com/in/ziyan-wang-4149b6161/" target="_blank"><i className="fab fa-linkedin"></i><p>LinkedIn</p></a><br />
-          <a href="https://github.com/zw301/starTable" target="_blank"><i className="far fa-file-alt" target="_blank"></i><p>README</p></a>
+          <a href="https://zw301.github.io/portfolio/" target="_blank"><i className="fas fa-user" target="_blank"></i><p>About Me</p></a>
         </div>
       </div>
     </footer>

@@ -8,7 +8,8 @@
   border-radius: 5px;
   box-shadow: 0px 3px 6px 0px #ccc;
   background-color: #f7f7f7;
-  padding: 0 20px;
+  padding: 20px;
+  min-width: 540px;
 }
 
 .restaurantList-img-container {
@@ -25,9 +26,9 @@
   padding: 20px 0 20px 30px;
 }
 
-.restaurant-list-section:last-of-type {
-  border-bottom: none;
-}
+// .restaurant-list-section:last-of-type{
+//   border: none;
+// }
 
 .restaurant-logo-container {
   width: 180px;

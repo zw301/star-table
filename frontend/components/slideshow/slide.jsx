@@ -14,12 +14,14 @@ class SimpleSlider extends React.Component {
   }
 
   handleClick(e) {
+    e.preventDefault();
     let cuisine = e.currentTarget.id;
     this.setState({
       searchTerms: cuisine
     }, () => (
       this.props.searchRestaurants(this.state.searchTerms)
-      .then(() =>
+      .then(() => this.props.closeModal()
+      ).then(() =>
         this.setState({
           searchTerms: ''
         })

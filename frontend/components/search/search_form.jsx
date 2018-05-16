@@ -25,7 +25,7 @@ class SearchForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     this.props.openModal("loading");
-    clearTimeout(this.timer);
+    // clearTimeout(this.timer);
     // let that = this;
     // this.timer = setTimeout(function() {
     //   that.props.closeModal();

@@ -14,16 +14,21 @@ class CityLists extends React.Component {
 
 
   handleClick(e) {
+    e.preventDefault();
+
     let cityName = e.target.id;
     if(cityName.includes('_')) {
       cityName = cityName.split("_").join(" ");
     }
 
+    this.props.openModal("loading");
+
     this.setState({
       searchTerms: cityName
     }, () => (
       this.props.searchRestaurants(this.state.searchTerms)
-      .then(() =>
+      .then(() => this.props.closeModal()
+      ).then(() =>
         this.setState({
           searchTerms: ''
         })
