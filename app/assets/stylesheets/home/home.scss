@@ -165,14 +165,14 @@
 
 ///back to top button in app.jsx
 #backToTop {
-    display: none; /* Hidden by default */
+    // display: none; /* Hidden by default */
     position: fixed; /* Fixed/sticky position */
-    bottom: 10px; /* Place the button at the bottom of the page */
-    right: 10%; /* Place the button 30px from the right */
+    bottom: 170px; /* Place the button at the bottom of the page */
+    right: 11%; /* Place the button 30px from the right */
     z-index: 99; /* Make sure it does not overlap */
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
-    background-color: grey; /* Set a background color */
+    background-color: #b7b7b7; /* Set a background color */
     color: white; /* Text color */
     cursor: pointer; /* Add a mouse pointer on hover */
     padding: 10px; /* Some padding */
@@ -197,10 +197,25 @@
   .section-footer {
     background-position: 0px 0px;
   }
+  #backToTop {
+    right: 8%;
+  }
 }
 
 @media (max-width: 900px) {
   .city-col {
     width: 100%;
+  }
+  #backToTop {
+    right: 4%;
+  }
+}
+
+@media (max-width: 750px) {
+  .city-col {
+    width: 100%;
+  }
+  #backToTop {
+    display: none;
   }
 }
