@@ -23,7 +23,7 @@
 .restaurant-list-section {
   border-bottom: 1px solid #ccc;
   display: flex;
-  padding: 20px 0 20px 30px;
+  padding: 20px 0 20px 90px;
 }
 
 // .restaurant-list-section:last-of-type{
@@ -86,5 +86,9 @@
 @media (max-width: 900px) {
   .restaurant-detail-ul {
     margin-left: 0px;
+  }
+
+  .restaurant-list-section {
+    padding: 20px 0 20px 20px;
   }
 }
