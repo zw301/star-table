@@ -65,10 +65,3 @@ export const searchRestaurants = searchTerms => dispatch => {
     dispatch(receiveAllRestaurants(searchResult)),
     errors => dispatch(receiveRestaurantErrors(errors.responseJSON)));
 };
-
-//
-// export const searchRestaurants = searchTerms => dispatch => (
-//   APIUtil.fetchSearchRestaurants(searchTerms)
-//          .then(searchResult => (dispatch(receiveAllRestaurants(searchResult)))),
-//          err => (dispatch(receiveRestaurantErrors(err.responseJSON)))
-// );

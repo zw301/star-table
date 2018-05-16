@@ -8,6 +8,7 @@ class SearchForm extends React.Component {
       searchTerms: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   // componentDidMount() {
@@ -23,14 +24,23 @@ class SearchForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+    this.props.openModal("loading");
+    clearTimeout(this.timer);
+    // let that = this;
+    // this.timer = setTimeout(function() {
+    //   that.props.closeModal();
+    // }, 1000)
     this.props.searchRestaurants(this.state.searchTerms)
-      .then(() =>
+      .then(() => this.props.closeModal()
+      ).then(() =>
         this.setState({
           searchTerms: ''
         })
       ).then(() => this.props.history.push("/restaurants"));
+
     // this.props.history.push("/restaurants");
     // this.context.router.push("/restaurants");
+
   }
 
 

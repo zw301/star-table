@@ -2,10 +2,13 @@
 
 .lds-roller {
   display: flex;
-  margin: 120px auto 0;
+  // margin: 120px auto 0;
+  margin: 0 auto;
   position: relative;
   width: 64px;
-  height: 200px;
+  height: 100%;
+  top: 45vh;
+
 }
 .lds-roller div {
   animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
@@ -18,7 +21,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: grey;
+  background: #000;
   margin: -3px 0 0 -3px;
 }
 .lds-roller div:nth-child(1) {

@@ -7,9 +7,6 @@ import {
   loadingRestaurants
 } from '../../actions/restaurant_actions';
 
-import {
-  selectAllRestaurants
-} from '../../reducers/selectors.js';
 
 
 const mapStateToProps = state => ({
@@ -22,7 +19,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   requestAllRestaurants: () => dispatch(requestAllRestaurants()),
   requestSingleRestaurant: () => dispatch(requestSingleRestaurant()),
-
 });
 
 export default connect(

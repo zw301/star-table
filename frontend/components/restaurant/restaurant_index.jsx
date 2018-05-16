@@ -12,12 +12,12 @@ class RestaurantIndex extends React.Component {
     this.indexEl = this.indexEl.bind(this);
   }
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
+  // componentDidMount() {
+  //   window.scrollTo(0, 0);
+  // }
 
   indexEl(){
-    if (this.props.loading) return <LoadingSpinner/>;
+    // if (this.props.loading) return <LoadingSpinner/>;
     if (this.props.restaurants.length === 0) {
       return (
         <div className="restaurant-search-error">

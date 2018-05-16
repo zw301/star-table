@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import LoginFormContainer from "../session_form/signin_container";
 import SignupFormContainer from "../session_form/signup_container";
 import ReviewFormContainer from "../review/review_form_container";
+import Loading from "../loading_spinner/loading_spinner";
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -16,6 +17,9 @@ function Modal({ modal, closeModal }) {
       break;
     case "signup":
       component = <SignupFormContainer />;
+      break;
+    case "loading":
+      component = <Loading />;
       break;
     default:
       return null;

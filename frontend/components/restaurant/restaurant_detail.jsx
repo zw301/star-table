@@ -32,6 +32,7 @@ class RestaurantDetail extends React.Component {
 
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.requestSingleRestaurant(this.props.match.params.restaurantId);
 
   }
@@ -60,6 +61,8 @@ class RestaurantDetail extends React.Component {
 
 
   reviewFromChecker() {
+    if (this.props.loading) return <LoadingSpinner/>;
+
     if(!this.props.currentUser) { return null; }
 
     const reservationUserIds = this.props.restaurant.reservationUserIds;

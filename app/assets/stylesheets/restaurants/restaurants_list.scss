@@ -22,7 +22,7 @@
 .restaurant-list-section {
   border-bottom: 1px solid #ccc;
   display: flex;
-  padding: 20px 0 20px 90px;
+  padding: 20px 0 20px 30px;
 }
 
 .restaurant-list-section:last-of-type {
@@ -46,6 +46,7 @@
 .restaurant-detail-ul {
   font-size: 14px;
   margin-left: 30px;
+  min-width: 200px;
 }
 
 
@@ -79,4 +80,10 @@
 .restaurant-name:hover {
   cursor: pointer;
   color: #E5656E;
+}
+
+@media (max-width: 900px) {
+  .restaurant-detail-ul {
+    margin-left: 0px;
+  }
 }
