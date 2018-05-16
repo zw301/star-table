@@ -31,7 +31,6 @@ class SearchForm extends React.Component {
       ).then(() => this.props.history.push("/restaurants"));
     // this.props.history.push("/restaurants");
     // this.context.router.push("/restaurants");
-    // document.getElementById("search-content").value = "";
   }
 
 
@@ -48,7 +47,9 @@ class SearchForm extends React.Component {
   render() {
     return (
       <form className="search-form-container">
-        <h3>Make restaurant reservations the easy way</h3>
+        <h3>
+          Make restaurant reservations the easy way
+        </h3>
         <div className="search-form">
           <input type="text"
             className="search-input"

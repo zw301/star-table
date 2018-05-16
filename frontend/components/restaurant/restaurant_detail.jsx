@@ -14,6 +14,8 @@ import
   ReviewIndexContainer
 from '../review/review_index_container';
 
+import LoadingSpinner from "../loading_spinner/loading_spinner";
+
 
 
 class RestaurantDetail extends React.Component {
@@ -187,6 +189,8 @@ class RestaurantDetail extends React.Component {
 
 
   render() {
+    if (this.props.loading) return <LoadingSpinner/>;
+
     if (!this.props.restaurant) return null;
     const restaurant = this.props.restaurant;
 
@@ -214,7 +218,7 @@ class RestaurantDetail extends React.Component {
                 <span>{this.getRate()}</span>
                 <div className='rating_icon'>{this.getAveRating()}</div>
                 <div><i className="fa fa-comment"></i>{restaurant.countReview} reviews</div>
-                <div><i class="fas fa-utensils"></i>{restaurant.cuisine} </div>
+                <div><i className="fas fa-utensils"></i>{restaurant.cuisine} </div>
               </div>
             </section>
 
