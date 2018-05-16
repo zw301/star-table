@@ -15,6 +15,8 @@ class SimpleSlider extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
+    this.props.openModal("loading");
+
     let cuisine = e.currentTarget.id;
     this.setState({
       searchTerms: cuisine
