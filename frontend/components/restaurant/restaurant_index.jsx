@@ -5,6 +5,8 @@ import RestaurateurIndexItem from './restaurant_index_item';
 
 import LoadingSpinner from "../loading_spinner/loading_spinner";
 
+import BackToTop from '../back_to_top/back_to_top';
+
 class RestaurantIndex extends React.Component {
 
   constructor(props){
@@ -12,9 +14,9 @@ class RestaurantIndex extends React.Component {
     this.indexEl = this.indexEl.bind(this);
   }
 
-  // componentDidMount() {
-  //   window.scrollTo(0, 0);
-  // }
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
   indexEl(){
     // if (this.props.loading) return <LoadingSpinner/>;

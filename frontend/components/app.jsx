@@ -25,7 +25,6 @@ import UserProfileContainer from './user/user_profile_container';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-// import BackToTop from './back_to_top/back_to_top';
 
 
 const App = () => (
@@ -42,7 +41,7 @@ const App = () => (
       <Route path="/" component={Home} />
     </Switch>
 
-    <footer className="main-footer">
+    <footer className="main-footer" id="footer">
       <div className="footer-body">
         <div className="footer-about">
           <p>Welcome to StarTable. This web application was built using Ruby on Rails and React/Redux as a tribute to the popular reservation service OpenTable.</p>

@@ -22,7 +22,7 @@ class CityLists extends React.Component {
     const that = this;
     this.timer = setTimeout(function() {
       that.props.closeModal()
-    }, 600)
+    }, 800)
 
     let cityName = e.target.id;
     if(cityName.includes('_')) {

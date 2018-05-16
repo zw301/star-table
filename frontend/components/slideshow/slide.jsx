@@ -22,7 +22,7 @@ class SimpleSlider extends React.Component {
     const that = this;
     this.timer = setTimeout(function() {
       that.props.closeModal()
-    }, 600)
+    }, 800)
 
 
     let cuisine = e.currentTarget.id;
