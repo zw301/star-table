@@ -17,25 +17,26 @@ class SimpleSlider extends React.Component {
     e.preventDefault();
     this.props.openModal("loading");
 
+    let cuisine = e.currentTarget.id;
+
+
     // Close the modal
     clearTimeout(this.timer);
     const that = this;
     this.timer = setTimeout(function() {
-      that.props.closeModal()
+
+      that.setState({
+        searchTerms: cuisine
+      }, () => (
+        that.props.searchRestaurants(that.state.searchTerms)
+        .then(() => that.props.closeModal();
+        ).then(() =>
+          that.setState({
+            searchTerms: ''
+          })
+        ).then(() => that.props.history.push("/restaurants"))
+      ));
     }, 800)
-
-
-    let cuisine = e.currentTarget.id;
-    this.setState({
-      searchTerms: cuisine
-    }, () => (
-      this.props.searchRestaurants(this.state.searchTerms)
-      .then(() =>
-        this.setState({
-          searchTerms: ''
-        })
-      ).then(() => this.props.history.push("/restaurants"))
-    ));
   }
 
 

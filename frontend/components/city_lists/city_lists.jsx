@@ -17,29 +17,28 @@ class CityLists extends React.Component {
     e.preventDefault();
     this.props.openModal("loading");
 
-    // Close the modal
-    clearTimeout(this.timer);
-    const that = this;
-    this.timer = setTimeout(function() {
-      that.props.closeModal()
-    }, 800)
-
     let cityName = e.target.id;
     if(cityName.includes('_')) {
       cityName = cityName.split("_").join(" ");
     }
 
+    // Close the modal
+    clearTimeout(this.timer);
+    const that = this;
+    this.timer = setTimeout(function() {
+      that.setState({
+        searchTerms: cityName
+      }, () => (
+        that.props.searchRestaurants(this.state.searchTerms)
+        .then(() => that.props.closeModal()
+        ).then(() =>
+          that.setState({
+            searchTerms: ''
+          })
+        ).then(() => that.props.history.push("/restaurants"))
+      ));
+    }, 800)
 
-    this.setState({
-      searchTerms: cityName
-    }, () => (
-      this.props.searchRestaurants(this.state.searchTerms)
-      .then(() =>
-        this.setState({
-          searchTerms: ''
-        })
-      ).then(() => this.props.history.push("/restaurants"))
-    ));
   }
 
 
