@@ -168,8 +168,10 @@
     display: none; /* Hidden by default */
     position: fixed; /* Fixed/sticky position */
     bottom: 170px; /* Place the button at the bottom of the page */
-    right: 11%; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
+    // right: 11%; /* Place the button 30px from the right */
+    // z-index: 99; /* Make sure it does not overlap */
+    // position: absolute;
+
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
     background-color: #b7b7b7; /* Set a background color */

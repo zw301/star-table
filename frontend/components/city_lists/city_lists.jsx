@@ -29,7 +29,7 @@ class CityLists extends React.Component {
       that.setState({
         searchTerms: cityName
       }, () => (
-        that.props.searchRestaurants(this.state.searchTerms)
+        that.props.searchRestaurants(that.state.searchTerms)
         .then(() => that.props.closeModal()
         ).then(() =>
           that.setState({

@@ -29,7 +29,7 @@ class SimpleSlider extends React.Component {
         searchTerms: cuisine
       }, () => (
         that.props.searchRestaurants(that.state.searchTerms)
-        .then(() => that.props.closeModal();
+        .then(() => that.props.closeModal()
         ).then(() =>
           that.setState({
             searchTerms: ''
