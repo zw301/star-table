@@ -43,6 +43,7 @@
   width: 30%;
   min-width: 300px;
   border-radius: 5px;
+  position: relative;
 }
 
 .nav-link-wrapper {
@@ -130,6 +131,8 @@
 
 .restaurant-reservation {
   background: #fff;
+  position: sticky;
+  top:0;
 }
 
 .restaurant-reviews {
@@ -143,6 +146,8 @@
   border: 1px solid #d8d9db;
   margin: 0 auto;
   background: #fff;
+  position: sticky;
+  top: 270px;
 }
 
 .favorite-btn i {
