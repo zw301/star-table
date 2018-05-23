@@ -59,7 +59,7 @@ class SimpleSlider extends React.Component {
         }
       },
       {
-        breakpoint: 900,
+        breakpoint: 920,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
