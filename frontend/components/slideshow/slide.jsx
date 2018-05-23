@@ -44,11 +44,15 @@ class SimpleSlider extends React.Component {
  render() {
    var settings = {
      dots: true,
+     infinite: true,
+     speed: 2000,
+     autoplay: true,
+     autoplaySpeed: 5000,
      slidesToShow: 4,
      slidesToScroll: 1,
      responsive: [
       {
-        breakpoint: 1200,
+        breakpoint: 1320,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1
