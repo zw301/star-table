@@ -75,6 +75,10 @@ class UserProfile extends Component {
               <div className='upcoming-res-seats'>
                 Table for {res.seats} {res.seats === 1 ? "person" : "people"}
               </div>
+              <div className='upcoming-res-seats'>
+              <i class="fas fa-map-marker-alt"></i>
+                {res.restaurant.address}, {res.restaurant.city}, {res.restaurant.state} {res.restaurant.zipcode}
+              </div>
 
               <button type="button"
                       onClick={this.deleteReservation(res.id)}
