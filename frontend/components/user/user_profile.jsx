@@ -37,6 +37,20 @@ class UserProfile extends Component {
     };
   }
 
+  getStar(res){
+    let starCount = res.restaurant.star;
+    const stars = [];
+
+    for (let i = 0; i < starCount; i++) {
+      stars.push(
+        <img
+          key={(""+Math.random()).substring(2,7)}
+          src='https://res.cloudinary.com/chengzii/image/upload/c_scale,w_20/v1523389939/star.png' />
+      );
+    }
+    return stars;
+  }
+
   upcomingReservations() {
     const upcoming = [];
     const today = new Date().toJSON();
@@ -63,6 +77,7 @@ class UserProfile extends Component {
                 to={`/restaurants/${res.restaurant.id}`}
                 className="restaurant-name">
                   {res.restaurant.name}
+                <span className="restaurant-star">{this.getStar(res)}</span>
               </Link>
 
 
@@ -75,8 +90,8 @@ class UserProfile extends Component {
               <div className='upcoming-res-seats'>
                 Table for {res.seats} {res.seats === 1 ? "person" : "people"}
               </div>
-              <div className='upcoming-res-seats'>
-              <i class="fas fa-map-marker-alt"></i>
+              <div className='upcoming-res-address'>
+              <i className="fas fa-map-marker-alt"></i>
                 {res.restaurant.address}, {res.restaurant.city}, {res.restaurant.state} {res.restaurant.zipcode}
               </div>
 
@@ -123,6 +138,7 @@ class UserProfile extends Component {
                 to={`/restaurants/${res.restaurant.id}`}
                 className="restaurant-name">
                   {res.restaurant.name}
+                <span className="restaurant-star">{this.getStar(res)}</span>
               </Link>
               <div>
                 {res.date}
