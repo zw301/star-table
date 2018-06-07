@@ -45,12 +45,12 @@ import {
 // window.deleteReservation = deleteReservation;
 // window.createReservation = createReservation;
 
-window.createReview = createReview;
-window.fetchReview = fetchReview;
-window.deleteReview = deleteReview;
-window.updateReview = updateReview;
-window.fetchUserReviews = fetchUserReviews;
-window.fetchRestaurantReviews = fetchRestaurantReviews;
+// window.createReview = createReview;
+// window.fetchReview = fetchReview;
+// window.deleteReview = deleteReview;
+// window.updateReview = updateReview;
+// window.fetchUserReviews = fetchUserReviews;
+// window.fetchRestaurantReviews = fetchRestaurantReviews;
 
 
 // window.createFavorite = createFavorite;

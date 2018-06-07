@@ -132,9 +132,14 @@ class UserProfile extends Component {
 
               <Link
                 to={`/restaurants/${res.restaurant.id}`}
-                className="btn btn-demo reservation-btn review-btn">
+                className="btn review-btn">
                 Write Review
               </Link>
+              <button type="button"
+                      onClick={this.deleteReservation(res.id)}
+                      className="reservation-delete-btn">
+                      Delete
+              </button>
             </div>
           </section>
         )}
