@@ -33,7 +33,10 @@ class UserProfile extends Component {
 
   scrollTo(el) {
     return () => {
-    el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({
+        behavior: 'smooth',
+        block: "start"
+      });
     };
   }
 
