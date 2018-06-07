@@ -51,6 +51,34 @@ class UserProfile extends Component {
     return stars;
   }
 
+
+  getUpcomingCount() {
+    const upcoming = [];
+    const today = new Date().toJSON();
+
+    const allRes = Object.values(this.props.reservations);
+    allRes.forEach((reservation) => {
+      if(Date.parse(today.slice(0, 10)) <= Date.parse(reservation.date)) {
+        upcoming.push(reservation);
+      }
+    });
+
+    return upcoming.length;
+  }
+
+  getPastCount() {
+    const past = [];
+    const today = new Date().toJSON();
+
+    const allRes = Object.values(this.props.reservations);
+    allRes.forEach((reservation) => {
+      if(Date.parse(today.slice(0, 10)) > Date.parse(reservation.date)) {
+        past.push(reservation);
+      }
+    });
+    return past.length;
+  }
+
   upcomingReservations() {
     const upcoming = [];
     const today = new Date().toJSON();
@@ -222,7 +250,6 @@ class UserProfile extends Component {
 
   }
 
-
   render() {
     const user = this.props.currentUser;
     return (
@@ -251,7 +278,13 @@ class UserProfile extends Component {
             <div className='user-profile-section'>
               <div className='user-profile-content-title' name='upcoming'
                 ref={ el => this.upcomingSection = el }>
-                <h2>Upcoming Reservations</h2>
+                <h2>
+                  {this.getUpcomingCount() <= 1 ? "Upcoming Reservation" : "Upcoming Reservations"}
+                  <span className="user-reservation-count">
+                    {this.getUpcomingCount()}
+                  </span>
+                </h2>
+
               </div>
               <div className='user-profile-section-lists' >
                 {this.upcomingReservations()}
@@ -261,7 +294,11 @@ class UserProfile extends Component {
             <div className='user-profile-section'>
               <div className='user-profile-content-title' name='past'
                 ref={ el => this.pastSection = el }>
-                <h2>Past Reservations</h2>
+                <h2>
+                  {this.getPastCount() <= 1 ? "Past Reservation" : "Past Reservations"}
+                  <span className="user-reservation-count">{this.getPastCount()}</span>
+                </h2>
+
               </div>
               <div className='user-profile-section-lists' >
                 {this.pastReservations()}
@@ -272,7 +309,12 @@ class UserProfile extends Component {
             <div className='user-profile-section'>
               <div className='user-profile-content-title' name='favorite'
                   ref={ el => this.favoriteSection = el }>
-                  <h2>Favorite Restaurants</h2>
+                  <h2>Favorite Restaurants
+                    <span className="user-reservation-count">
+                      {Object.keys(this.props.favorites).length}
+                    </span>
+                  </h2>
+
               </div>
               <div className='user-profile-section-lists' >
                 {this.favoriteRestaurants()}

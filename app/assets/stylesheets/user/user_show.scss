@@ -57,6 +57,23 @@
   border-bottom: 1px solid #ccc;
 }
 
+.user-profile-content-title h2 {
+  position: relative;
+}
+
+.user-profile-section .user-reservation-count {
+  font-size: 18px;
+  position: relative;
+  top: -12px;
+  left: 4px;
+  padding: 0 8px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  color: #fff;
+  background-color: #ccc;
+
+}
+
 
 .reservation-list {
   display: flex;
@@ -64,6 +81,7 @@
   border-bottom: 1px solid #ccc;
   position: relative;
 }
+
 
 .reservation-list:last-of-type {
   border-bottom: none;
