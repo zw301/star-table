@@ -153,7 +153,7 @@ class ReviewForm extends React.Component {
     if (this.props.errors == []){ return null; }
 
     return(
-     <ul className="review-errors">
+     <ul className="error-ul">
        {this.props.errors.map((error, i) => (
          <li key={`error-${i}`} >
            {error}
