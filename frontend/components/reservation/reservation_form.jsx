@@ -124,6 +124,7 @@ class ReservationForm extends React.Component {
             type="date"
             min={minDate}
             value={this.state.date}
+            placeholder="YYYY-MM-DD"
             onChange={this.update("date")}
             className="reservation-input  input-2"
           />
