@@ -32,7 +32,7 @@ class Api::FavoritesController < ApplicationController
     @favorite = Favorite.find_by(user_id: current_user.id, restaurant_id: params[:id])
 
     if @favorite
-      @restaurant= @favorite.restaurant
+      @restaurant = @favorite.restaurant
       @favorite.destroy
       render 'api/restaurants/show'
       # render json: @favorite

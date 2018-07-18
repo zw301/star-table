@@ -32,7 +32,7 @@ export default () => (
         to="/restaurants/new"
         className="btn-demo"
         id="addRestaurant">
-        Add you restaurant
+        Add Your Restaurant
       </Link>
     </section>
 
